@@ -1,28 +1,32 @@
+import { motion } from "framer-motion";
+
 export default function PartnersSection() {
   const partners = [
-    {
-      name: "Edwards Lifesciences",
-      logo: "/partners/edwards.png",
-    },
-    {
-      name: "Magnet Medical",
-      logo: "/partners/magnet.png",
-    },
-    {
-      name: "Kai Medical",
-      logo: "/partners/kai.png",
-    },
-    {
-      name: "Dhanam",
-      logo: "/partners/dhanam.png",
-    },
+    { name: "Edwards", logo: "/partners/edwards.png" },
+    { name: "Magnet", logo: "/partners/magnet.png" },
+    { name: "Kai", logo: "/partners/kai.png" },
+    { name: "Dhanam", logo: "/partners/dhanam.png" },
+    { name: "Artivion", logo: "/partners/artivion.png" },
+    { name: "Venus", logo: "/partners/venus.png" },
+    { name: "Partner 7", logo: "/partners/p7.png" },
+    { name: "Partner 8", logo: "/partners/p8.png" },
+    { name: "Partner 9", logo: "/partners/p9.png" },
+    { name: "Partner 10", logo: "/partners/p10.png" },
   ];
 
+  const duplicatedPartners = [...partners, ...partners];
+
   return (
-    <section className="bg-white py-28">
+    <section className="bg-white py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
-        <div className="text-center">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
           <p className="text-lg md:text-xl font-medium text-black">
             — Our Partners —
           </p>
@@ -30,19 +34,38 @@ export default function PartnersSection() {
           <h2 className="mt-6 text-4xl md:text-6xl font-semibold text-[#005B99] leading-tight">
             Collaborating with Global Leaders in MedTech
           </h2>
-        </div>
+        </motion.div>
 
-        {/* Logos */}
-        <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14 items-center">
-          {partners.map((partner, index) => (
-            <div key={index} className="flex justify-center items-center">
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="max-h-20 md:max-h-28 object-contain transition duration-300 hover:scale-105"
-              />
-            </div>
-          ))}
+        {/* Moving Logos */}
+        <div className="relative mt-24 overflow-hidden">
+          <motion.div
+            className="flex gap-20"
+            animate={{
+              x: ["0%", "-50%"],
+            }}
+            transition={{
+              duration: 25,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+          >
+            {duplicatedPartners.map((partner, index) => (
+              <motion.div
+                key={index}
+                whileHover={{
+                  scale: 1.15,
+                  y: -8,
+                }}
+                className="flex-shrink-0 flex items-center justify-center"
+              >
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="h-24 md:h-32 object-contain"
+                />
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

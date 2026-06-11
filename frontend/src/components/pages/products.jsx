@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Partners from "../app-layout/partners";
 import PartnerAndContact from "../app-layout/partnerAndContact";
 import Footer from "../app-layout/footer";
@@ -37,8 +38,44 @@ const products = [
 ];
 
 export default function Products() {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 80 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const fadeLeft = {
+    hidden: { opacity: 0, x: -90 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const fadeRight = {
+    hidden: { opacity: 0, x: 90 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const stagger = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
   return (
-    <div>
+    <div className="overflow-hidden">
       {/* Hero Section */}
       <section
         className="relative h-[70vh] md:h-[80vh] flex items-center justify-center"
@@ -48,61 +85,98 @@ export default function Products() {
           backgroundPosition: "center",
         }}
       >
-        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-[#003B5C]/60"></div>
 
-        {/* Content */}
-        <div className="relative z-10 text-center px-6">
-          <h1 className="text-white text-6xl md:text-8xl font-bold">
+        <motion.div
+          className="relative z-10 text-center px-6"
+          variants={stagger}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.h1
+            variants={fadeUp}
+            className="text-white text-6xl md:text-8xl font-bold"
+          >
             Our Product
-          </h1>
+          </motion.h1>
 
-          <p className="mt-8 text-white text-xl md:text-4xl font-medium max-w-5xl mx-auto">
+          <motion.p
+            variants={fadeUp}
+            className="mt-8 text-white text-xl md:text-4xl font-medium max-w-5xl mx-auto"
+          >
             Redefining Medical Access, One Innovation at a Time
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
-      {/* Add other products page sections below */}
-      <Partners />
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
+        <Partners />
+      </motion.div>
 
       {/* Products Section */}
       <section className="bg-[#247AA8] py-24">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Heading */}
-          <div className="text-center mb-16">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
             <p className="text-white text-xl">— Products —</p>
 
             <h2 className="mt-4 text-6xl font-light text-white">
               Our Products
             </h2>
-          </div>
+          </motion.div>
 
-          {/* Product Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {products.map((product) => (
-              <div
+              <motion.div
                 key={product.id}
+                variants={fadeUp}
+                whileHover={{
+                  y: -14,
+                  scale: 1.03,
+                  boxShadow: "0px 25px 45px rgba(0,0,0,0.25)",
+                }}
                 className={`rounded-[30px] p-8 text-center shadow-lg ${
                   product.featured ? "bg-[#D8E7F6]" : "bg-[#F5F5F5]"
                 }`}
               >
-                <img
+                <motion.img
                   src={product.logo}
                   alt={product.name}
                   className="h-52 mx-auto object-contain"
+                  whileHover={{ scale: 1.08, rotate: 1 }}
+                  transition={{ duration: 0.3 }}
                 />
 
                 <h3 className="mt-6 text-2xl font-semibold text-[#005B8F] uppercase">
                   {product.name}
                 </h3>
 
-                <button className="mt-8 bg-[#005B8F] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#004873] transition">
+                <motion.button
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-8 bg-[#005B8F] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#004873] transition"
+                >
                   Contact Us →
-                </button>
-              </div>
+                </motion.button>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -110,8 +184,12 @@ export default function Products() {
       <section className="bg-[#F7F7F7] py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
-            <div>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeLeft}
+            >
               <p className="text-[#005B8F] text-xl font-medium">
                 — Our Leadership
               </p>
@@ -137,22 +215,39 @@ export default function Products() {
                 to transforming healthcare access through smart distribution
                 models and strategic partnerships.
               </p>
-            </div>
+            </motion.div>
 
-            {/* Right Image */}
-            <div className="flex justify-center">
-              <div className="bg-[#247AA8] rounded-[40px] overflow-hidden w-full max-w-4xl">
+            <motion.div
+              className="flex justify-center"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeRight}
+            >
+              <motion.div
+                whileHover={{ scale: 1.03, y: -10 }}
+                className="bg-[#247AA8] rounded-[40px] overflow-hidden w-full max-w-4xl"
+              >
                 <img
                   src="/about/leadership.png"
                   alt="Gagandeep Kathuria"
                   className="w-full h-full object-cover"
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
-      <PartnerAndContact />
+
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
+        <PartnerAndContact />
+      </motion.div>
+
       <Footer />
     </div>
   );

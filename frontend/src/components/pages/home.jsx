@@ -1,5 +1,4 @@
-import { FaWhatsapp } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
+import { motion } from "framer-motion";
 import Footer from "../app-layout/footer";
 import Partners from "../app-layout/partners";
 import PartnerAndContact from "../app-layout/partnerAndContact";
@@ -12,74 +11,165 @@ export default function Home() {
     { name: "Dhanam", logo: "/partners/dhanam.png" },
   ];
 
+  const fadeUp = {
+    hidden: { opacity: 0, y: 80 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const fadeLeft = {
+    hidden: { opacity: 0, x: -90 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const fadeRight = {
+    hidden: { opacity: 0, x: 90 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const stagger = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.18,
+      },
+    },
+  };
+
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div className="w-full min-h-screen bg-white overflow-hidden">
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
-        <img
+        <motion.img
           src="/hero-bg.jpg"
           alt="Healthcare"
           className="absolute inset-0 w-full h-full object-cover"
+          initial={{ scale: 1.15 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.8, ease: "easeOut" }}
         />
 
         <div className="absolute inset-0 bg-black/50"></div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <h1 className="text-white font-light text-5xl md:text-8xl leading-tight">
+        <motion.div
+          className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6"
+          variants={stagger}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.h1
+            variants={fadeUp}
+            className="text-white font-light text-5xl md:text-8xl leading-tight"
+          >
             Essential to Advancing Care
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-white text-lg md:text-3xl font-light max-w-5xl">
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 text-white text-lg md:text-3xl font-light max-w-5xl"
+          >
             Redefining the Standards of Healthcare Access, Delivery, and
             Innovation
-          </p>
+          </motion.p>
 
-          <button className="mt-10 bg-[#005B99] hover:bg-[#00497A] text-white px-10 py-4 rounded-2xl text-xl font-semibold transition">
+          <motion.button
+            variants={fadeUp}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-10 bg-[#005B99] hover:bg-[#00497A] text-white px-10 py-4 rounded-2xl text-xl font-semibold transition"
+          >
             Contact Us
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </section>
 
-      <Partners />
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
+        <Partners />
+      </motion.div>
+
       {/* Clientele Section */}
       <section className="bg-white py-28">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center">
+          <motion.div
+            className="text-center"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
             <p className="text-xl text-black font-light">— Our Partners —</p>
 
             <h2 className="mt-6 text-4xl md:text-6xl font-light text-[#005B99]">
               Collaborating with Global Leaders in MedTech
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="mt-28 grid grid-cols-2 md:grid-cols-4 gap-14 items-center">
+          <motion.div
+            className="mt-28 grid grid-cols-2 md:grid-cols-4 gap-14 items-center"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {partners.map((partner, index) => (
-              <div key={index} className="flex justify-center items-center">
+              <motion.div
+                key={index}
+                variants={fadeUp}
+                whileHover={{ scale: 1.12, y: -8 }}
+                className="flex justify-center items-center"
+              >
                 <img
                   src={partner.logo}
                   alt={partner.name}
                   className="max-h-24 md:max-h-32 object-contain"
                 />
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* About Section */}
       <section className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          {/* Left Image */}
-          <div className="flex justify-center">
-            <img
+          <motion.div
+            className="flex justify-center"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeLeft}
+          >
+            <motion.img
               src="/about/about-us.png"
               alt="About Trivexa"
               className="w-full max-w-2xl rounded-3xl shadow-xl object-cover"
+              whileHover={{ scale: 1.04, rotate: 1 }}
+              transition={{ duration: 0.3 }}
             />
-          </div>
+          </motion.div>
 
-          {/* Right Content */}
-          <div>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeRight}
+          >
             <p className="text-lg font-semibold text-black">— About Us</p>
 
             <h2 className="mt-8 text-4xl md:text-6xl font-bold text-[#005B8F]">
@@ -94,79 +184,84 @@ export default function Home() {
               distribution, operational excellence, and market intelligence.
             </p>
 
-            <button className="mt-10 px-10 py-3 border border-[#005B8F] text-[#005B8F] rounded-xl text-lg font-semibold hover:bg-[#005B8F] hover:text-white transition">
+            <motion.button
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-10 px-10 py-3 border border-[#005B8F] text-[#005B8F] rounded-xl text-lg font-semibold hover:bg-[#005B8F] hover:text-white transition"
+            >
               Read More
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
       </section>
 
       {/* Core Values Section */}
       <section className="bg-[#1F79A8] py-24">
         <div className="max-w-7xl mx-auto px-6">
-          {/* Heading */}
-          <div className="text-center">
+          <motion.div
+            className="text-center"
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
             <p className="text-white text-xl font-medium">— Core Values —</p>
 
             <h2 className="mt-6 text-5xl md:text-7xl font-bold text-white">
               What We Stand For
             </h2>
-          </div>
+          </motion.div>
 
-          {/* Cards */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <div className="bg-white rounded-3xl p-6 shadow-xl">
-              <img
-                src="/values/integrity.jpg"
-                alt="Integrity"
-                className="w-full h-72 object-cover rounded-2xl"
-              />
+          <motion.div
+            className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {[
+              {
+                img: "/values/integrity.jpg",
+                title: "Integrity & Excellence",
+                text: "Ethical practices, quality, and compliance in everything we do.",
+              },
+              {
+                img: "/values/innovation.jpg",
+                title: "Forward Thinking & Agility",
+                text: "Adapting with innovation and offering responsive support.",
+              },
+              {
+                img: "/values/partnership.jpg",
+                title: "Partnership & Collaboration",
+                text: "Creating lasting value with partners and providers for better outcomes.",
+              },
+            ].map((card, index) => (
+              <motion.div
+                key={index}
+                variants={fadeUp}
+                whileHover={{
+                  y: -14,
+                  scale: 1.03,
+                  boxShadow: "0px 25px 45px rgba(0,0,0,0.25)",
+                }}
+                className="bg-white rounded-3xl p-6 shadow-xl"
+              >
+                <img
+                  src={card.img}
+                  alt={card.title}
+                  className="w-full h-72 object-cover rounded-2xl"
+                />
 
-              <h3 className="mt-6 text-3xl font-bold text-[#005B8F] text-center">
-                Integrity & Excellence
-              </h3>
+                <h3 className="mt-6 text-3xl font-bold text-[#005B8F] text-center">
+                  {card.title}
+                </h3>
 
-              <p className="mt-6 text-center text-gray-700 text-lg leading-relaxed">
-                Ethical practices, quality, and compliance in everything we do.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-white rounded-3xl p-6 shadow-xl">
-              <img
-                src="/values/innovation.jpg"
-                alt="Innovation"
-                className="w-full h-72 object-cover rounded-2xl"
-              />
-
-              <h3 className="mt-6 text-3xl font-bold text-[#005B8F] text-center">
-                Forward Thinking & Agility
-              </h3>
-
-              <p className="mt-6 text-center text-gray-700 text-lg leading-relaxed">
-                Adapting with innovation and offering responsive support.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white rounded-3xl p-6 shadow-xl">
-              <img
-                src="/values/partnership.jpg"
-                alt="Partnership"
-                className="w-full h-72 object-cover rounded-2xl"
-              />
-
-              <h3 className="mt-6 text-3xl font-bold text-[#005B8F] text-center">
-                Partnership & Collaboration
-              </h3>
-
-              <p className="mt-6 text-center text-gray-700 text-lg leading-relaxed">
-                Creating lasting value with partners and providers for better
-                outcomes.
-              </p>
-            </div>
-          </div>
+                <p className="mt-6 text-center text-gray-700 text-lg leading-relaxed">
+                  {card.text}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -174,8 +269,13 @@ export default function Home() {
       <section className="bg-[#f5f5f5] py-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Left Content Card */}
-            <div className="lg:col-span-1 bg-white rounded-[30px] p-12 shadow-md">
+            <motion.div
+              className="lg:col-span-1 bg-white rounded-[30px] p-12 shadow-md"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeLeft}
+            >
               <p className="text-[#005B8F] font-semibold mb-6">
                 — Our Services
               </p>
@@ -190,60 +290,75 @@ export default function Home() {
                 needs of India's healthcare ecosystem.
               </p>
 
-              <button className="mt-10 border border-[#005B8F] text-[#005B8F] px-8 py-3 rounded-xl font-semibold hover:bg-[#005B8F] hover:text-white transition">
+              <motion.button
+                whileHover={{ scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-10 border border-[#005B8F] text-[#005B8F] px-8 py-3 rounded-xl font-semibold hover:bg-[#005B8F] hover:text-white transition"
+              >
                 Read More
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
 
-            {/* Right Services */}
-            <div className="lg:col-span-2">
+            <motion.div
+              className="lg:col-span-2"
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               <div className="grid md:grid-cols-2 gap-8">
-                {/* Card 1 */}
-                <div className="bg-[#267AA6] rounded-[30px] p-8 text-white shadow-xl">
-                  <h3 className="text-center text-xl font-semibold mb-8">
-                    Operational & Logistical Excellence
-                  </h3>
+                {[
+                  {
+                    title: "Operational & Logistical Excellence",
+                    img: "/services/logistics.jpg",
+                    text: "Automation and standardization to streamline healthcare delivery.",
+                    bg: "bg-[#267AA6]",
+                  },
+                  {
+                    title: "Access & Expansion",
+                    img: "/services/access.jpg",
+                    text: "Reaching underserved markets with broad insight and reach.",
+                    bg: "bg-[#267AA6]",
+                  },
+                ].map((service, index) => (
+                  <motion.div
+                    key={index}
+                    variants={fadeUp}
+                    whileHover={{ scale: 1.04, y: -10 }}
+                    className={`${service.bg} rounded-[30px] p-8 text-white shadow-xl`}
+                  >
+                    <h3 className="text-center text-xl font-semibold mb-8">
+                      {service.title}
+                    </h3>
 
-                  <img
-                    src="/services/logistics.jpg"
-                    alt=""
-                    className="w-full h-64 object-cover rounded-3xl"
-                  />
+                    <img
+                      src={service.img}
+                      alt={service.title}
+                      className="w-full h-64 object-cover rounded-3xl"
+                    />
 
-                  <p className="text-center mt-6 text-white/90">
-                    Automation and standardization to streamline healthcare
-                    delivery.
-                  </p>
-                </div>
-
-                {/* Card 2 */}
-                <div className="bg-[#267AA6] rounded-[30px] p-8 text-white shadow-xl">
-                  <h3 className="text-center text-xl font-semibold mb-8">
-                    Access & Expansion
-                  </h3>
-
-                  <img
-                    src="/services/access.jpg"
-                    alt=""
-                    className="w-full h-64 object-cover rounded-3xl"
-                  />
-
-                  <p className="text-center mt-6 text-white/90">
-                    Reaching underserved markets with broad insight and reach.
-                  </p>
-                </div>
+                    <p className="text-center mt-6 text-white/90">
+                      {service.text}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
 
-              {/* Bottom Center Card */}
-              <div className="flex justify-center mt-8">
-                <div className="bg-[#004E82] rounded-[30px] p-8 text-white shadow-xl max-w-2xl w-full">
+              <motion.div
+                className="flex justify-center mt-8"
+                variants={fadeUp}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.04, y: -10 }}
+                  className="bg-[#004E82] rounded-[30px] p-8 text-white shadow-xl max-w-2xl w-full"
+                >
                   <h3 className="text-center text-xl font-semibold mb-8">
                     Market Insights & Growth Strategy
                   </h3>
 
                   <img
                     src="/services/market.jpg"
-                    alt=""
+                    alt="Market Insights"
                     className="w-full h-72 object-cover rounded-3xl"
                   />
 
@@ -251,14 +366,22 @@ export default function Home() {
                     Data-driven intelligence to accelerate growth and market
                     adoption.
                   </p>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      <PartnerAndContact />
+      <motion.div
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
+        <PartnerAndContact />
+      </motion.div>
+
       <Footer />
     </div>
   );
