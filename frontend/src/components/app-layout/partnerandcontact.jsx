@@ -96,7 +96,7 @@ export default function PartnerAndContact() {
                 Partnering for Better Patient Outcomes
               </h2>
 
-              <p className="font-['Playfair_Display'] mt-8 text-xl md:text-2xl text-[#4B5563] leading-relaxed">
+              <p className="font-['Playfair_Display'] mt-8 text-lg md:text-xl text-[#4B5563] leading-relaxed">
                 From advanced medical technologies to reliable healthcare
                 solutions, we help hospitals, clinics, and healthcare
                 professionals deliver exceptional patient care with confidence.

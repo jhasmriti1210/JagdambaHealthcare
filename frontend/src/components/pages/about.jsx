@@ -52,7 +52,7 @@ export default function About() {
 
           <motion.p
             variants={fadeUp}
-            className="mt-5 text-white/90 text-lg md:text-2xl font-medium max-w-4xl mx-auto"
+            className="font-['Playfair_Display'] mt-5 text-white/90 text-lg md:text-2xl font-medium max-w-4xl mx-auto"
           >
             Redefining Medical Access, One Innovation at a Time
           </motion.p>
@@ -78,13 +78,15 @@ export default function About() {
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeLeft}
             >
-              <p className="text-[#047857] text-lg font-medium">— About Us</p>
+              <p className="font-['Playfair_Display'] text-[#047857] text-lg font-medium">
+                — About Us
+              </p>
 
-              <h2 className="mt-4 font-['Playfair_Display'] text-4xl md:text-5xl font-bold text-[#111827]">
+              <h2 className="font-['Playfair_Display'] mt-4 font-['Playfair_Display'] text-4xl md:text-5xl font-bold text-[#111827]">
                 Who We Are
               </h2>
 
-              <p className="mt-6 text-base md:text-lg leading-relaxed text-[#4B5563]">
+              <p className="font-['Playfair_Display'] mt-6 text-base md:text-lg leading-relaxed text-[#4B5563]">
                 At Jagdamba Healthcare, we are committed to bridging the gap
                 between trusted healthcare solutions and people’s everyday
                 medical needs. Our mission is to enhance healthcare access
@@ -94,7 +96,7 @@ export default function About() {
               <motion.button
                 whileHover={{ scale: 1.06 }}
                 whileTap={{ scale: 0.95 }}
-                className="mt-8 px-8 py-3 border border-[#10B981] text-[#047857] rounded-xl text-base font-semibold hover:bg-[#10B981] hover:text-white transition"
+                className="font-['Playfair_Display'] mt-8 px-8 py-3 border border-[#10B981] text-[#047857] rounded-xl text-base font-semibold hover:bg-[#10B981] hover:text-white transition"
               >
                 Contact Us
               </motion.button>
@@ -128,11 +130,11 @@ export default function About() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
-            <p className="text-[#10B981] text-lg font-medium">
+            <p className="font-['Playfair_Display'] text-[#10B981] text-lg font-medium">
               — Core Values —
             </p>
 
-            <h2 className="mt-3 font-['Playfair_Display'] text-4xl md:text-6xl font-bold text-white">
+            <h2 className="font-['Playfair_Display'] mt-3 font-['Playfair_Display'] text-4xl md:text-6xl font-bold text-white">
               What We Stand For
             </h2>
           </motion.div>
@@ -180,11 +182,11 @@ export default function About() {
                   className="w-full h-52 object-cover rounded-2xl"
                 />
 
-                <h3 className="mt-5 text-center text-2xl font-semibold text-[#047857]">
+                <h3 className="font-['Playfair_Display'] mt-5 text-center text-2xl font-semibold text-[#047857]">
                   {card.title}
                 </h3>
 
-                <p className="mt-3 text-center text-base leading-relaxed text-[#4B5563]">
+                <p className="font-['Playfair_Display'] mt-3 text-center text-base leading-relaxed text-[#4B5563]">
                   {card.text}
                 </p>
               </motion.div>
@@ -218,11 +220,11 @@ export default function About() {
                     Our Mission
                   </h2>
 
-                  <p className="mt-3 text-lg text-[#111827]">
+                  <p className="font-['Playfair_Display'] mt-3 text-lg text-[#111827]">
                     To redefine healthcare support through:
                   </p>
 
-                  <ul className="mt-4 list-disc pl-6 space-y-2 text-base text-[#4B5563] leading-relaxed">
+                  <ul className="font-['Playfair_Display'] mt-4 list-disc pl-6 space-y-2 text-base text-[#4B5563] leading-relaxed">
                     <li>Seamless access to reliable healthcare solutions</li>
                     <li>Ethical operations rooted in care and trust</li>
                     <li>Better outcomes through quality and collaboration</li>
@@ -244,7 +246,7 @@ export default function About() {
                     Our Vision
                   </h2>
 
-                  <p className="mt-3 text-lg text-[#4B5563] leading-relaxed">
+                  <p className="font-['Playfair_Display'] mt-3 text-lg text-[#4B5563] leading-relaxed">
                     To be India's trusted healthcare partner for accessible,
                     reliable, and quality-driven care.
                   </p>

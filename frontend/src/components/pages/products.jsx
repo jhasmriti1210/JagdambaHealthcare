@@ -62,8 +62,7 @@ export default function Products() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[#003B5C]/60"></div>
-
+        <div className="absolute inset-0 bg-[#111827]/60"></div>
         <motion.div
           className="relative z-10 text-center px-6"
           variants={stagger}
@@ -79,7 +78,7 @@ export default function Products() {
 
           <motion.p
             variants={fadeUp}
-            className="mt-6 text-white/90 text-lg md:text-2xl font-medium max-w-4xl mx-auto"
+            className="font-['Playfair_Display'] mt-6 text-white/90 text-lg md:text-2xl font-medium max-w-4xl mx-auto"
           >
             Explore our healthcare product categories and medical solutions.
           </motion.p>

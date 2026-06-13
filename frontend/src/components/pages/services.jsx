@@ -106,7 +106,7 @@ export default function Services() {
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[#003B5C]/60"></div>
+        <div className="absolute inset-0 bg-[#111827]/60"></div>
 
         <motion.div
           className="relative z-10 text-center px-6"

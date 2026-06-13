@@ -52,7 +52,7 @@ export default function Contact() {
 
           <motion.p
             variants={fadeUp}
-            className="mt-5 text-white/90 text-lg md:text-2xl font-medium max-w-4xl mx-auto"
+            className="font-['Playfair_Display'] mt-5 text-white/90 text-lg md:text-2xl font-medium max-w-4xl mx-auto"
           >
             Let’s Build the Future of Healthcare, Together
           </motion.p>
