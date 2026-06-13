@@ -17,7 +17,7 @@ export default function PartnersSection() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="bg-white py-28 overflow-hidden">
+    <section className="font-['Playfair_Display'] bg-white py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <motion.div
@@ -27,11 +27,11 @@ export default function PartnersSection() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <p className="text-lg md:text-xl font-medium text-black">
+          <p className="font-['Playfair_Display'] text-lg md:text-xl font-medium text-black">
             — Our Partners —
           </p>
 
-          <h2 className="mt-6 text-4xl md:text-6xl font-semibold text-[#005B99] leading-tight">
+          <h2 className="mt-6 text-4xl md:text-6xl font-semibold text-[#047857] leading-tight">
             Collaborating with Global Leaders in MedTech
           </h2>
         </motion.div>

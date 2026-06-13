@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Footer from "../app-layout/footer";
 import Partners from "../app-layout/partners";
 import PartnerAndContact from "../app-layout/partnerAndContact";
 
 export default function Home() {
+  const navigate = useNavigate();
   const partners = [
     { name: "Edwards Lifesciences", logo: "/partners/edwards.png" },
     { name: "Magnet Medical", logo: "/partners/magnet.png" },
@@ -13,38 +15,22 @@ export default function Home() {
 
   const fadeUp = {
     hidden: { opacity: 0, y: 80 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
   const fadeLeft = {
     hidden: { opacity: 0, x: -90 },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
+    show: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
   const fadeRight = {
     hidden: { opacity: 0, x: 90 },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
+    show: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
   const stagger = {
     hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.18,
-      },
-    },
+    show: { transition: { staggerChildren: 0.18 } },
   };
 
   return (
@@ -52,7 +38,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
         <motion.img
-          src="/hero-bg.jpg"
+          src="/img.png"
           alt="Healthcare"
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ scale: 1.15 }}
@@ -60,7 +46,7 @@ export default function Home() {
           transition={{ duration: 1.8, ease: "easeOut" }}
         />
 
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-[#111827]/70"></div>
 
         <motion.div
           className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6"
@@ -70,14 +56,14 @@ export default function Home() {
         >
           <motion.h1
             variants={fadeUp}
-            className="text-white font-light text-5xl md:text-8xl leading-tight"
+            className="font-['Playfair_Display'] text-white font-light text-5xl md:text-7xl leading-tight"
           >
             Essential to Advancing Care
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="mt-6 text-white text-lg md:text-3xl font-light max-w-5xl"
+            className="font-['Playfair_Display'] mt-6 text-white/90 text-xl md:text-3xl font-light max-w-5xl"
           >
             Redefining the Standards of Healthcare Access, Delivery, and
             Innovation
@@ -87,7 +73,7 @@ export default function Home() {
             variants={fadeUp}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-10 bg-[#005B99] hover:bg-[#00497A] text-white px-10 py-4 rounded-2xl text-xl font-semibold transition"
+            className="font-['Playfair_Display'] mt-10 bg-[#10B981] hover:bg-[#047857] text-white px-10 py-4 rounded-2xl text-xl font-semibold transition"
           >
             Contact Us
           </motion.button>
@@ -103,50 +89,8 @@ export default function Home() {
         <Partners />
       </motion.div>
 
-      {/* Clientele Section */}
-      <section className="bg-white py-28">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            className="text-center"
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={fadeUp}
-          >
-            <p className="text-xl text-black font-light">— Our Partners —</p>
-
-            <h2 className="mt-6 text-4xl md:text-6xl font-light text-[#005B99]">
-              Collaborating with Global Leaders in MedTech
-            </h2>
-          </motion.div>
-
-          <motion.div
-            className="mt-28 grid grid-cols-2 md:grid-cols-4 gap-14 items-center"
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {partners.map((partner, index) => (
-              <motion.div
-                key={index}
-                variants={fadeUp}
-                whileHover={{ scale: 1.12, y: -8 }}
-                className="flex justify-center items-center"
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="max-h-24 md:max-h-32 object-contain"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* About Section */}
-      <section className="bg-white py-24">
+      <section className="bg-[#F8FAFC] py-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <motion.div
             className="flex justify-center"
@@ -157,7 +101,7 @@ export default function Home() {
           >
             <motion.img
               src="/about/about-us.png"
-              alt="About Trivexa"
+              alt="About Jagdamba Healthcare"
               className="w-full max-w-2xl rounded-3xl shadow-xl object-cover"
               whileHover={{ scale: 1.04, rotate: 1 }}
               transition={{ duration: 0.3 }}
@@ -170,24 +114,25 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeRight}
           >
-            <p className="text-lg font-semibold text-black">— About Us</p>
+            <p className="font-['Playfair_Display'] text-lg font-semibold text-[#047857]">
+              — About Us
+            </p>
 
-            <h2 className="mt-8 text-4xl md:text-6xl font-bold text-[#005B8F]">
+            <h2 className="font-['Playfair_Display'] mt-8 text-4xl md:text-5xl font-bold text-[#111827]">
               Who We Are
             </h2>
 
-            <p className="mt-10 text-lg md:text-xl leading-relaxed text-black max-w-3xl">
-              At Trivexa Medtech Pvt Ltd, we are committed to bridging the gap
-              between cutting-edge global medical technologies and India’s
-              diverse healthcare needs. With over 20 years of expertise, our
-              mission is to enhance healthcare delivery through strategic
-              distribution, operational excellence, and market intelligence.
+            <p className="font-['Playfair_Display'] mt-10 text-lg md:text-xl leading-relaxed text-[#4B5563] max-w-3xl">
+              At Jagdamba Healthcare, we are committed to bridging the gap
+              between trusted healthcare solutions and people’s everyday medical
+              needs. Our mission is to enhance healthcare access through
+              quality, care, reliability, and ethical service.
             </p>
-
             <motion.button
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
-              className="mt-10 px-10 py-3 border border-[#005B8F] text-[#005B8F] rounded-xl text-lg font-semibold hover:bg-[#005B8F] hover:text-white transition"
+              onClick={() => navigate("/about")}
+              className="font-['Playfair_Display'] mt-10 px-10 py-3 border border-[#10B981] text-[#047857] rounded-xl text-lg font-semibold hover:bg-[#10B981] hover:text-white transition"
             >
               Read More
             </motion.button>
@@ -196,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* Core Values Section */}
-      <section className="bg-[#1F79A8] py-24">
+      <section className="bg-[#111827] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center"
@@ -205,9 +150,11 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
-            <p className="text-white text-xl font-medium">— Core Values —</p>
+            <p className="font-['Playfair_Display'] text-[#10B981] text-xl font-medium">
+              — Core Values —
+            </p>
 
-            <h2 className="mt-6 text-5xl md:text-7xl font-bold text-white">
+            <h2 className="font-['Playfair_Display'] mt-6 text-3xl md:text-5xl font-bold text-white">
               What We Stand For
             </h2>
           </motion.div>
@@ -223,17 +170,17 @@ export default function Home() {
               {
                 img: "/values/integrity.jpg",
                 title: "Integrity & Excellence",
-                text: "Ethical practices, quality, and compliance in everything we do.",
+                text: "Ethical practices, quality, and care in everything we do.",
               },
               {
                 img: "/values/innovation.jpg",
-                title: "Forward Thinking & Agility",
-                text: "Adapting with innovation and offering responsive support.",
+                title: "Trust & Reliability",
+                text: "Building long-term trust through dependable healthcare service.",
               },
               {
                 img: "/values/partnership.jpg",
-                title: "Partnership & Collaboration",
-                text: "Creating lasting value with partners and providers for better outcomes.",
+                title: "Care & Collaboration",
+                text: "Creating lasting value with patients, partners, and providers.",
               },
             ].map((card, index) => (
               <motion.div
@@ -242,7 +189,7 @@ export default function Home() {
                 whileHover={{
                   y: -14,
                   scale: 1.03,
-                  boxShadow: "0px 25px 45px rgba(0,0,0,0.25)",
+                  boxShadow: "0px 25px 45px rgba(16,185,129,0.25)",
                 }}
                 className="bg-white rounded-3xl p-6 shadow-xl"
               >
@@ -252,11 +199,11 @@ export default function Home() {
                   className="w-full h-72 object-cover rounded-2xl"
                 />
 
-                <h3 className="mt-6 text-3xl font-bold text-[#005B8F] text-center">
+                <h3 className="font-['Playfair_Display'] mt-6 text-2xl font-bold text-[#047857] text-center">
                   {card.title}
                 </h3>
 
-                <p className="mt-6 text-center text-gray-700 text-lg leading-relaxed">
+                <p className="font-['Playfair_Display'] mt-6 text-center text-[#4B5563] text-lg leading-relaxed">
                   {card.text}
                 </p>
               </motion.div>
@@ -266,34 +213,33 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="bg-[#f5f5f5] py-24">
+      <section className="bg-[#F8FAFC] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             <motion.div
-              className="lg:col-span-1 bg-white rounded-[30px] p-12 shadow-md"
+              className="lg:col-span-1 bg-white rounded-[30px] p-12 shadow-md border border-[#E5E7EB]"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeLeft}
             >
-              <p className="text-[#005B8F] font-semibold mb-6">
+              <p className="font-['Playfair_Display'] text-[#047857] font-semibold mb-6">
                 — Our Services
               </p>
 
-              <h2 className="text-4xl font-bold text-[#005B8F] leading-tight">
-                Transforming Access to Medical Innovation Across India
+              <h2 className="font-['Playfair_Display'] text-3xl font-bold text-[#111827] leading-tight">
+                Transforming Access to Quality Healthcare
               </h2>
 
-              <p className="mt-8 text-gray-600 text-lg leading-relaxed">
-                At Trivexa Medtech Pvt Ltd, our services are designed to bridge
-                the gap between world-class medical technologies and the unique
-                needs of India's healthcare ecosystem.
+              <p className=" font-['Playfair_Display'] mt-8 text-[#4B5563] text-lg leading-relaxed">
+                Our services are designed to deliver trusted healthcare support
+                with quality, care, and strong operational excellence.
               </p>
 
               <motion.button
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.95 }}
-                className="mt-10 border border-[#005B8F] text-[#005B8F] px-8 py-3 rounded-xl font-semibold hover:bg-[#005B8F] hover:text-white transition"
+                className="font-['Playfair_Display'] mt-10 border border-[#10B981] text-[#047857] px-8 py-3 rounded-xl font-semibold hover:bg-[#10B981] hover:text-white transition"
               >
                 Read More
               </motion.button>
@@ -309,16 +255,16 @@ export default function Home() {
               <div className="grid md:grid-cols-2 gap-8">
                 {[
                   {
-                    title: "Operational & Logistical Excellence",
+                    title: "Quality Healthcare Support",
                     img: "/services/logistics.jpg",
-                    text: "Automation and standardization to streamline healthcare delivery.",
-                    bg: "bg-[#267AA6]",
+                    text: "Reliable service focused on patient care and trusted delivery.",
+                    bg: "bg-[#047857]",
                   },
                   {
-                    title: "Access & Expansion",
+                    title: "Access & Care",
                     img: "/services/access.jpg",
-                    text: "Reaching underserved markets with broad insight and reach.",
-                    bg: "bg-[#267AA6]",
+                    text: "Making healthcare more reachable, dependable, and people-focused.",
+                    bg: "bg-[#047857]",
                   },
                 ].map((service, index) => (
                   <motion.div
@@ -350,21 +296,21 @@ export default function Home() {
               >
                 <motion.div
                   whileHover={{ scale: 1.04, y: -10 }}
-                  className="bg-[#004E82] rounded-[30px] p-8 text-white shadow-xl max-w-2xl w-full"
+                  className="bg-[#111827] rounded-[30px] p-6 text-white shadow-xl max-w-2xl w-full"
                 >
-                  <h3 className="text-center text-xl font-semibold mb-8">
-                    Market Insights & Growth Strategy
+                  <h3 className="font-['Playfair_Display'] text-center text-xl font-semibold mb-8">
+                    Growth & Healthcare Excellence
                   </h3>
 
                   <img
                     src="/services/market.jpg"
-                    alt="Market Insights"
+                    alt="Healthcare Excellence"
                     className="w-full h-72 object-cover rounded-3xl"
                   />
 
-                  <p className="text-center mt-6 text-white/90">
-                    Data-driven intelligence to accelerate growth and market
-                    adoption.
+                  <p className="font-['Playfair_Display'] text-center mt-6 text-white/90">
+                    Supporting better healthcare outcomes through trust,
+                    quality, and continuous improvement.
                   </p>
                 </motion.div>
               </motion.div>

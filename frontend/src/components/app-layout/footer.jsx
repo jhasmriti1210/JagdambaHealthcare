@@ -1,127 +1,163 @@
+import { Link } from "react-router-dom";
 import { FaLinkedinIn } from "react-icons/fa";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
-    <footer className="bg-[#247AA8] p-5">
-      <div className="bg-[#F5F5F5] rounded-[32px] px-8 md:px-16 py-12">
-        {/* Top Section */}
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Logo */}
+    <footer className="bg-[#111827] px-4 py-4">
+      <div className="bg-[#F8FAFC] rounded-[24px] px-6 md:px-10 py-7">
+        {/* Top */}
+        <div className="grid lg:grid-cols-2 gap-6 items-start">
           <div>
             <img
               src="/logo.png"
-              alt="Trivexa"
-              className="h-24 md:h-32 object-contain"
+              alt="Jagdamba Healthcare"
+              className="h-16 md:h-20 object-contain"
             />
+
+            <p className="mt-3 max-w-md text-[#4B5563] text-sm leading-relaxed">
+              Delivering trusted healthcare solutions with quality, care, and
+              reliability.
+            </p>
           </div>
 
-          {/* Newsletter */}
           <div>
-            <h3 className="text-[#005B8F] text-3xl font-medium mb-8">
-              Stay up to date with our latest news.
+            <h3 className="font-['Playfair_Display'] text-[#111827] text-xl md:text-2xl font-semibold mb-4">
+              Stay updated with our latest news.
             </h3>
 
-            <div>
-              <label className="block text-[#005B8F] text-lg mb-4">
-                Email *
-              </label>
+            <label className="block text-[#111827] text-sm font-medium mb-1">
+              Email *
+            </label>
 
+            <input
+              type="email"
+              className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-[#111827] focus:border-[#047857]"
+            />
+
+            <div className="flex items-start gap-2 mt-3">
               <input
-                type="email"
-                className="w-full bg-transparent border-b border-[#005B8F] outline-none pb-3"
+                type="checkbox"
+                className="mt-1 w-4 h-4 accent-[#10B981]"
               />
-            </div>
 
-            <div className="flex items-center gap-4 mt-8">
-              <input type="checkbox" className="w-5 h-5 accent-[#005B8F]" />
-
-              <p className="text-[#005B8F]">
-                I want to receive your newsletter. *
+              <p className="text-[#4B5563] text-sm">
+                I want to receive your newsletter.
               </p>
             </div>
 
-            <div className="flex justify-end mt-8">
-              <button className="border border-[#005B8F] text-[#005B8F] px-20 py-4 rounded-2xl text-xl font-semibold hover:bg-[#005B8F] hover:text-white transition">
-                Subscribe
-              </button>
-            </div>
+            <button className="mt-4 bg-[#10B981] hover:bg-[#047857] text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition">
+              Subscribe
+            </button>
           </div>
         </div>
 
-        {/* Middle Section */}
-        <div className="grid md:grid-cols-3 gap-12 mt-20">
-          {/* Navigation */}
+        {/* Middle */}
+        <div className="grid md:grid-cols-3 gap-6 mt-8 pt-6 border-t border-[#E5E7EB]">
           <div>
-            <ul className="space-y-3 text-3xl">
-              <li className="text-[#005B8F] font-semibold">Home</li>
-              <li>About Us</li>
-              <li>Services</li>
-              <li>Products</li>
-              <li>Contact Us</li>
+            <h4 className="font-['Playfair_Display'] text-[#111827] font-bold text-base mb-3">
+              Quick Links
+            </h4>
+
+            <ul className="space-y-1.5 text-[#4B5563] text-sm">
+              <li>
+                <Link
+                  to="/"
+                  className="font-['Playfair_Display'] hover:text-[#10B981] transition"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="font-['Playfair_Display'] hover:text-[#10B981] transition"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className="font-['Playfair_Display'] hover:text-[#10B981] transition"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/products"
+                  className="font-['Playfair_Display'] hover:text-[#10B981] transition"
+                >
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="font-['Playfair_Display'] hover:text-[#10B981] transition"
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Delhi Office */}
           <div>
-            <h4 className="font-bold text-2xl mb-4">
-              Delhi NCR Corporate Office
+            <h4 className="font-['Playfair_Display'] text-[#111827] font-bold text-base mb-3">
+              Corporate Office
             </h4>
 
-            <p className="text-xl leading-relaxed">
-              227, 2nd Floor, SRS Tower, Sector 31,
+            <p className="text-[#4B5563] text-sm leading-relaxed">
+              227, 2nd Floor, SRS Tower,
               <br />
-              Faridabad – 121003, Haryana, India
+              Sector 31, Faridabad – 121003,
+              <br />
+              Haryana, India
             </p>
-
-            <div className="mt-8 text-xl space-y-2">
-              <p>
-                <strong>Contact Number :</strong> 0129 - 4751558
-              </p>
-
-              <p>
-                <strong>Mobile Number:</strong> 9717266311
-              </p>
-
-              <p>
-                <strong>Email:</strong> info.delhincr@trivexa.in
-              </p>
-            </div>
           </div>
 
-          {/* Kolkata Office */}
           <div>
-            <h4 className="font-bold text-2xl mb-4">Kolkata Branch Office</h4>
+            <h4 className="font-['Playfair_Display'] text-[#111827] font-bold text-base mb-3">
+              Contact Info
+            </h4>
 
-            <p className="text-xl leading-relaxed">
-              Ground Floor, GE - 27, Rajdanga Main Road, Kasba,
-              <br />
-              Kolkata - 700107, West Bengal
-            </p>
-
-            <div className="mt-8 text-xl space-y-2">
+            <div className="text-[#4B5563] text-sm space-y-1.5">
               <p>
-                <strong>Contact Number :</strong> 033-68288560
+                <span className="font-semibold text-[#111827]">Phone:</span>{" "}
+                0129 - 4751558
               </p>
 
               <p>
-                <strong>Email:</strong> info.kolkata@trivexa.in
+                <span className="font-semibold text-[#111827]">Mobile:</span>{" "}
+                +91 9717266311
+              </p>
+
+              <p>
+                <span className="font-semibold text-[#111827]">Email:</span>{" "}
+                info@jagdambahealthcare.in
               </p>
             </div>
+
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex w-9 h-9 rounded-full bg-[#10B981] text-white items-center justify-center hover:bg-[#047857] transition"
+            >
+              <FaLinkedinIn size={18} />
+            </a>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6">
-          <a
-            href="#"
-            className="text-[#0077B5] text-7xl hover:scale-105 transition"
-          >
-            <FaLinkedinIn />
-          </a>
+        {/* Bottom */}
+        <div className="mt-6 pt-4 border-t border-[#E5E7EB] flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-[#4B5563] text-xs text-center md:text-left">
+            Copyright ©{currentYear} Jagdamba Healthcare. All Rights Reserved.
+          </p>
 
-          <p className="text-lg text-center md:text-right">
-            Copyright ©2025 Trivexa All Rights Reserved. Developed by Web
-            Development Team
+          <p className="text-[#4B5563] text-xs text-center md:text-right">
+            Developed by Web Development Team
           </p>
         </div>
       </div>

@@ -1,86 +1,68 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaLinkedinIn, FaBars, FaTimes } from "react-icons/fa";
+import { NavLink, Link } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Products", path: "/products" },
+    { name: "Contact Us", path: "/contact" },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#f7f7f7] rounded-b-xl shadow-sm">
-      <div className="w-full px-4 md:px-8 py-5 flex items-center justify-between">
+    <nav className="font-['Playfair_Display'] fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md rounded-b-xl shadow-sm border-b border-[#E5E7EB]">
+      <div className="w-full px-4 md:px-8 py-3 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center">
+        <Link
+          to="/"
+          className="flex items-center"
+          onClick={() => setOpen(false)}
+        >
           <img
             src="/logo.png"
-            alt="TRIVEXA Logo"
-            className="h-12 md:h-16 object-contain"
+            alt="Jagdamba Healthcare Logo"
+            className="h-14 md:h-20 object-contain"
           />
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center gap-8 font-semibold text-[17px]">
-          <li>
-            <Link
-              to="/"
-              className="text-[#1DA1F2] hover:text-[#1DA1F2] transition"
-            >
-              Home
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/about"
-              className="text-black hover:text-[#1DA1F2] transition"
-            >
-              About Us
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/services"
-              className="text-black hover:text-[#1DA1F2] transition"
-            >
-              Services
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/products"
-              className="text-black hover:text-[#1DA1F2] transition"
-            >
-              Products
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              to="/contact"
-              className="text-black hover:text-[#1DA1F2] transition"
-            >
-              Contact Us
-            </Link>
-          </li>
+        <ul className="font-['Playfair_Display'] hidden md:flex items-center gap-8 font-semibold text-[17px]">
+          {navLinks.map((link) => (
+            <li key={link.path}>
+              <NavLink
+                to={link.path}
+                className={({ isActive }) =>
+                  `transition duration-300 ${
+                    isActive
+                      ? "text-[#10B981]"
+                      : "text-[#111827] hover:text-[#10B981]"
+                  }`
+                }
+              >
+                {link.name}
+              </NavLink>
+            </li>
+          ))}
         </ul>
 
-        {/* Right Icons */}
-        <div className="hidden md:flex items-center gap-6">
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#0077B5] text-5xl hover:scale-105 transition"
+        {/* CTA Button */}
+        <div className="hidden md:flex items-center">
+          <Link
+            to="/contact"
+            className="bg-[#10B981] hover:bg-[#047857] text-white px-6 py-3 rounded-xl font-semibold transition duration-300"
           >
-            <FaLinkedinIn />
-          </a>
+            Get Started
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-2xl text-black"
+          className="md:hidden text-2xl text-[#111827]"
         >
           {open ? <FaTimes /> : <FaBars />}
         </button>
@@ -88,68 +70,34 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white px-6 py-5 shadow-lg">
+        <div className="md:hidden bg-white px-6 py-6 shadow-lg border-t border-[#E5E7EB]">
           <ul className="flex flex-col gap-5 font-semibold text-lg">
-            <li>
-              <Link
-                to="/"
-                onClick={() => setOpen(false)}
-                className="text-[#1DA1F2]"
-              >
-                Home
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/about"
-                onClick={() => setOpen(false)}
-                className="hover:text-[#1DA1F2]"
-              >
-                About Us
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/services"
-                onClick={() => setOpen(false)}
-                className="hover:text-[#1DA1F2]"
-              >
-                Services
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/products"
-                onClick={() => setOpen(false)}
-                className="hover:text-[#1DA1F2]"
-              >
-                Products
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to="/contact"
-                onClick={() => setOpen(false)}
-                className="hover:text-[#1DA1F2]"
-              >
-                Contact Us
-              </Link>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.path}>
+                <NavLink
+                  to={link.path}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `transition duration-300 ${
+                      isActive
+                        ? "text-[#10B981]"
+                        : "text-[#111827] hover:text-[#10B981]"
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+              </li>
+            ))}
           </ul>
 
-          <div className="flex items-center gap-5 mt-6">
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedinIn className="text-[#0077B5] text-4xl" />
-            </a>
-          </div>
+          <Link
+            to="/contact"
+            onClick={() => setOpen(false)}
+            className="mt-6 inline-block w-full text-center bg-[#10B981] hover:bg-[#047857] text-white px-6 py-3 rounded-xl font-semibold transition"
+          >
+            Get Started
+          </Link>
         </div>
       )}
     </nav>

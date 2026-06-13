@@ -99,9 +99,9 @@ export default function Services() {
     <div className="overflow-hidden">
       {/* Hero Section */}
       <section
-        className="relative h-[70vh] md:h-[80vh] flex items-center justify-center"
+        className="relative h-[60vh] md:h-[70vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/services-hero.jpg')",
+          backgroundImage: "url('/websitebg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -116,14 +116,14 @@ export default function Services() {
         >
           <motion.h1
             variants={fadeUp}
-            className="text-white text-6xl md:text-8xl font-bold"
+            className="font-['Playfair_Display'] text-white text-5xl md:text-7xl font-bold"
           >
             Our Services
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="mt-8 text-white text-xl md:text-4xl font-medium max-w-5xl mx-auto"
+            className="font-['Playfair_Display'] mt-8 text-white text-lg md:text-2xl font-medium max-w-5xl mx-auto"
           >
             Empowering Healthcare Access Through Precision, Innovation, and
             Partnership.
@@ -141,7 +141,7 @@ export default function Services() {
       </motion.div>
 
       {/* Services Section */}
-      <section className="bg-[#247AA8] py-24">
+      <section className="bg-[#247AA8] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-16"
@@ -150,9 +150,11 @@ export default function Services() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
-            <p className="text-white text-xl font-medium">— Our Services —</p>
+            <p className="font-['Playfair_Display'] text-white text-xl font-medium">
+              — Our Services —
+            </p>
 
-            <h2 className="mt-4 text-6xl md:text-8xl font-light text-white">
+            <h2 className="font-['Playfair_Display'] mt-4 text-4xl md:text-6xl font-light text-white">
               What We Offer
             </h2>
           </motion.div>
@@ -160,7 +162,7 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className={`${service.bg} rounded-[32px] p-8 md:p-12 mb-8 shadow-xl`}
+              className={`${service.bg} rounded-[32px] p-6 md:p-8 mb-8 shadow-xl`}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.25 }}
@@ -189,13 +191,15 @@ export default function Services() {
                   viewport={{ once: true, amount: 0.3 }}
                   variants={index % 2 === 0 ? fadeRight : fadeLeft}
                 >
-                  <h3 className="text-4xl md:text-6xl font-semibold text-[#005B8F]">
+                  <h3 className="font-['Playfair_Display'] text-xl md:text-3xl font-semibold text-[#005B8F]">
                     {service.title}
                   </h3>
 
-                  <p className="mt-6 text-xl">{service.subtitle}</p>
+                  <p className="font-['Playfair_Display'] mt-6 text-lg md:text-xl leading-relaxed">
+                    {service.subtitle}
+                  </p>
 
-                  <ul className="mt-8 space-y-4 list-disc pl-6 text-lg">
+                  <ul className="font-['Playfair_Display'] mt-8 space-y-4 list-disc pl-6 text-lg md:text-xl leading-relaxed">
                     {service.points.map((point, i) => (
                       <motion.li
                         key={i}
@@ -216,7 +220,7 @@ export default function Services() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="bg-[#F7F7F7] py-24">
+      <section className="bg-[#F7F7F7] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-16"
@@ -225,11 +229,11 @@ export default function Services() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
-            <p className="text-[#005B8F] text-xl font-medium">
+            <p className="font-['Playfair_Display'] text-[#005B8F] text-xl font-medium">
               — Why Choose Us —
             </p>
 
-            <h2 className="mt-4 text-5xl md:text-7xl font-bold text-[#005B8F]">
+            <h2 className="font-['Playfair_Display'] mt-4 text-3xl md:text-5xl font-bold text-[#005B8F]">
               What Sets Us Apart
             </h2>
           </motion.div>
@@ -250,7 +254,7 @@ export default function Services() {
                   scale: 1.03,
                   boxShadow: "0px 25px 45px rgba(0,0,0,0.25)",
                 }}
-                className="bg-[#247AA8] rounded-[30px] p-8 text-center shadow-lg"
+                className="font-['Playfair_Display'] bg-[#247AA8] rounded-[30px] p-8 text-center shadow-lg"
               >
                 <img
                   src={card.img}
@@ -258,11 +262,11 @@ export default function Services() {
                   className="w-full h-72 object-cover rounded-3xl"
                 />
 
-                <h3 className="mt-8 text-3xl font-semibold text-white">
+                <h3 className="font-['Playfair_Display'] mt-8 text-2xl font-semibold text-white">
                   {card.title}
                 </h3>
 
-                <p className="mt-6 text-white text-lg leading-relaxed">
+                <p className="font-['Playfair_Display'] mt-6 text-white text-lg leading-relaxed">
                   {card.text}
                 </p>
               </motion.div>

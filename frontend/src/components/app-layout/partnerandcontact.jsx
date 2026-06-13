@@ -31,9 +31,7 @@ export default function PartnerAndContact() {
   const stagger = {
     hidden: {},
     show: {
-      transition: {
-        staggerChildren: 0.18,
-      },
+      transition: { staggerChildren: 0.18 },
     },
   };
 
@@ -41,12 +39,12 @@ export default function PartnerAndContact() {
     <div className="w-full bg-white overflow-hidden">
       {/* Partner With Us Section */}
       <section
-        className="relative h-[430px] bg-cover bg-center flex items-center justify-center text-center"
+        className="relative h-[400px] bg-cover bg-center flex items-center justify-center text-center"
         style={{
-          backgroundImage: "url('/partner-bg.jpg')",
+          backgroundImage: "url('/websitebg.png')",
         }}
       >
-        <div className="absolute inset-0 bg-[#003B5C]/45"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
 
         <motion.div
           className="relative z-10 px-6"
@@ -57,96 +55,99 @@ export default function PartnerAndContact() {
         >
           <motion.h2
             variants={fadeUp}
-            className="text-white text-5xl md:text-8xl font-bold"
+            className="font-['Playfair_Display'] text-white text-4xl md:text-6xl font-bold"
           >
             Partner with Us
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mt-8 text-white text-xl md:text-3xl font-light"
+            className="font-['Playfair_Display'] mt-8 text-white/90 text-xl md:text-2xl font-light"
           >
-            Discover how we can help scale your MedTech presence across India.
+            Discover how we can help scale your healthcare presence across
+            India.
           </motion.p>
 
           <motion.button
             variants={fadeUp}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-12 bg-[#005B8F] hover:bg-[#004873] text-white px-12 py-4 rounded-xl text-xl font-bold transition"
+            className="mt-12 bg-[#10B981] hover:bg-[#047857] text-white px-12 py-4 rounded-xl text-xl font-bold transition"
           >
             Get Started
           </motion.button>
         </motion.div>
       </section>
 
-      {/* Contact Section */}
-      <section className="bg-[#247AA8] py-20">
+      {/* Contact Section - Reduced Size */}
+      <section className="bg-[#111827] py-8">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6">
             <motion.div
-              className="bg-[#F5F5F5] rounded-[32px] p-12"
+              className="bg-[#F8FAFC] rounded-[28px] p-8"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeLeft}
             >
-              <p className="text-[#005B8F] text-xl font-medium">— Contact Us</p>
+              <p className="text-[#047857] text-lg font-medium">— Contact Us</p>
 
-              <h2 className="mt-8 text-5xl md:text-7xl font-bold text-[#005B8F] leading-tight">
-                Get in Touch with Us
+              <h2 className="font-['Playfair_Display'] mt-5 text-4xl md:text-5xl font-bold text-[#111827] leading-tight">
+                Partnering for Better Patient Outcomes
               </h2>
 
-              <p className="mt-16 text-3xl md:text-4xl text-[#4A7698] leading-relaxed">
-                Want to learn more about our services? Talk to our experts.
+              <p className="font-['Playfair_Display'] mt-8 text-xl md:text-2xl text-[#4B5563] leading-relaxed">
+                From advanced medical technologies to reliable healthcare
+                solutions, we help hospitals, clinics, and healthcare
+                professionals deliver exceptional patient care with confidence.
               </p>
             </motion.div>
 
             <motion.div
-              className="bg-[#F5F5F5] rounded-[32px] p-10"
+              className="bg-[#F8FAFC] rounded-[28px] p-8"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeRight}
             >
-              <form className="space-y-10">
+              <form className="space-y-6">
                 <div>
-                  <label className="block text-xl text-black mb-4">
+                  <label className="block text-lg text-[#111827] mb-2">
                     First name
                   </label>
                   <input
                     type="text"
-                    className="w-full bg-transparent border-b border-[#005B8F] outline-none pb-3 focus:border-[#247AA8]"
+                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-[#111827] focus:border-[#047857]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xl text-black mb-4">
+                  <label className="block text-lg text-[#111827] mb-2">
                     Last name
                   </label>
                   <input
                     type="text"
-                    className="w-full bg-transparent border-b border-[#005B8F] outline-none pb-3 focus:border-[#247AA8]"
+                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-[#111827] focus:border-[#047857]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xl text-black mb-4">
+                  <label className="block text-lg text-[#111827] mb-2">
                     Email *
                   </label>
                   <input
                     type="email"
-                    className="w-full bg-transparent border-b border-[#005B8F] outline-none pb-3 focus:border-[#247AA8]"
+                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-[#111827] focus:border-[#047857]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xl text-black mb-4">
+                  <label className="block text-lg text-[#111827] mb-2">
                     Message *
                   </label>
                   <textarea
-                    rows="4"
-                    className="w-full bg-transparent border-b border-[#005B8F] outline-none resize-none focus:border-[#247AA8]"
+                    rows="3"
+                    className="w-full bg-transparent border-b border-[#10B981] outline-none resize-none text-[#111827] focus:border-[#047857]"
                   ></textarea>
                 </div>
 
@@ -155,7 +156,7 @@ export default function PartnerAndContact() {
                     type="submit"
                     whileHover={{ scale: 1.08 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full md:w-72 border border-[#005B8F] text-[#005B8F] py-4 rounded-2xl text-xl font-semibold hover:bg-[#005B8F] hover:text-white transition"
+                    className="w-full md:w-56 border border-[#10B981] text-[#047857] py-3 rounded-xl text-lg font-semibold hover:bg-[#10B981] hover:text-white transition"
                   >
                     Submit
                   </motion.button>

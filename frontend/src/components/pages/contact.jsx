@@ -5,53 +5,37 @@ import { HiOutlineMail } from "react-icons/hi";
 
 export default function Contact() {
   const fadeUp = {
-    hidden: { opacity: 0, y: 80 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
 
   const fadeLeft = {
-    hidden: { opacity: 0, x: -90 },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
+    hidden: { opacity: 0, x: -60 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
 
   const fadeRight = {
-    hidden: { opacity: 0, x: 90 },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
+    hidden: { opacity: 0, x: 60 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
 
   const stagger = {
     hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.18,
-      },
-    },
+    show: { transition: { staggerChildren: 0.14 } },
   };
 
   return (
     <div className="overflow-hidden">
-      {/* Hero Section */}
+      {/* Hero */}
       <section
-        className="relative h-[70vh] md:h-[80vh] flex items-center justify-center"
+        className="relative h-[55vh] md:h-[65vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/contact-hero.jpg')",
+          backgroundImage: "url('/websitebg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[#003B5C]/60"></div>
+        <div className="absolute inset-0 bg-[#111827]/60"></div>
 
         <motion.div
           className="relative z-10 text-center px-6"
@@ -61,96 +45,103 @@ export default function Contact() {
         >
           <motion.h1
             variants={fadeUp}
-            className="text-white text-6xl md:text-8xl font-bold"
+            className="font-['Playfair_Display'] text-white text-5xl md:text-7xl font-bold"
           >
             Contact Us
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="mt-8 text-white text-xl md:text-4xl font-medium max-w-5xl mx-auto"
+            className="mt-5 text-white/90 text-lg md:text-2xl font-medium max-w-4xl mx-auto"
           >
             Let’s Build the Future of Healthcare, Together
           </motion.p>
         </motion.div>
       </section>
 
-      {/* Query Form Section */}
-      <section className="bg-white py-24">
+      {/* Query Form */}
+      <section className="bg-white py-14">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6">
             <motion.div
-              className="bg-[#F5F5F5] rounded-[32px] p-10 md:p-14 h-fit"
+              className="bg-[#F8FAFC] rounded-[26px] p-7 md:p-8 h-fit border border-[#E5E7EB]"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeLeft}
             >
-              <p className="text-[#005B8F] text-xl font-medium">— Contact Us</p>
+              <p className="text-[#047857] text-lg font-medium">— Contact Us</p>
 
-              <h2 className="mt-8 text-5xl md:text-7xl font-bold text-[#005B8F] leading-tight">
-                Send Your Query
+              <h2 className="font-['Playfair_Display'] mt-4 text-4xl md:text-5xl font-bold text-[#111827] leading-tight">
+                Let's Start a Conversation
               </h2>
 
-              <p className="mt-16 text-3xl md:text-4xl text-[#4A7698] leading-relaxed">
-                Want to learn more about our services? Talk to our experts.
+              <p className="mt-6 text-lg text-[#4B5563] leading-relaxed">
+                Whether you're looking for healthcare solutions, strategic
+                partnerships, product information, or business support, our team
+                is here to assist you.
+              </p>
+
+              <p className="mt-4 text-base text-[#6B7280] leading-relaxed">
+                Reach out to us and we'll connect you with the right specialist
+                to address your requirements promptly and professionally.
               </p>
             </motion.div>
 
             <motion.div
-              className="bg-[#F5F5F5] rounded-[32px] p-10 md:p-14"
+              className="bg-[#F8FAFC] rounded-[26px] p-7 md:p-8 border border-[#E5E7EB]"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeRight}
             >
-              <form className="space-y-9">
+              <form className="space-y-5">
                 <div>
-                  <label className="block text-xl text-black mb-4">
+                  <label className="block text-base text-[#111827] mb-1.5">
                     First name
                   </label>
                   <input
                     type="text"
-                    className="w-full bg-transparent border-b border-[#005B8F] outline-none pb-3 text-lg focus:border-[#247AA8]"
+                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-base focus:border-[#047857]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xl text-black mb-4">
+                  <label className="block text-base text-[#111827] mb-1.5">
                     Last name
                   </label>
                   <input
                     type="text"
-                    className="w-full bg-transparent border-b border-[#005B8F] outline-none pb-3 text-lg focus:border-[#247AA8]"
+                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-base focus:border-[#047857]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xl text-black mb-4">
+                  <label className="block text-base text-[#111827] mb-1.5">
                     Email *
                   </label>
                   <input
                     type="email"
-                    className="w-full bg-transparent border-b border-[#005B8F] outline-none pb-3 text-lg focus:border-[#247AA8]"
+                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-base focus:border-[#047857]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xl text-black mb-4">
+                  <label className="block text-base text-[#111827] mb-1.5">
                     Message *
                   </label>
                   <textarea
-                    rows="5"
-                    className="w-full bg-transparent border-b border-[#005B8F] outline-none resize-none text-lg focus:border-[#247AA8]"
+                    rows="3"
+                    className="w-full bg-transparent border-b border-[#10B981] outline-none resize-none text-base focus:border-[#047857]"
                   ></textarea>
                 </div>
 
                 <div className="flex justify-end">
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.08 }}
+                    whileHover={{ scale: 1.06 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full md:w-72 border border-[#005B8F] text-[#005B8F] py-4 rounded-2xl text-xl font-semibold hover:bg-[#005B8F] hover:text-white transition"
+                    className="w-full md:w-56 border border-[#10B981] text-[#047857] py-3 rounded-xl text-base font-semibold hover:bg-[#10B981] hover:text-white transition"
                   >
                     Submit
                   </motion.button>
@@ -161,8 +152,8 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Information Section */}
-      <section className="bg-[#247AA8] py-24">
+      {/* Contact Info */}
+      <section className="bg-[#111827] py-14">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center"
@@ -171,15 +162,17 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
-            <p className="text-white text-xl font-medium">— Our Location —</p>
+            <p className="text-[#10B981] text-lg font-medium">
+              — Our Location —
+            </p>
 
-            <h2 className="mt-6 text-5xl md:text-7xl font-bold text-white">
+            <h2 className="font-['Playfair_Display'] mt-3 text-4xl md:text-5xl font-bold text-white">
               Get In Touch With Us
             </h2>
           </motion.div>
 
           <motion.div
-            className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
             variants={stagger}
             initial="hidden"
             whileInView="show"
@@ -187,9 +180,9 @@ export default function Contact() {
           >
             {[
               {
-                icon: <FaMapMarkerAlt className="text-[#247AA8] text-8xl" />,
+                icon: <FaMapMarkerAlt className="text-[#10B981] text-5xl" />,
                 title: "Address",
-                bg: "bg-[#F5F5F5]",
+                bg: "bg-white",
                 content: (
                   <>
                     227, 2nd Floor, SRS Tower, Sector 31, Faridabad
@@ -198,9 +191,9 @@ export default function Contact() {
                 ),
               },
               {
-                icon: <FaPhoneAlt className="text-[#247AA8] text-8xl" />,
+                icon: <FaPhoneAlt className="text-[#10B981] text-5xl" />,
                 title: "Phone",
-                bg: "bg-[#CFE1F3]",
+                bg: "bg-[#ECFDF5]",
                 content: (
                   <>
                     <p>+91 9717266311</p>
@@ -209,35 +202,35 @@ export default function Contact() {
                 ),
               },
               {
-                icon: <HiOutlineMail className="text-[#247AA8] text-8xl" />,
+                icon: <HiOutlineMail className="text-[#10B981] text-5xl" />,
                 title: "Email",
-                bg: "bg-[#F5F5F5]",
-                content: <>contact@trivexa.in</>,
+                bg: "bg-white",
+                content: <>info@jagdambahealthcare.in</>,
               },
             ].map((card, index) => (
               <motion.div
                 key={index}
                 variants={fadeUp}
                 whileHover={{
-                  y: -14,
-                  scale: 1.03,
-                  boxShadow: "0px 25px 45px rgba(0,0,0,0.25)",
+                  y: -10,
+                  scale: 1.02,
+                  boxShadow: "0px 20px 35px rgba(16,185,129,0.2)",
                 }}
-                className={`${card.bg} rounded-[30px] p-10 text-center shadow-lg`}
+                className={`${card.bg} rounded-[24px] p-7 text-center shadow-lg`}
               >
                 <motion.div
                   className="flex justify-center"
-                  whileHover={{ scale: 1.15, rotate: 6 }}
+                  whileHover={{ scale: 1.12, rotate: 5 }}
                   transition={{ duration: 0.3 }}
                 >
                   {card.icon}
                 </motion.div>
 
-                <h3 className="mt-8 text-5xl font-bold text-[#4A7698]">
+                <h3 className="font-['Playfair_Display'] mt-5 text-3xl font-bold text-[#111827]">
                   {card.title}
                 </h3>
 
-                <div className="mt-8 text-xl leading-relaxed">
+                <div className="mt-4 text-base leading-relaxed text-[#4B5563]">
                   {card.content}
                 </div>
               </motion.div>
@@ -246,25 +239,25 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="bg-[#247AA8] py-8">
+      {/* Map */}
+      <section className="bg-[#111827] py-5">
         <motion.div
-          className="max-w-[1900px] mx-auto px-6"
+          className="max-w-[1500px] mx-auto px-6"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={fadeUp}
         >
           <motion.div
-            className="overflow-hidden rounded-[20px] shadow-xl"
-            whileHover={{ scale: 1.01 }}
+            className="overflow-hidden rounded-[18px] shadow-xl"
+            whileHover={{ scale: 1.005 }}
             transition={{ duration: 0.3 }}
           >
             <iframe
-              title="Trivexa Location"
+              title="Jagdamba Healthcare Location"
               src="https://maps.google.com/maps?q=227%20SRS%20Tower%20Sector%2031%20Faridabad&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
-              height="650"
+              height="430"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
