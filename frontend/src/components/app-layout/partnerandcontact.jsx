@@ -151,6 +151,16 @@ export default function PartnerAndContact() {
                   ></textarea>
                 </div>
 
+                <div>
+                  <label className="block text-lg text-[#111827] mb-2">
+                    Contact No.
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-[#111827] focus:border-[#047857]"
+                  />
+                </div>
+
                 <div className="flex justify-end">
                   <motion.button
                     type="submit"

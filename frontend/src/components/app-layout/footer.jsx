@@ -7,7 +7,6 @@ export default function Footer() {
   return (
     <footer className="bg-[#111827] px-3 py-3">
       <div className="bg-[#F8FAFC] rounded-[20px] px-5 md:px-8 py-6">
-        {/* Main Footer Content */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company */}
           <div>
@@ -17,9 +16,9 @@ export default function Footer() {
               className="h-16 object-contain"
             />
 
-            <p className="font-['Playfair_Display'] mt-4 text-[#4B5563] text-sm leading-relaxed">
-              Delivering trusted healthcare solutions through innovation,
-              quality, and patient-focused care across India.
+            <p className="mt-4 text-[#4B5563] text-sm leading-relaxed">
+              Your lifeline in cardiology and cardiovascular products,
+              delivering trusted healthcare solutions with quality and care.
             </p>
 
             <a
@@ -44,13 +43,11 @@ export default function Footer() {
                   Home
                 </Link>
               </li>
-
               <li>
                 <Link to="/about" className="hover:text-[#10B981] transition">
                   About Us
                 </Link>
               </li>
-
               <li>
                 <Link
                   to="/services"
@@ -59,7 +56,6 @@ export default function Footer() {
                   Services
                 </Link>
               </li>
-
               <li>
                 <Link
                   to="/products"
@@ -68,7 +64,6 @@ export default function Footer() {
                   Products
                 </Link>
               </li>
-
               <li>
                 <Link to="/contact" className="hover:text-[#10B981] transition">
                   Contact Us
@@ -84,13 +79,13 @@ export default function Footer() {
             </h4>
 
             <p className="text-[#4B5563] text-sm leading-relaxed">
-              227, 2nd Floor,
+              First Floor, Shop No. 1 & 2,
               <br />
-              SRS Tower, Sector 31,
+              Hari Bihar Colony, near Mani International Hotel,
               <br />
-              Faridabad – 121003,
+              opposite Krishi Bhawan, Mithapur,
               <br />
-              Haryana, India
+              Patna, Bihar – 800001
             </p>
           </div>
 
@@ -102,33 +97,26 @@ export default function Footer() {
 
             <div className="space-y-3 text-sm text-[#4B5563]">
               <p>
-                <span className="font-semibold text-[#111827]">Phone:</span>
+                <span className="font-semibold text-[#111827]">Contact:</span>
                 <br />
-                0129-4751558
-              </p>
-
-              <p>
-                <span className="font-semibold text-[#111827]">Mobile:</span>
+                +91 8178996877
                 <br />
-                +91 9717266311
+                +91 7701905739
               </p>
 
               <p>
                 <span className="font-semibold text-[#111827]">Email:</span>
                 <br />
-                info@jagdambahealthcare.in
+                jagdambahealthcare852@gmail.com
+                <br />
+                jagdambahealthcare851@gmail.com
               </p>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
         <div className="mt-6 pt-4 border-t border-[#E5E7EB] flex flex-col md:flex-row items-center justify-between gap-3">
-          {/* <p className="text-[#4B5563] text-xs">
-            Copyright © 2018-{currentYear} Jagdamba Healthcare. All Rights
-            Reserved.
-          </p> */}
-          <p className="text-[#4B5563] text-xs">
+          <p className="text-[#4B5563] text-xs text-center md:text-left">
             Copyright © {currentYear} Jagdamba Healthcare. All Rights Reserved.
           </p>
 

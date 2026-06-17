@@ -114,6 +114,12 @@ export default function Services() {
           initial="hidden"
           animate="show"
         >
+          <motion.p
+            variants={fadeUp}
+            className="text-[#10B981] text-lg font-semibold tracking-wide"
+          >
+            — Services —
+          </motion.p>
           <motion.h1
             variants={fadeUp}
             className="font-['Playfair_Display'] text-white text-5xl md:text-7xl font-bold"

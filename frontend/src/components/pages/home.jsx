@@ -3,35 +3,92 @@ import { motion } from "framer-motion";
 import Footer from "../app-layout/footer";
 import Partners from "../app-layout/partners";
 import PartnerAndContact from "../app-layout/partnerAndContact";
+import Client from "../app-layout/client";
 
 export default function Home() {
   const navigate = useNavigate();
-  const partners = [
-    { name: "Edwards Lifesciences", logo: "/partners/edwards.png" },
-    { name: "Magnet Medical", logo: "/partners/magnet.png" },
-    { name: "Kai Medical", logo: "/partners/kai.png" },
-    { name: "Dhanam", logo: "/partners/dhanam.png" },
-  ];
 
   const fadeUp = {
-    hidden: { opacity: 0, y: 80 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    hidden: { opacity: 0, y: 70 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.75, ease: "easeOut" },
+    },
   };
 
   const fadeLeft = {
-    hidden: { opacity: 0, x: -90 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    hidden: { opacity: 0, x: -70 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.75, ease: "easeOut" },
+    },
   };
 
   const fadeRight = {
-    hidden: { opacity: 0, x: 90 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    hidden: { opacity: 0, x: 70 },
+    show: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.75, ease: "easeOut" },
+    },
   };
 
   const stagger = {
     hidden: {},
-    show: { transition: { staggerChildren: 0.18 } },
+    show: {
+      transition: { staggerChildren: 0.16 },
+    },
   };
+
+  const coreValues = [
+    {
+      img: "/values/integrity.jpg",
+      title: "Quality & Compliance",
+      text: "We follow strict quality standards to deliver dependable healthcare products and solutions.",
+      bg: "bg-white",
+    },
+    {
+      img: "/values/innovation.jpg",
+      title: "Trust & Integrity",
+      text: "We build long-term relationships through honesty, transparency, and ethical service.",
+      bg: "bg-[#ECFDF5]",
+    },
+    {
+      img: "/values/partnership.jpg",
+      title: "Customer-Centric Approach",
+      text: "We work closely with hospitals, clinics, and healthcare institutions to support their needs.",
+      bg: "bg-white",
+    },
+    {
+      img: "/values/quality.jpg",
+      title: "Innovation & Improvement",
+      text: "We continuously improve our services to make healthcare solutions more accessible.",
+      bg: "bg-[#ECFDF5]",
+    },
+    {
+      img: "/values/service.jpg",
+      title: "Reliable Timely Service",
+      text: "We focus on timely delivery, dependable support, and consistent professional service.",
+      bg: "bg-white",
+    },
+  ];
+
+  const services = [
+    {
+      title: "Medical Product Supply",
+      img: "/services/logistics.jpg",
+      text: "High-quality medical devices, cardiology products, surgical disposables, and consumables.",
+      bg: "bg-[#047857]",
+    },
+    {
+      title: "Hospital Support Solutions",
+      img: "/services/access.jpg",
+      text: "Reliable product availability, timely delivery, and dedicated support for healthcare institutions.",
+      bg: "bg-[#047857]",
+    },
+  ];
 
   return (
     <div className="w-full min-h-screen bg-white overflow-hidden">
@@ -39,14 +96,14 @@ export default function Home() {
       <section className="relative h-screen w-full overflow-hidden">
         <motion.img
           src="/img.png"
-          alt="Healthcare"
+          alt="Jagdamba Healthcare"
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ scale: 1.15 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.8, ease: "easeOut" }}
         />
 
-        <div className="absolute inset-0 bg-[#111827]/70"></div>
+        <div className="absolute inset-0 bg-[#111827]/55"></div>
 
         <motion.div
           className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6"
@@ -54,26 +111,34 @@ export default function Home() {
           initial="hidden"
           animate="show"
         >
+          <motion.p
+            variants={fadeUp}
+            className="font-['Playfair_Display'] text-[#10B981] text-lg md:text-xl font-semibold"
+          >
+            Jagdamba Healthcare
+          </motion.p>
+
           <motion.h1
             variants={fadeUp}
-            className="font-['Playfair_Display'] text-white font-light text-5xl md:text-7xl leading-tight"
+            className="font-['Playfair_Display'] mt-4 text-white font-bold text-5xl md:text-7xl leading-tight max-w-5xl"
           >
-            Essential to Advancing Care
+            Your Lifeline in Cardiology and Cardiovascular Products
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="font-['Playfair_Display'] mt-6 text-white/90 text-xl md:text-3xl font-light max-w-5xl"
+            className="font-['Playfair_Display'] mt-6 text-white/90 text-lg md:text-2xl font-light max-w-4xl"
           >
-            Redefining the Standards of Healthcare Access, Delivery, and
-            Innovation
+            Delivering trusted medical devices, critical care consumables,
+            surgical disposables, and hospital solutions with quality and care.
           </motion.p>
 
           <motion.button
             variants={fadeUp}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
-            className="font-['Playfair_Display'] mt-10 bg-[#10B981] hover:bg-[#047857] text-white px-10 py-4 rounded-2xl text-xl font-semibold transition"
+            onClick={() => navigate("/contact")}
+            className="font-['Playfair_Display'] mt-10 bg-[#10B981] hover:bg-[#047857] text-white px-10 py-4 rounded-2xl text-lg font-semibold transition"
           >
             Contact Us
           </motion.button>
@@ -87,11 +152,12 @@ export default function Home() {
         variants={fadeUp}
       >
         <Partners />
+        <Client />
       </motion.div>
 
       {/* About Section */}
       <section className="bg-[#F8FAFC] py-20">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             className="flex justify-center"
             initial="hidden"
@@ -103,7 +169,7 @@ export default function Home() {
               src="/about/about-us.png"
               alt="About Jagdamba Healthcare"
               className="w-full max-w-2xl rounded-3xl shadow-xl object-cover"
-              whileHover={{ scale: 1.04, rotate: 1 }}
+              whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
             />
           </motion.div>
@@ -118,21 +184,24 @@ export default function Home() {
               — About Us
             </p>
 
-            <h2 className="font-['Playfair_Display'] mt-8 text-4xl md:text-5xl font-bold text-[#111827]">
+            <h2 className="font-['Playfair_Display'] mt-6 text-4xl md:text-5xl font-bold text-[#111827]">
               Who We Are
             </h2>
 
-            <p className="font-['Playfair_Display'] mt-10 text-lg md:text-xl leading-relaxed text-[#4B5563] max-w-3xl">
-              At Jagdamba Healthcare, we are committed to bridging the gap
-              between trusted healthcare solutions and people’s everyday medical
-              needs. Our mission is to enhance healthcare access through
-              quality, care, reliability, and ethical service.
+            <p className="font-['Playfair_Display'] mt-8 text-base md:text-lg leading-relaxed text-[#4B5563] max-w-3xl">
+              At Jagdamba Healthcare, we are dedicated to advancing healthcare
+              through the supply of high-quality medical devices, surgical
+              disposables, cardiology products, critical care consumables, and
+              hospital solutions. Backed by 9+ years of industry experience, we
+              have earned the trust of healthcare professionals by consistently
+              delivering reliable products and exceptional service.
             </p>
+
             <motion.button
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate("/about")}
-              className="font-['Playfair_Display'] mt-10 px-10 py-3 border border-[#10B981] text-[#047857] rounded-xl text-lg font-semibold hover:bg-[#10B981] hover:text-white transition"
+              className="font-['Playfair_Display'] mt-8 px-9 py-3 border border-[#10B981] text-[#047857] rounded-xl text-base font-semibold hover:bg-[#10B981] hover:text-white transition"
             >
               Read More
             </motion.button>
@@ -140,8 +209,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Core Values Section */}
-      <section className="bg-[#111827] py-12">
+      {/* Core Values */}
+      <section className="bg-[#111827] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center"
@@ -150,60 +219,44 @@ export default function Home() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
-            <p className="font-['Playfair_Display'] text-[#10B981] text-xl font-medium">
+            <p className="font-['Playfair_Display'] text-[#10B981] text-lg font-medium">
               — Core Values —
             </p>
 
-            <h2 className="font-['Playfair_Display'] mt-6 text-3xl md:text-5xl font-bold text-white">
+            <h2 className="font-['Playfair_Display'] mt-3 text-4xl md:text-6xl font-bold text-white">
               What We Stand For
             </h2>
           </motion.div>
 
           <motion.div
-            className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5"
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {[
-              {
-                img: "/values/integrity.jpg",
-                title: "Integrity & Excellence",
-                text: "Ethical practices, quality, and care in everything we do.",
-              },
-              {
-                img: "/values/innovation.jpg",
-                title: "Trust & Reliability",
-                text: "Building long-term trust through dependable healthcare service.",
-              },
-              {
-                img: "/values/partnership.jpg",
-                title: "Care & Collaboration",
-                text: "Creating lasting value with patients, partners, and providers.",
-              },
-            ].map((card, index) => (
+            {coreValues.map((card, index) => (
               <motion.div
                 key={index}
                 variants={fadeUp}
                 whileHover={{
-                  y: -14,
-                  scale: 1.03,
-                  boxShadow: "0px 25px 45px rgba(16,185,129,0.25)",
+                  y: -10,
+                  scale: 1.02,
+                  boxShadow: "0px 20px 35px rgba(16,185,129,0.2)",
                 }}
-                className="bg-white rounded-3xl p-6 shadow-xl"
+                className={`${card.bg} rounded-[24px] p-4 shadow-lg`}
               >
                 <img
                   src={card.img}
                   alt={card.title}
-                  className="w-full h-72 object-cover rounded-2xl"
+                  className="w-full h-40 object-cover rounded-2xl"
                 />
 
-                <h3 className="font-['Playfair_Display'] mt-6 text-2xl font-bold text-[#047857] text-center">
+                <h3 className="font-['Playfair_Display'] mt-4 text-center text-xl font-semibold text-[#047857]">
                   {card.title}
                 </h3>
 
-                <p className="font-['Playfair_Display'] mt-6 text-center text-[#4B5563] text-lg leading-relaxed">
+                <p className="font-['Playfair_Display'] mt-3 text-center text-sm leading-relaxed text-[#4B5563]">
                   {card.text}
                 </p>
               </motion.div>
@@ -217,13 +270,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-3 gap-8">
             <motion.div
-              className="lg:col-span-1 bg-white rounded-[30px] p-12 shadow-md border border-[#E5E7EB]"
+              className="lg:col-span-1 bg-white rounded-[30px] p-10 shadow-md border border-[#E5E7EB]"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeLeft}
             >
-              <p className="font-['Playfair_Display'] text-[#047857] font-semibold mb-6">
+              <p className="font-['Playfair_Display'] text-[#047857] font-semibold mb-5">
                 — Our Services
               </p>
 
@@ -231,15 +284,17 @@ export default function Home() {
                 Transforming Access to Quality Healthcare
               </h2>
 
-              <p className=" font-['Playfair_Display'] mt-8 text-[#4B5563] text-lg leading-relaxed">
-                Our services are designed to deliver trusted healthcare support
-                with quality, care, and strong operational excellence.
+              <p className="font-['Playfair_Display'] mt-6 text-[#4B5563] text-base leading-relaxed">
+                Our services are designed to support hospitals, clinics, and
+                healthcare institutions with reliable product supply, quality
+                assurance, and timely service.
               </p>
 
               <motion.button
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.95 }}
-                className="font-['Playfair_Display'] mt-10 border border-[#10B981] text-[#047857] px-8 py-3 rounded-xl font-semibold hover:bg-[#10B981] hover:text-white transition"
+                onClick={() => navigate("/services")}
+                className="font-['Playfair_Display'] mt-8 border border-[#10B981] text-[#047857] px-8 py-3 rounded-xl font-semibold hover:bg-[#10B981] hover:text-white transition"
               >
                 Read More
               </motion.button>
@@ -253,27 +308,14 @@ export default function Home() {
               viewport={{ once: true, amount: 0.2 }}
             >
               <div className="grid md:grid-cols-2 gap-8">
-                {[
-                  {
-                    title: "Quality Healthcare Support",
-                    img: "/services/logistics.jpg",
-                    text: "Reliable service focused on patient care and trusted delivery.",
-                    bg: "bg-[#047857]",
-                  },
-                  {
-                    title: "Access & Care",
-                    img: "/services/access.jpg",
-                    text: "Making healthcare more reachable, dependable, and people-focused.",
-                    bg: "bg-[#047857]",
-                  },
-                ].map((service, index) => (
+                {services.map((service, index) => (
                   <motion.div
                     key={index}
                     variants={fadeUp}
-                    whileHover={{ scale: 1.04, y: -10 }}
-                    className={`${service.bg} rounded-[30px] p-8 text-white shadow-xl`}
+                    whileHover={{ scale: 1.03, y: -8 }}
+                    className={`${service.bg} rounded-[30px] p-7 text-white shadow-xl`}
                   >
-                    <h3 className="text-center text-xl font-semibold mb-8">
+                    <h3 className="font-['Playfair_Display'] text-center text-xl font-semibold mb-6">
                       {service.title}
                     </h3>
 
@@ -283,7 +325,7 @@ export default function Home() {
                       className="w-full h-64 object-cover rounded-3xl"
                     />
 
-                    <p className="text-center mt-6 text-white/90">
+                    <p className="font-['Playfair_Display'] text-center mt-5 text-white/90">
                       {service.text}
                     </p>
                   </motion.div>
@@ -295,10 +337,10 @@ export default function Home() {
                 variants={fadeUp}
               >
                 <motion.div
-                  whileHover={{ scale: 1.04, y: -10 }}
+                  whileHover={{ scale: 1.03, y: -8 }}
                   className="bg-[#111827] rounded-[30px] p-6 text-white shadow-xl max-w-2xl w-full"
                 >
-                  <h3 className="font-['Playfair_Display'] text-center text-xl font-semibold mb-8">
+                  <h3 className="font-['Playfair_Display'] text-center text-xl font-semibold mb-6">
                     Growth & Healthcare Excellence
                   </h3>
 
@@ -308,9 +350,9 @@ export default function Home() {
                     className="w-full h-72 object-cover rounded-3xl"
                   />
 
-                  <p className="font-['Playfair_Display'] text-center mt-6 text-white/90">
+                  <p className="font-['Playfair_Display'] text-center mt-5 text-white/90">
                     Supporting better healthcare outcomes through trust,
-                    quality, and continuous improvement.
+                    quality, product availability, and continuous improvement.
                   </p>
                 </motion.div>
               </motion.div>

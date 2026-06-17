@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Partners from "../app-layout/partners";
 import PartnerAndContact from "../app-layout/partnerAndContact";
 import Footer from "../app-layout/footer";
+import { useState } from "react";
 
 export default function About() {
+  const [showMore, setShowMore] = useState(false);
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
     show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
@@ -24,6 +27,39 @@ export default function About() {
     show: { transition: { staggerChildren: 0.14 } },
   };
 
+  const coreValues = [
+    {
+      img: "/about/integrity.jpg",
+      title: "Quality & Compliance",
+      text: "We follow strict quality standards to ensure dependable healthcare products and solutions.",
+      bg: "bg-white",
+    },
+    {
+      img: "/about/agility.jpg",
+      title: "Trust & Integrity",
+      text: "We build long-term relationships through honesty, transparency, and ethical business practices.",
+      bg: "bg-[#ECFDF5]",
+    },
+    {
+      img: "/about/partnership.jpg",
+      title: "Customer-Centric Approach",
+      text: "We work closely with healthcare institutions to understand and support their evolving needs.",
+      bg: "bg-white",
+    },
+    {
+      img: "/about/innovation.jpg",
+      title: "Innovation & Improvement",
+      text: "We continuously improve our services to make advanced healthcare solutions more accessible.",
+      bg: "bg-[#ECFDF5]",
+    },
+    {
+      img: "/about/reliability.jpg",
+      title: "Reliable Timely Service",
+      text: "We focus on timely delivery, consistent support, and dependable service when it matters most.",
+      bg: "bg-white",
+    },
+  ];
+
   return (
     <div className="overflow-hidden">
       {/* Hero */}
@@ -43,6 +79,12 @@ export default function About() {
           initial="hidden"
           animate="show"
         >
+          <motion.p
+            variants={fadeUp}
+            className="text-[#10B981] text-lg font-semibold tracking-wide"
+          >
+            — About Us—
+          </motion.p>
           <motion.h1
             variants={fadeUp}
             className="font-['Playfair_Display'] text-white text-5xl md:text-7xl font-bold"
@@ -54,7 +96,8 @@ export default function About() {
             variants={fadeUp}
             className="font-['Playfair_Display'] mt-5 text-white/90 text-lg md:text-2xl font-medium max-w-4xl mx-auto"
           >
-            Redefining Medical Access, One Innovation at a Time
+            Jagdamba Healthcare: Your Lifeline in Cardiology and Cardiovascular
+            Products.
           </motion.p>
         </motion.div>
       </section>
@@ -82,23 +125,52 @@ export default function About() {
                 — About Us
               </p>
 
-              <h2 className="font-['Playfair_Display'] mt-4 font-['Playfair_Display'] text-4xl md:text-5xl font-bold text-[#111827]">
+              <h2 className="font-['Playfair_Display'] mt-4 text-4xl md:text-5xl font-bold text-[#111827]">
                 Who We Are
               </h2>
 
               <p className="font-['Playfair_Display'] mt-6 text-base md:text-lg leading-relaxed text-[#4B5563]">
-                At Jagdamba Healthcare, we are committed to bridging the gap
-                between trusted healthcare solutions and people’s everyday
-                medical needs. Our mission is to enhance healthcare access
-                through quality, care, reliability, and ethical service.
+                At Jagdamba Healthcare, we are dedicated to advancing healthcare
+                through the supply of high-quality medical devices, surgical
+                disposables, cardiology products, critical care consumables, and
+                hospital solutions. Backed by 9+ years of industry experience,
+                we have earned the trust of healthcare professionals by
+                consistently delivering reliable products and exceptional
+                service.
               </p>
 
+              {showMore && (
+                <>
+                  <p className="font-['Playfair_Display'] mt-5 text-base md:text-lg leading-relaxed text-[#4B5563]">
+                    With a strong focus on quality, trust, and service
+                    excellence, we work closely with hospitals, clinics,
+                    diagnostic centers, and healthcare institutions to meet
+                    their evolving medical needs. We understand that in
+                    healthcare, every product matters.
+                  </p>
+
+                  <p className="font-['Playfair_Display'] mt-5 text-base md:text-lg leading-relaxed text-[#4B5563]">
+                    Our mission extends beyond product supply. We aim to build
+                    long-term partnerships by offering dependable service,
+                    timely delivery, and personalized support.
+                  </p>
+
+                  <p className="font-['Playfair_Display'] mt-5 text-base md:text-lg leading-relaxed text-[#4B5563]">
+                    At Jagdamba Healthcare, integrity, reliability, and patient
+                    care remain at the heart of everything we do. As we continue
+                    to grow, our goal is to be recognized as a trusted
+                    healthcare partner.
+                  </p>
+                </>
+              )}
+
               <motion.button
-                whileHover={{ scale: 1.06 }}
+                onClick={() => setShowMore(!showMore)}
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="font-['Playfair_Display'] mt-8 px-8 py-3 border border-[#10B981] text-[#047857] rounded-xl text-base font-semibold hover:bg-[#10B981] hover:text-white transition"
               >
-                Contact Us
+                {showMore ? "Read Less" : "Read More"}
               </motion.button>
             </motion.div>
 
@@ -111,7 +183,7 @@ export default function About() {
             >
               <motion.img
                 src="/about/about-section.png"
-                alt="Who We Are"
+                alt="Jagdamba Healthcare"
                 className="w-full max-w-xl rounded-[28px] shadow-xl object-cover"
                 whileHover={{ scale: 1.03 }}
               />
@@ -134,38 +206,19 @@ export default function About() {
               — Core Values —
             </p>
 
-            <h2 className="font-['Playfair_Display'] mt-3 font-['Playfair_Display'] text-4xl md:text-6xl font-bold text-white">
+            <h2 className="font-['Playfair_Display'] mt-3 text-4xl md:text-6xl font-bold text-white">
               What We Stand For
             </h2>
           </motion.div>
 
           <motion.div
-            className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5"
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {[
-              {
-                img: "/about/integrity.jpg",
-                title: "Integrity & Excellence",
-                text: "Ethical practices, quality, and care in everything we do.",
-                bg: "bg-white",
-              },
-              {
-                img: "/about/agility.jpg",
-                title: "Trust & Reliability",
-                text: "Building long-term trust through dependable healthcare service.",
-                bg: "bg-[#ECFDF5]",
-              },
-              {
-                img: "/about/partnership.jpg",
-                title: "Care & Collaboration",
-                text: "Creating lasting value with patients, partners, and providers.",
-                bg: "bg-white",
-              },
-            ].map((card, index) => (
+            {coreValues.map((card, index) => (
               <motion.div
                 key={index}
                 variants={fadeUp}
@@ -174,19 +227,19 @@ export default function About() {
                   scale: 1.02,
                   boxShadow: "0px 20px 35px rgba(16,185,129,0.2)",
                 }}
-                className={`${card.bg} rounded-[24px] p-5 shadow-lg`}
+                className={`${card.bg} rounded-[24px] p-4 shadow-lg`}
               >
                 <img
                   src={card.img}
                   alt={card.title}
-                  className="w-full h-52 object-cover rounded-2xl"
+                  className="w-full h-40 object-cover rounded-2xl"
                 />
 
-                <h3 className="font-['Playfair_Display'] mt-5 text-center text-2xl font-semibold text-[#047857]">
+                <h3 className="font-['Playfair_Display'] mt-4 text-center text-xl font-semibold text-[#047857]">
                   {card.title}
                 </h3>
 
-                <p className="font-['Playfair_Display'] mt-3 text-center text-base leading-relaxed text-[#4B5563]">
+                <p className="font-['Playfair_Display'] mt-3 text-center text-sm leading-relaxed text-[#4B5563]">
                   {card.text}
                 </p>
               </motion.div>
@@ -221,14 +274,10 @@ export default function About() {
                   </h2>
 
                   <p className="font-['Playfair_Display'] mt-3 text-lg text-[#111827]">
-                    To redefine healthcare support through:
+                    To provide reliable, high-quality healthcare products and
+                    solutions that empower medical professionals and enhance
+                    patient care.
                   </p>
-
-                  <ul className="font-['Playfair_Display'] mt-4 list-disc pl-6 space-y-2 text-base text-[#4B5563] leading-relaxed">
-                    <li>Seamless access to reliable healthcare solutions</li>
-                    <li>Ethical operations rooted in care and trust</li>
-                    <li>Better outcomes through quality and collaboration</li>
-                  </ul>
                 </div>
               </motion.div>
 
@@ -247,8 +296,9 @@ export default function About() {
                   </h2>
 
                   <p className="font-['Playfair_Display'] mt-3 text-lg text-[#4B5563] leading-relaxed">
-                    To be India's trusted healthcare partner for accessible,
-                    reliable, and quality-driven care.
+                    To become a trusted leader in healthcare distribution by
+                    delivering excellence, innovation, and value to the
+                    healthcare community.
                   </p>
                 </div>
               </motion.div>
@@ -263,14 +313,14 @@ export default function About() {
             >
               <motion.img
                 src="/about/mission-bg.jpg"
-                alt="Medical Technology"
+                alt="Healthcare Products"
                 className="absolute top-0 right-0 w-[82%] rounded-[28px] shadow-xl"
                 whileHover={{ scale: 1.02 }}
               />
 
               <motion.img
                 src="/about/mission-front.jpg"
-                alt="Healthcare"
+                alt="Medical Solutions"
                 className="absolute bottom-0 right-0 w-[72%] rounded-[28px] shadow-2xl border-6 border-white"
                 whileHover={{ scale: 1.03 }}
               />
@@ -289,29 +339,40 @@ export default function About() {
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeLeft}
             >
-              <p className="text-[#047857] text-lg font-medium">
+              <p className="font-['Playfair_Display'] text-[#047857] text-lg font-medium">
                 — Our Leadership
               </p>
 
               <h2 className="font-['Playfair_Display'] mt-4 text-4xl md:text-5xl font-bold text-[#111827]">
-                Sunil Jha
+                Mr. Sunil Kumar Jha
               </h2>
 
               <h3 className="font-['Playfair_Display'] mt-3 text-xl md:text-2xl text-[#4B5563]">
-                Founder & Managing Director
+                Proprietor
               </h3>
 
               <p className="font-['Playfair_Display'] mt-6 text-base md:text-lg leading-relaxed text-[#4B5563]">
-                An IIM Ahmedabad alumnus with over 20 years of experience, Sunil
-                Jha is a visionary business leader with proven expertise in
-                scaling healthcare ventures across multiple domains.
+                Mr. Sunil Kumar Jha, Proprietor of Jagdamba Healthcare, leads
+                the company with a strong focus on quality, reliability, and
+                long-term service relationships with healthcare institutions.
               </p>
 
               <p className="font-['Playfair_Display'] mt-4 text-base md:text-lg leading-relaxed text-[#4B5563]">
-                Known for empowering teams and fostering growth, he is committed
-                to transforming healthcare access through smart distribution
-                models and strategic partnerships.
+                With 9+ years of industry experience, Jagdamba Healthcare
+                continues to support hospitals, clinics, and medical
+                professionals with dependable healthcare products and timely
+                service.
               </p>
+
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="font-['Playfair_Display'] mt-8 px-8 py-3 bg-[#10B981] text-white rounded-xl text-base font-semibold hover:bg-[#047857] transition"
+                >
+                  Connect With Us
+                </motion.button>
+              </Link>
             </motion.div>
 
             <motion.div
@@ -327,7 +388,7 @@ export default function About() {
               >
                 <img
                   src="/about/leadership.png"
-                  alt="Sunil Jha"
+                  alt="Mr. Sunil Kumar Jha"
                   className="w-full h-full object-cover"
                 />
               </motion.div>
