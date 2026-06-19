@@ -29,31 +29,31 @@ export default function About() {
 
   const coreValues = [
     {
-      img: "/about/integrity.jpg",
+      img: "/aboutpage/about1.png",
       title: "Quality & Compliance",
       text: "We follow strict quality standards to ensure dependable healthcare products and solutions.",
       bg: "bg-white",
     },
     {
-      img: "/about/agility.jpg",
+      img: "/aboutpage/about2.png",
       title: "Trust & Integrity",
       text: "We build long-term relationships through honesty, transparency, and ethical business practices.",
       bg: "bg-[#ECFDF5]",
     },
     {
-      img: "/about/partnership.jpg",
+      img: "/aboutpage/about3.png",
       title: "Customer-Centric Approach",
       text: "We work closely with healthcare institutions to understand and support their evolving needs.",
       bg: "bg-white",
     },
     {
-      img: "/about/innovation.jpg",
+      img: "/aboutpage/about4.png",
       title: "Innovation & Improvement",
       text: "We continuously improve our services to make advanced healthcare solutions more accessible.",
       bg: "bg-[#ECFDF5]",
     },
     {
-      img: "/about/reliability.jpg",
+      img: "/aboutpage/about5.png",
       title: "Reliable Timely Service",
       text: "We focus on timely delivery, consistent support, and dependable service when it matters most.",
       bg: "bg-white",
@@ -359,7 +359,7 @@ export default function About() {
 
               <p className="font-['Playfair_Display'] mt-4 text-base md:text-lg leading-relaxed text-[#4B5563]">
                 With 9+ years of industry experience, Jagdamba Healthcare
-                continues to support hospitals, clinics, and medical
+                continues to support hospitals, clinics, vendors and medical
                 professionals with dependable healthcare products and timely
                 service.
               </p>

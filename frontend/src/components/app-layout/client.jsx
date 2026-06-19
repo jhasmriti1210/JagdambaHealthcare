@@ -1,18 +1,29 @@
 import { motion } from "framer-motion";
+import aiims from "../../assets/clients/aiims.jpg";
+import medanta from "../../assets/clients/medants.jpg";
+import igims from "../../assets/clients/igims.jpg";
+import heart from "../../assets/clients/igims.jpg";
+import fourA from "../../assets/clients/igims.jpg";
+import paras from "../../assets/clients/igims.jpg";
+import ruban from "../../assets/clients/ruban.jpg";
+import ford from "../../assets/clients/ford.jpg";
+import mediversal from "../../assets/clients/mediversal.jpg";
+import asian from "../../assets/clients/asian.jpg";
+import igic from "../../assets/clients/igims.jpg";
 
 export default function Clients() {
   const clients = [
-    "AIIMS",
-    "Medanta",
-    "IGIMS",
-    "Heart Hospital",
-    "4A Heart Hospital",
-    "Paras HMRI",
-    "Ruban Memorial Hospital",
-    "Ford Hospital",
-    "Mediversal Hospital",
-    "Asian Hospital",
-    "IGIC",
+    { name: "AIIMS", logo: aiims },
+    { name: "Medanta", logo: medanta },
+    { name: "IGIMS", logo: igims },
+    { name: "Heart Hospital", logo: heart },
+    { name: "4A Heart Hospital", logo: fourA },
+    { name: "Paras HMRI", logo: paras },
+    { name: "Ruban Memorial Hospital", logo: ruban },
+    { name: "Ford Hospital", logo: ford },
+    { name: "Mediversal Hospital", logo: mediversal },
+    { name: "Asian Hospital", logo: asian },
+    { name: "IGIC", logo: igic },
   ];
 
   return (
@@ -74,9 +85,17 @@ export default function Clients() {
               }}
               className="bg-white border border-[#E5E7EB] rounded-2xl p-6 flex items-center justify-center text-center min-h-[120px] shadow-sm"
             >
-              <h3 className="font-['Playfair_Display'] text-lg md:text-xl font-semibold text-[#111827]">
-                {client}
-              </h3>
+              <div className="flex flex-col items-center justify-center text-center">
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="h-16 md:h-20 object-contain mb-4"
+                />
+
+                <h3 className="font-['Playfair_Display'] text-lg md:text-xl font-semibold text-[#111827]">
+                  {client.name}
+                </h3>
+              </div>
             </motion.div>
           ))}
         </motion.div>

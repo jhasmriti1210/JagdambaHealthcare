@@ -34,17 +34,17 @@ const products = [
   },
   {
     id: 4,
-    name: "Cardiac Equipment",
-    description: "Equipment support for hospitals and cardiac departments.",
-    logo: cardiacEquipmentImg,
-    path: "/products/cardiac-equipment",
-  },
-  {
-    id: 5,
     name: "Surgical Disposables",
     description: "Quality surgical disposable products for safe procedures.",
     logo: surgicalDisposablesImg,
     path: "/products/surgical-disposables",
+  },
+  {
+    id: 5,
+    name: "Cardiac Equipment",
+    description: "Equipment support for hospitals and cardiac departments.",
+    logo: cardiacEquipmentImg,
+    path: "",
   },
 ];
 

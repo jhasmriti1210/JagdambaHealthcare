@@ -6,9 +6,10 @@ import Service from "./components/pages/services";
 import Product from "./components/pages/products";
 import Contact from "./components/pages/contact";
 import Cardiology from "./components/pages/products/cardiology";
-import Nephrology from "./components/pages/products/nephrology";
-import Urology from "./components/pages/products/urology";
-import Gastro from "./components/pages/products/gastro";
+import CardiacEquipment from "./components/pages/products/Cardiac Equipment";
+import CardiacSurgery from "./components/pages/products/Cardiac Surgery";
+import CriticalCare from "./components/pages/products/Critical Care";
+import SurgicalDisposables from "./components/pages/products/Surgical Disposables";
 
 function App() {
   return (
@@ -23,9 +24,16 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/products/cardiology" element={<Cardiology />} />
-        <Route path="/products/nephrology" element={<Nephrology />} />
-        <Route path="/products/urology" element={<Urology />} />
-        <Route path="/products/gastro" element={<Gastro />} />
+        <Route
+          path="/products/cardiac-equipment"
+          element={<CardiacEquipment />}
+        />
+        <Route path="/products/cardiac-surgery" element={<CardiacSurgery />} />
+        <Route
+          path="/products/surgical-disposables"
+          element={<SurgicalDisposables />}
+        />
+        <Route path="/products/critical-care" element={<CriticalCare />} />
       </Routes>
     </BrowserRouter>
   );

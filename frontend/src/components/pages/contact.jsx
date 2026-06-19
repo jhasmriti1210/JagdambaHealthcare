@@ -141,6 +141,15 @@ export default function Contact() {
                     className="w-full bg-transparent border-b border-[#10B981] outline-none resize-none text-base focus:border-[#047857]"
                   ></textarea>
                 </div>
+                <div>
+                  <label className="block text-base text-[#111827] mb-1.5">
+                    Contact No
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-[#111827] focus:border-[#047857]"
+                  />
+                </div>
 
                 <div className="flex justify-end">
                   <motion.button
@@ -191,8 +200,10 @@ export default function Contact() {
                 bg: "bg-white",
                 content: (
                   <>
-                    227, 2nd Floor, SRS Tower, Sector 31, Faridabad
-                    <br />– 121003, Haryana, India
+                    First Floor, Shop No. 1 & 2, Hari Bihar Colony, near Mani
+                    International Hotel, opposite Krishi Bhawan, Mithapur,
+                    <br />
+                    Patna, Bihar – 800001
                   </>
                 ),
               },
@@ -202,8 +213,8 @@ export default function Contact() {
                 bg: "bg-[#ECFDF5]",
                 content: (
                   <>
-                    <p>+91 9717266311</p>
-                    <p>0129 - 4751558</p>
+                    <p>+91 8178996877</p>
+                    <p>+91 7701905739</p>
                   </>
                 ),
               },
@@ -211,7 +222,12 @@ export default function Contact() {
                 icon: <HiOutlineMail className="text-[#10B981] text-5xl" />,
                 title: "Email",
                 bg: "bg-white",
-                content: <>info@jagdambahealthcare.in</>,
+                content: (
+                  <>
+                    <p>jagdambahealthcare852@gmail.com</p>
+                    <p>jagdambahealthcare851@gmail.com</p>
+                  </>
+                ),
               },
             ].map((card, index) => (
               <motion.div

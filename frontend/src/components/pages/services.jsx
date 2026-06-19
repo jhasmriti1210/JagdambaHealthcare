@@ -5,101 +5,125 @@ import Footer from "../app-layout/footer";
 
 export default function Services() {
   const fadeUp = {
-    hidden: { opacity: 0, y: 80 },
+    hidden: { opacity: 0, y: 70 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.75, ease: "easeOut" },
     },
   };
 
   const fadeLeft = {
-    hidden: { opacity: 0, x: -90 },
+    hidden: { opacity: 0, x: -70 },
     show: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.75, ease: "easeOut" },
     },
   };
 
   const fadeRight = {
-    hidden: { opacity: 0, x: 90 },
+    hidden: { opacity: 0, x: 70 },
     show: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      transition: { duration: 0.75, ease: "easeOut" },
     },
   };
 
   const stagger = {
     hidden: {},
     show: {
-      transition: {
-        staggerChildren: 0.18,
-      },
+      transition: { staggerChildren: 0.14 },
     },
   };
 
   const services = [
     {
-      img: "/services/logistics.jpg",
-      title: "Operational & Logistical Excellence",
-      subtitle:
-        "Automation and Standardization to Streamline Healthcare Delivery",
+      img: "/services1.jpg",
+      title: "Cardiology",
+      subtitle: "Comprehensive cardiology and cardiovascular care solutions.",
       points: [
-        "Transition from traditional systems to standardized inventory management.",
-        "Improve supply chain transparency and reduce stockouts.",
-        "Streamline delivery to ensure timely access to life-saving devices.",
+        "Cardiology products and consumables.",
+        "Support for hospitals and cardiac centers.",
+        "Trusted solutions for cardiovascular care.",
       ],
-      bg: "bg-[#F5F5F5]",
+      bg: "bg-white",
     },
     {
-      img: "/services/access.jpg",
-      title: "Access & Expansion",
-      subtitle: "Reaching underserved markets with local insight and reach.",
+      img: "/services2.jpg",
+      title: "Cardiac Surgery",
+      subtitle: "Reliable products for advanced cardiac surgical procedures.",
       points: [
-        "Expand access to advanced medical technologies.",
-        "Build stronger regional healthcare networks.",
-        "Support market penetration and sustainable growth.",
+        "High-quality cardiac surgery products.",
+        "Support for surgical interventions.",
+        "Designed for safety and performance.",
       ],
-      bg: "bg-[#D8E7F6]",
+      bg: "bg-[#ECFDF5]",
     },
     {
-      img: "/services/analytics.jpg",
-      title: "Market Insights & Growth Strategy",
-      subtitle: "Data-driven planning and business intelligence solutions.",
+      img: "/services3.jpg",
+      title: "Critical Care",
+      subtitle: "Essential products for critical care units and hospitals.",
       points: [
-        "Healthcare market intelligence and analytics.",
-        "Growth planning and commercial strategy support.",
-        "Performance optimization through actionable insights.",
+        "Critical care consumables.",
+        "Reliable hospital support products.",
+        "Timely availability for urgent care needs.",
       ],
-      bg: "bg-[#F5F5F5]",
+      bg: "bg-white",
+    },
+    {
+      img: "/services4.jpg",
+      title: "Cardiac Equipment",
+      subtitle: "Equipment support for cardiac departments and specialists.",
+      points: [
+        "Cardiac equipment solutions.",
+        "Support for diagnostic and treatment needs.",
+        "Reliable products from trusted brands.",
+      ],
+      bg: "bg-[#ECFDF5]",
+    },
+    {
+      img: "/services5.png",
+      title: "Surgical Disposables",
+      subtitle: "Quality surgical disposable products for safe procedures.",
+      points: [
+        "Sterile and dependable disposables.",
+        "Products for hospitals and surgical units.",
+        "Quality-focused supply and service.",
+      ],
+      bg: "bg-white",
     },
   ];
 
   const chooseCards = [
     {
-      img: "/services/expertise.jpg",
-      title: "20+ Years of Industry Expertise",
-      text: "We bring decades of specialized knowledge in cardiology, cardiac surgery, and structural heart technologies — ensuring strategic, knowledgeable representation.",
+      img: "/trustqua.png",
+      title: "Trusted Quality",
+      text: "We supply healthcare products that meet high standards of quality, reliability, and performance.",
     },
     {
-      img: "/services/partnership.jpg",
-      title: "Global Partnerships, Local Execution",
-      text: "We partner with leading international MedTech brands to deliver tailored solutions through a deeply connected network across Northern & Eastern India.",
+      img: "/industryexp.png",
+      title: "Industry Expertise",
+      text: "Backed by 9+ years of experience, we understand the evolving needs of healthcare institutions.",
     },
     {
-      img: "/services/logistics-excellence.jpg",
-      title: "Operational & Logistical Excellence",
-      text: "From real-time inventory systems to standardized processes, we optimize supply chains and ensure consistent product availability.",
+      img: "/healthsupp.png",
+      title: "Responsive Support",
+      text: "Our team is committed to providing dependable service, timely delivery, and personalized assistance.",
+    },
+    {
+      img: "/excellence.png",
+      title: "Healthcare Excellence",
+      text: "We focus on building long-term partnerships and delivering excellence across every healthcare solution.",
     },
   ];
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-white">
       {/* Hero Section */}
       <section
-        className="relative h-[60vh] md:h-[70vh] flex items-center justify-center"
+        className="relative h-[55vh] md:h-[65vh] flex items-center justify-center"
         style={{
           backgroundImage: "url('/websitebg.png')",
           backgroundSize: "cover",
@@ -109,7 +133,7 @@ export default function Services() {
         <div className="absolute inset-0 bg-[#111827]/60"></div>
 
         <motion.div
-          className="relative z-10 text-center px-6"
+          className="relative z-10 text-center px-6 max-w-5xl"
           variants={stagger}
           initial="hidden"
           animate="show"
@@ -120,101 +144,102 @@ export default function Services() {
           >
             — Services —
           </motion.p>
+
           <motion.h1
             variants={fadeUp}
-            className="font-['Playfair_Display'] text-white text-5xl md:text-7xl font-bold"
+            className="font-['Playfair_Display'] mt-4 text-white text-5xl md:text-7xl font-bold"
           >
             Our Services
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="font-['Playfair_Display'] mt-8 text-white text-lg md:text-2xl font-medium max-w-5xl mx-auto"
+            className="font-['Playfair_Display'] mt-6 text-white/90 text-lg md:text-2xl font-medium max-w-4xl mx-auto"
           >
-            Empowering Healthcare Access Through Precision, Innovation, and
-            Partnership.
+            Advanced healthcare solutions with a wide portfolio of medical
+            devices, surgical disposables, cardiology, cardiac surgery, and
+            critical care products.
           </motion.p>
         </motion.div>
       </section>
 
-      <motion.div
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeUp}
-      >
-        <Partners />
-      </motion.div>
+      <Partners />
 
       {/* Services Section */}
-      <section className="bg-[#247AA8] py-16">
+      <section className="bg-gradient-to-br from-[#111827] to-[#1F2937] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-14"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
-            <p className="font-['Playfair_Display'] text-white text-xl font-medium">
+            <p className="font-['Playfair_Display'] text-[#10B981] text-lg font-medium">
               — Our Services —
             </p>
 
-            <h2 className="font-['Playfair_Display'] mt-4 text-4xl md:text-6xl font-light text-white">
+            <h2 className="font-['Playfair_Display'] mt-4 text-4xl md:text-6xl font-bold text-white">
               What We Offer
             </h2>
+
+            <p className="font-['Playfair_Display'] mt-6 max-w-4xl mx-auto text-white/80 text-lg md:text-xl leading-relaxed">
+              Advanced healthcare solutions with a wide portfolio of medical
+              devices, surgical disposables, cardiology, cardiac surgery, and
+              critical care products designed to support hospitals, clinics, and
+              healthcare institutions with reliability and excellence.
+            </p>
           </motion.div>
 
           {services.map((service, index) => (
             <motion.div
               key={index}
-              className={`${service.bg} rounded-[32px] p-6 md:p-8 mb-8 shadow-xl`}
+              className={`${service.bg} rounded-[28px] p-6 md:p-8 mb-7 shadow-xl border border-white/10`}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.25 }}
               variants={fadeUp}
               whileHover={{
-                scale: 1.015,
-                boxShadow: "0px 25px 45px rgba(0,0,0,0.25)",
+                scale: 1.01,
+                boxShadow: "0px 22px 42px rgba(16,185,129,0.18)",
               }}
             >
-              <div className="grid lg:grid-cols-2 gap-10 items-center">
+              <div className="grid lg:grid-cols-2 gap-8 items-center">
                 <motion.img
                   src={service.img}
                   alt={service.title}
-                  className="w-full h-[450px] object-cover rounded-3xl"
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.3 }}
+                  className={`w-full h-[360px] object-cover rounded-3xl ${
+                    index % 2 !== 0 ? "lg:order-2" : ""
+                  }`}
                   variants={index % 2 === 0 ? fadeLeft : fadeRight}
-                  whileHover={{ scale: 1.04 }}
+                  whileHover={{ scale: 1.03 }}
                   transition={{ duration: 0.3 }}
                 />
 
                 <motion.div
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.3 }}
+                  className={index % 2 !== 0 ? "lg:order-1" : ""}
                   variants={index % 2 === 0 ? fadeRight : fadeLeft}
                 >
-                  <h3 className="font-['Playfair_Display'] text-xl md:text-3xl font-semibold text-[#005B8F]">
+                  <h3 className="font-['Playfair_Display'] text-3xl md:text-4xl font-bold text-[#111827]">
                     {service.title}
                   </h3>
 
-                  <p className="font-['Playfair_Display'] mt-6 text-lg md:text-xl leading-relaxed">
+                  <p className="font-['Playfair_Display'] mt-4 text-lg text-[#4B5563] leading-relaxed">
                     {service.subtitle}
                   </p>
 
-                  <ul className="font-['Playfair_Display'] mt-8 space-y-4 list-disc pl-6 text-lg md:text-xl leading-relaxed">
+                  <ul className="font-['Playfair_Display'] mt-6 space-y-3 text-base md:text-lg text-[#374151] leading-relaxed">
                     {service.points.map((point, i) => (
                       <motion.li
                         key={i}
+                        className="flex gap-3"
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: i * 0.12 }}
+                        transition={{ delay: i * 0.1 }}
                       >
-                        {point}
+                        <span className="mt-2 w-2 h-2 rounded-full bg-[#10B981] flex-shrink-0"></span>
+                        <span>{point}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -225,27 +250,34 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="bg-[#F7F7F7] py-16">
+      {/* Why Choose Us */}
+      <section className="bg-[#F8FAFC] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
-            <p className="font-['Playfair_Display'] text-[#005B8F] text-xl font-medium">
+            <p className="font-['Playfair_Display'] text-[#047857] text-lg font-medium">
               — Why Choose Us —
             </p>
 
-            <h2 className="font-['Playfair_Display'] mt-4 text-3xl md:text-5xl font-bold text-[#005B8F]">
+            <h2 className="font-['Playfair_Display'] mt-4 text-4xl md:text-5xl font-bold text-[#111827]">
               What Sets Us Apart
             </h2>
+
+            <p className="font-['Playfair_Display'] mt-5 max-w-4xl mx-auto text-[#4B5563] text-lg leading-relaxed">
+              Trusted quality, industry expertise, responsive support, and a
+              strong commitment to delivering excellence in healthcare. We focus
+              on building long-term partnerships through dependable service,
+              timely delivery, and customer-focused solutions.
+            </p>
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
             variants={stagger}
             initial="hidden"
             whileInView="show"
@@ -256,23 +288,23 @@ export default function Services() {
                 key={index}
                 variants={fadeUp}
                 whileHover={{
-                  y: -14,
-                  scale: 1.03,
-                  boxShadow: "0px 25px 45px rgba(0,0,0,0.25)",
+                  y: -10,
+                  scale: 1.02,
+                  boxShadow: "0px 18px 36px rgba(16,185,129,0.18)",
                 }}
-                className="font-['Playfair_Display'] bg-[#247AA8] rounded-[30px] p-8 text-center shadow-lg"
+                className="font-['Playfair_Display'] bg-white border border-[#E5E7EB] rounded-[26px] p-5 text-center shadow-sm hover:border-[#10B981]/40 transition"
               >
                 <img
                   src={card.img}
                   alt={card.title}
-                  className="w-full h-72 object-cover rounded-3xl"
+                  className="w-full h-52 object-cover rounded-2xl"
                 />
 
-                <h3 className="font-['Playfair_Display'] mt-8 text-2xl font-semibold text-white">
+                <h3 className="mt-6 text-2xl font-bold text-[#111827]">
                   {card.title}
                 </h3>
 
-                <p className="font-['Playfair_Display'] mt-6 text-white text-lg leading-relaxed">
+                <p className="mt-4 text-[#4B5563] text-base leading-relaxed">
                   {card.text}
                 </p>
               </motion.div>

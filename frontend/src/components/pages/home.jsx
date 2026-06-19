@@ -44,31 +44,31 @@ export default function Home() {
 
   const coreValues = [
     {
-      img: "/values/integrity.jpg",
+      img: "/aboutpage/about1.png",
       title: "Quality & Compliance",
       text: "We follow strict quality standards to deliver dependable healthcare products and solutions.",
       bg: "bg-white",
     },
     {
-      img: "/values/innovation.jpg",
+      img: "/aboutpage/about2.png",
       title: "Trust & Integrity",
       text: "We build long-term relationships through honesty, transparency, and ethical service.",
       bg: "bg-[#ECFDF5]",
     },
     {
-      img: "/values/partnership.jpg",
+      img: "/aboutpage/about3.png",
       title: "Customer-Centric Approach",
       text: "We work closely with hospitals, clinics, and healthcare institutions to support their needs.",
       bg: "bg-white",
     },
     {
-      img: "/values/quality.jpg",
+      img: "/aboutpage/about4.png",
       title: "Innovation & Improvement",
       text: "We continuously improve our services to make healthcare solutions more accessible.",
       bg: "bg-[#ECFDF5]",
     },
     {
-      img: "/values/service.jpg",
+      img: "/aboutpage/about5.png",
       title: "Reliable Timely Service",
       text: "We focus on timely delivery, dependable support, and consistent professional service.",
       bg: "bg-white",
