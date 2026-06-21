@@ -66,7 +66,7 @@ export default function About() {
       <section
         className="relative h-[55vh] md:h-[65vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/websitebg.png')",
+          backgroundImage: "url('/aboutbg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -182,7 +182,7 @@ export default function About() {
               variants={fadeRight}
             >
               <motion.img
-                src="/about/about-section.png"
+                src="/whoweare.png"
                 alt="Jagdamba Healthcare"
                 className="w-full max-w-xl rounded-[28px] shadow-xl object-cover"
                 whileHover={{ scale: 1.03 }}
@@ -261,11 +261,7 @@ export default function About() {
             >
               <motion.div variants={fadeLeft} className="flex gap-5">
                 <div className="w-16 h-16 bg-[#ECFDF5] rounded-full flex items-center justify-center flex-shrink-0">
-                  <img
-                    src="/about/mission-icon.png"
-                    alt="Mission"
-                    className="w-8 h-8"
-                  />
+                  <span className="text-[#047857] text-2xl font-bold">M</span>
                 </div>
 
                 <div>
@@ -283,11 +279,7 @@ export default function About() {
 
               <motion.div variants={fadeLeft} className="flex gap-5">
                 <div className="w-16 h-16 bg-[#ECFDF5] rounded-full flex items-center justify-center flex-shrink-0">
-                  <img
-                    src="/about/vision-icon.png"
-                    alt="Vision"
-                    className="w-8 h-8"
-                  />
+                  <span className="text-[#047857] text-2xl font-bold">V</span>
                 </div>
 
                 <div>
@@ -312,14 +304,14 @@ export default function About() {
               variants={fadeRight}
             >
               <motion.img
-                src="/about/mission-bg.jpg"
+                src="/mission.png"
                 alt="Healthcare Products"
                 className="absolute top-0 right-0 w-[82%] rounded-[28px] shadow-xl"
                 whileHover={{ scale: 1.02 }}
               />
 
               <motion.img
-                src="/about/mission-front.jpg"
+                src="/vision.png"
                 alt="Medical Solutions"
                 className="absolute bottom-0 right-0 w-[72%] rounded-[28px] shadow-2xl border-6 border-white"
                 whileHover={{ scale: 1.03 }}

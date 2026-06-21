@@ -40,7 +40,7 @@ export default function Services() {
 
   const services = [
     {
-      img: "/services1.jpg",
+      img: "/services/services1.jpg",
       title: "Cardiology",
       subtitle: "Comprehensive cardiology and cardiovascular care solutions.",
       points: [
@@ -51,7 +51,7 @@ export default function Services() {
       bg: "bg-white",
     },
     {
-      img: "/services2.jpg",
+      img: "/services/services2.jpg",
       title: "Cardiac Surgery",
       subtitle: "Reliable products for advanced cardiac surgical procedures.",
       points: [
@@ -62,7 +62,7 @@ export default function Services() {
       bg: "bg-[#ECFDF5]",
     },
     {
-      img: "/services3.jpg",
+      img: "/services/services3.jpg",
       title: "Critical Care",
       subtitle: "Essential products for critical care units and hospitals.",
       points: [
@@ -73,7 +73,7 @@ export default function Services() {
       bg: "bg-white",
     },
     {
-      img: "/services4.jpg",
+      img: "/services/services4.jpg",
       title: "Cardiac Equipment",
       subtitle: "Equipment support for cardiac departments and specialists.",
       points: [
@@ -84,7 +84,7 @@ export default function Services() {
       bg: "bg-[#ECFDF5]",
     },
     {
-      img: "/services5.png",
+      img: "/services/services5.png",
       title: "Surgical Disposables",
       subtitle: "Quality surgical disposable products for safe procedures.",
       points: [
@@ -125,12 +125,12 @@ export default function Services() {
       <section
         className="relative h-[55vh] md:h-[65vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/websitebg.png')",
+          backgroundImage: "url('/servicesbg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[#111827]/60"></div>
+        <div className="absolute inset-0 bg-[#111827]/40"></div>
 
         <motion.div
           className="relative z-10 text-center px-6 max-w-5xl"

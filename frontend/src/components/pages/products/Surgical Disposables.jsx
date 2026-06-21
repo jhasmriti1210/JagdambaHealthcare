@@ -1,60 +1,84 @@
 import { motion } from "framer-motion";
-import Footer from "../../app-layout/footer";
 import { Link } from "react-router-dom";
+import Footer from "../../app-layout/footer";
 
-const nephrologyItems = [
+import applicator from "../../../assets/products/surgicaldisposables/Applicator .jpeg";
+import compositeMesh from "../../../assets/products/surgicaldisposables/Composite mesh.jpeg";
+import endoGia from "../../../assets/products/surgicaldisposables/ENDO GIA .jpeg";
+import endopathTrocar from "../../../assets/products/surgicaldisposables/ENDOPATH TROCAR.jpeg";
+import giaReload from "../../../assets/products/surgicaldisposables/GIA RELOAD.jpeg";
+import gloves from "../../../assets/products/surgicaldisposables/gloves.jpeg";
+import harmonic from "../../../assets/products/surgicaldisposables/HARMONIC.jpeg";
+import hemoLockClips from "../../../assets/products/surgicaldisposables/hemo lock clips .jpeg";
+import ligatingClip300 from "../../../assets/products/surgicaldisposables/Ligating clip ( LT 300).jpeg";
+import ligatingClip100 from "../../../assets/products/surgicaldisposables/Ligating clip (LT 100).jpeg";
+import ligatingClip200 from "../../../assets/products/surgicaldisposables/Ligating clip (LT 200).jpeg";
+import ligatingClip400 from "../../../assets/products/surgicaldisposables/Ligating clip (LT 400).jpeg";
+import mask from "../../../assets/products/surgicaldisposables/mask.jpeg";
+import proleneMesh from "../../../assets/products/surgicaldisposables/prolene mesh.jpeg";
+import skinStapler from "../../../assets/products/surgicaldisposables/skin stapler.jpeg";
+import suture from "../../../assets/products/surgicaldisposables/suture.jpeg";
+
+const surgicalDisposablesItems = [
+  { name: "Applicator", brand: "Surgical Disposable", image: applicator },
+  { name: "Composite Mesh", brand: "Surgical Mesh", image: compositeMesh },
+  { name: "ENDO GIA", brand: "Surgical Stapling", image: endoGia },
   {
-    name: "Dialysis Machine",
-    image: "/nephrology/dialysis.jpg",
+    name: "ENDOPATH Trocar",
+    brand: "Endoscopic Access",
+    image: endopathTrocar,
+  },
+  { name: "GIA Reload", brand: "Surgical Stapling", image: giaReload },
+  { name: "Gloves", brand: "Disposable Care", image: gloves },
+  { name: "Harmonic", brand: "Surgical Instrument", image: harmonic },
+  { name: "Hemo Lock Clips", brand: "Surgical Clips", image: hemoLockClips },
+  {
+    name: "Ligating Clip LT 300",
+    brand: "Surgical Clips",
+    image: ligatingClip300,
   },
   {
-    name: "Hemodialysis System",
-    image: "/nephrology/hemodialysis.jpg",
+    name: "Ligating Clip LT 100",
+    brand: "Surgical Clips",
+    image: ligatingClip100,
   },
   {
-    name: "Dialyzer",
-    image: "/nephrology/dialyzer.jpg",
+    name: "Ligating Clip LT 200",
+    brand: "Surgical Clips",
+    image: ligatingClip200,
   },
   {
-    name: "Water Treatment Unit",
-    image: "/nephrology/water-treatment.jpg",
+    name: "Ligating Clip LT 400",
+    brand: "Surgical Clips",
+    image: ligatingClip400,
   },
-  {
-    name: "Blood Tubing Set",
-    image: "/nephrology/tubing.jpg",
-  },
-  {
-    name: "Renal Monitor",
-    image: "/nephrology/renal-monitor.jpg",
-  },
+  { name: "Mask", brand: "Disposable Care", image: mask },
+  { name: "Prolene Mesh", brand: "Surgical Mesh", image: proleneMesh },
+  { name: "Skin Stapler", brand: "Surgical Stapling", image: skinStapler },
+  { name: "Suture", brand: "Surgical Suture", image: suture },
 ];
 
-export default function Nephrology() {
+export default function SurgicalDisposables() {
   const fadeUp = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0, y: 50 },
     show: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.7,
-        ease: "easeOut",
-      },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
   const stagger = {
     hidden: {},
     show: {
-      transition: {
-        staggerChildren: 0.14,
-      },
+      transition: { staggerChildren: 0.06 },
     },
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-white">
       <section
-        className="relative h-[55vh] flex items-center justify-center"
+        className="relative h-[50vh] md:h-[55vh] flex items-center justify-center"
         style={{
           backgroundImage: "url('/websitebg.png')",
           backgroundSize: "cover",
@@ -64,7 +88,7 @@ export default function Nephrology() {
         <div className="absolute inset-0 bg-[#111827]/65"></div>
 
         <motion.div
-          className="relative z-10 text-center px-6"
+          className="relative z-10 text-center px-6 max-w-5xl"
           variants={stagger}
           initial="hidden"
           animate="show"
@@ -73,20 +97,20 @@ export default function Nephrology() {
             variants={fadeUp}
             className="font-['Playfair_Display'] text-white text-5xl md:text-7xl font-bold"
           >
-            Nephrology Products
+            Surgical Disposables
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="mt-4 text-white/90 text-lg md:text-2xl"
+            className="mt-5 text-white/90 text-lg md:text-2xl"
           >
-            Advanced renal care solutions and dialysis technologies.
+            Quality disposable products and surgical essentials for safe
+            healthcare procedures.
           </motion.p>
         </motion.div>
       </section>
 
-      {/* Breadcrumb */}
-      <section className="bg-[#F8FAFC] py-5 border-b border-[#E5E7EB]">
+      <section className="bg-[#F8FAFC] py-4 border-b border-[#E5E7EB]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-sm md:text-base text-[#4B5563]">
             <Link
@@ -95,54 +119,62 @@ export default function Nephrology() {
             >
               Products
             </Link>
-
             <span className="mx-2 text-[#9CA3AF]">/</span>
-
-            <span className="text-[#111827] font-medium">Nephrology</span>
+            <span className="text-[#111827] font-medium">
+              Surgical Disposables
+            </span>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#F8FAFC] py-16">
+      <section className="bg-[#F8FAFC] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
             variants={stagger}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
-            {nephrologyItems.map((item, index) => (
+            {surgicalDisposablesItems.map((item, index) => (
               <motion.div
                 key={index}
                 variants={fadeUp}
                 whileHover={{
-                  y: -10,
-                  scale: 1.03,
-                  boxShadow: "0px 20px 35px rgba(16,185,129,0.22)",
+                  y: -8,
+                  scale: 1.02,
+                  boxShadow: "0px 18px 32px rgba(16,185,129,0.18)",
                 }}
-                className="bg-white rounded-[26px] overflow-hidden shadow-lg border border-[#E5E7EB]"
+                className="bg-white rounded-2xl overflow-hidden shadow-md border border-[#E5E7EB]"
               >
-                <motion.img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-64 object-cover"
-                  whileHover={{ scale: 1.06 }}
-                  transition={{ duration: 0.35 }}
-                />
+                <div className="bg-[#F9FAFB] h-48 overflow-hidden">
+                  <motion.img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-contain p-3"
+                    whileHover={{ scale: 1.06 }}
+                    transition={{ duration: 0.35 }}
+                  />
+                </div>
 
-                <div className="p-6 text-center">
-                  <h3 className="font-['Playfair_Display'] text-2xl font-semibold text-[#111827]">
+                <div className="p-4 text-center">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-[#ECFDF5] text-[#047857] mb-3">
+                    {item.brand}
+                  </span>
+
+                  <h3 className="font-['Playfair_Display'] text-lg font-semibold text-[#111827] min-h-[56px] flex items-center justify-center leading-snug">
                     {item.name}
                   </h3>
 
-                  <motion.button
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="mt-5 bg-[#10B981] hover:bg-[#047857] text-white px-6 py-3 rounded-full font-semibold transition"
-                  >
-                    Enquire Now
-                  </motion.button>
+                  <a href="tel:+91 7701905739">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="mt-4 bg-[#10B981] hover:bg-[#047857] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition"
+                    >
+                      Enquire Now
+                    </motion.button>
+                  </a>
                 </div>
               </motion.div>
             ))}

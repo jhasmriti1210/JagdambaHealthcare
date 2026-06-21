@@ -1,13 +1,43 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, animate } from "framer-motion";
 import { Link } from "react-router-dom";
+
 import Partners from "../app-layout/partners";
 import PartnerAndContact from "../app-layout/partnerAndContact";
 import Footer from "../app-layout/footer";
+
 import cardiologyImg from "../../assets/products/cardiology/bg.jpg";
 import cardiacSurgeryImg from "../../assets/products/cardiacsurgery/bg.jpg";
 import criticalCareImg from "../../assets/products/criticalcare/bg.jpg";
 import cardiacEquipmentImg from "../../assets/products/cardiacequipment/bg.jpg";
 import surgicalDisposablesImg from "../../assets/products/surgicaldisposables/bg.png";
+
+function AnimatedCounter({ value, suffix = "" }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    const controls = animate(0, value, {
+      duration: 1.6,
+      ease: "easeOut",
+      onUpdate(latest) {
+        setCount(Math.round(latest));
+      },
+    });
+
+    return () => controls.stop();
+  }, [isInView, value]);
+
+  return (
+    <span ref={ref}>
+      {count}
+      {suffix}
+    </span>
+  );
+}
 
 const products = [
   {
@@ -49,10 +79,10 @@ const products = [
 ];
 
 const introStats = [
-  { number: "9+", label: "Years Experience" },
-  { number: "5", label: "Product Divisions" },
-  { number: "11+", label: "Trusted Brands" },
-  { number: "10+", label: "Major Clients" },
+  { number: 9, suffix: "+", label: "Years Experience" },
+  { number: 5, suffix: "", label: "Product Divisions" },
+  { number: 11, suffix: "+", label: "Trusted Brands" },
+  { number: 10, suffix: "+", label: "Major Clients" },
 ];
 
 const introContent = {
@@ -76,9 +106,7 @@ export default function Products() {
   const stagger = {
     hidden: {},
     show: {
-      transition: {
-        staggerChildren: 0.14,
-      },
+      transition: { staggerChildren: 0.14 },
     },
   };
 
@@ -88,12 +116,12 @@ export default function Products() {
       <section
         className="relative h-[55vh] md:h-[65vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/websitebg.png')",
+          backgroundImage: "url('/productsbg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="absolute inset-0 bg-[#111827]/65"></div>
+        <div className="absolute inset-0 bg-[#111827]/45"></div>
 
         <motion.div
           className="relative z-10 text-center px-6 max-w-5xl"
@@ -126,7 +154,7 @@ export default function Products() {
       </section>
 
       {/* Products Section */}
-      <section className="bg-[#111827] py-16">
+      <section className="bg-[#e9ebf0] py-16">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center mb-12"
@@ -137,11 +165,11 @@ export default function Products() {
           >
             <p className="text-[#10B981] text-lg font-medium">— Products —</p>
 
-            <h2 className="font-['Playfair_Display'] mt-3 text-4xl md:text-6xl font-bold text-white">
+            <h2 className="font-['Playfair_Display'] mt-3 text-4xl md:text-6xl font-bold text-black">
               Explore Our Product Categories
             </h2>
 
-            <p className="mt-4 text-white/70 max-w-3xl mx-auto text-base md:text-lg">
+            <p className="mt-4 text-[#4B5563] max-w-3xl mx-auto text-base md:text-lg">
               Select a division to view related products, equipment, and
               healthcare solutions.
             </p>
@@ -185,15 +213,24 @@ export default function Products() {
                   {product.description}
                 </p>
 
-                <Link to={product.path}>
+                {product.path ? (
+                  <Link to={product.path}>
+                    <motion.button
+                      whileHover={{ scale: 1.06 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="mt-6 bg-[#10B981] text-white px-7 py-3 rounded-full font-semibold hover:bg-[#047857] transition"
+                    >
+                      View Products →
+                    </motion.button>
+                  </Link>
+                ) : (
                   <motion.button
-                    whileHover={{ scale: 1.06 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="mt-6 bg-[#10B981] text-white px-7 py-3 rounded-full font-semibold hover:bg-[#047857] transition"
+                    disabled
+                    className="mt-6 bg-gray-300 text-gray-600 px-7 py-3 rounded-full font-semibold cursor-not-allowed"
                   >
-                    View Products →
+                    Coming Soon
                   </motion.button>
-                </Link>
+                )}
               </motion.div>
             ))}
           </motion.div>
@@ -240,7 +277,7 @@ export default function Products() {
                   className="bg-white border border-[#E5E7EB] rounded-2xl p-5 text-center shadow-sm hover:shadow-lg transition"
                 >
                   <h3 className="text-3xl font-bold text-[#10B981]">
-                    {item.number}
+                    <AnimatedCounter value={item.number} suffix={item.suffix} />
                   </h3>
 
                   <p className="mt-1 text-sm text-[#4B5563]">{item.label}</p>

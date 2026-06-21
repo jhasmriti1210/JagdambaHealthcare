@@ -77,14 +77,14 @@ export default function Home() {
 
   const services = [
     {
-      title: "Medical Product Supply",
-      img: "/services/logistics.jpg",
-      text: "High-quality medical devices, cardiology products, surgical disposables, and consumables.",
+      title: "Advanced Healthcare Solutions",
+      img: "/homeserv1.png",
+      text: "Advanced healthcare solutions with a wide portfolio of medical devices, surgical disposables, cardiology, cardiac surgery, and critical care products.",
       bg: "bg-[#047857]",
     },
     {
       title: "Hospital Support Solutions",
-      img: "/services/access.jpg",
+      img: "/homeserv2.png",
       text: "Reliable product availability, timely delivery, and dedicated support for healthcare institutions.",
       bg: "bg-[#047857]",
     },
@@ -95,7 +95,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden">
         <motion.img
-          src="/img.png"
+          src="/homebg.png"
           alt="Jagdamba Healthcare"
           className="absolute inset-0 w-full h-full object-cover"
           initial={{ scale: 1.15 }}
@@ -103,7 +103,7 @@ export default function Home() {
           transition={{ duration: 1.8, ease: "easeOut" }}
         />
 
-        <div className="absolute inset-0 bg-[#111827]/55"></div>
+        <div className="absolute inset-0 bg-[#111827]/65"></div>
 
         <motion.div
           className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6"
@@ -113,7 +113,7 @@ export default function Home() {
         >
           <motion.p
             variants={fadeUp}
-            className="font-['Playfair_Display'] text-[#10B981] text-lg md:text-xl font-semibold"
+            className="font-['Playfair_Display'] text-[#5be8b9] text-lg md:text-xl font-semibold"
           >
             Jagdamba Healthcare
           </motion.p>
@@ -166,7 +166,7 @@ export default function Home() {
             variants={fadeLeft}
           >
             <motion.img
-              src="/about/about-us.png"
+              src="/whoweare.png"
               alt="About Jagdamba Healthcare"
               className="w-full max-w-2xl rounded-3xl shadow-xl object-cover"
               whileHover={{ scale: 1.03 }}
@@ -331,31 +331,6 @@ export default function Home() {
                   </motion.div>
                 ))}
               </div>
-
-              <motion.div
-                className="flex justify-center mt-8"
-                variants={fadeUp}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -8 }}
-                  className="bg-[#111827] rounded-[30px] p-6 text-white shadow-xl max-w-2xl w-full"
-                >
-                  <h3 className="font-['Playfair_Display'] text-center text-xl font-semibold mb-6">
-                    Growth & Healthcare Excellence
-                  </h3>
-
-                  <img
-                    src="/services/market.jpg"
-                    alt="Healthcare Excellence"
-                    className="w-full h-72 object-cover rounded-3xl"
-                  />
-
-                  <p className="font-['Playfair_Display'] text-center mt-5 text-white/90">
-                    Supporting better healthcare outcomes through trust,
-                    quality, product availability, and continuous improvement.
-                  </p>
-                </motion.div>
-              </motion.div>
             </motion.div>
           </div>
         </div>

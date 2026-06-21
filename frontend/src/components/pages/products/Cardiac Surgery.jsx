@@ -204,7 +204,7 @@ export default function CardiacSurgery() {
                       whileTap={{ scale: 0.95 }}
                       className="mt-4 bg-[#10B981] hover:bg-[#047857] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition"
                     >
-                      Call for Enquiry
+                      Enquiry Now
                     </motion.button>
                   </a>
                 </div>

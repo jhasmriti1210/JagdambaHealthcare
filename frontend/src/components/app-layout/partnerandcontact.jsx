@@ -41,7 +41,7 @@ export default function PartnerAndContact() {
       <section
         className="relative h-[400px] bg-cover bg-center flex items-center justify-center text-center"
         style={{
-          backgroundImage: "url('/websitebg.png')",
+          backgroundImage: "url('/partner.png')",
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>

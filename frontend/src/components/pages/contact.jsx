@@ -30,7 +30,7 @@ export default function Contact() {
       <section
         className="relative h-[55vh] md:h-[65vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/websitebg.png')",
+          backgroundImage: "url('/contactbg.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -259,34 +259,6 @@ export default function Contact() {
             ))}
           </motion.div>
         </div>
-      </section>
-
-      {/* Map */}
-      <section className="bg-[#111827] py-5">
-        <motion.div
-          className="max-w-[1500px] mx-auto px-6"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeUp}
-        >
-          <motion.div
-            className="overflow-hidden rounded-[18px] shadow-xl"
-            whileHover={{ scale: 1.005 }}
-            transition={{ duration: 0.3 }}
-          >
-            <iframe
-              title="Jagdamba Healthcare Location"
-              src="https://maps.google.com/maps?q=227%20SRS%20Tower%20Sector%2031%20Faridabad&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="430"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </motion.div>
-        </motion.div>
       </section>
 
       <Footer />
