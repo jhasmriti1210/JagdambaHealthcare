@@ -22,7 +22,7 @@ export default function Footer() {
             </p>
 
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/jagdamba-healthcare/"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex w-9 h-9 rounded-full bg-[#10B981] text-white items-center justify-center hover:bg-[#047857] transition"
@@ -87,6 +87,8 @@ export default function Footer() {
               <br />
               Patna, Bihar – 800001
             </p>
+
+            <p>Ashram in Mahrani Bagh , Delhi</p>
           </div>
 
           {/* Contact */}
