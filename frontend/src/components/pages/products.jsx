@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import Partners from "../app-layout/partners";
-import PartnerAndContact from "../app-layout/partnerandcontact";
-import Footer from "../app-layout/footer";
+import Partners from "../applayout/partners";
+import PartnerAndContact from "../applayout/partnerandcontact";
+import Footer from "../applayout/footer";
 
 import cardiologyImg from "../../assets/products/cardiology/bg.jpg";
 import cardiacSurgeryImg from "../../assets/products/cardiacsurgery/bg.jpg";

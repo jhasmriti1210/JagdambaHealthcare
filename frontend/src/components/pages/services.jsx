@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import Partners from "../app-layout/partners";
-import PartnerAndContact from "../app-layout/partnerandcontact";
-import Footer from "../app-layout/footer";
+import Partners from "../applayout/partners";
+import PartnerAndContact from "../applayout/partnerandcontact";
+import Footer from "../applayout/footer";
 
 export default function Services() {
   const fadeUp = {

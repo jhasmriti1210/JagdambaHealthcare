@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import Footer from "../app-layout/footer";
-import Partners from "../app-layout/partners";
-import PartnerAndContact from "../app-layout/partnerandcontact";
-import Client from "../app-layout/client";
+import Footer from "../applayout/footer";
+import Partners from "../applayout/partners";
+import PartnerAndContact from "../applayout/partnerandcontact";
+import Client from "../applayout/client";
 
 export default function Home() {
   const navigate = useNavigate();

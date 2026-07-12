@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Footer from "../app-layout/footer";
+import Footer from "../applayout/footer";
 import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 
