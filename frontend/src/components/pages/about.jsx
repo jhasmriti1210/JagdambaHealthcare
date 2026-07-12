@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Partners from "../app-layout/partners";
-import PartnerAndContact from "../app-layout/partnerAndContact";
+import PartnerAndContact from "../app-layout/partnerandcontact";
 import Footer from "../app-layout/footer";
 import { useState } from "react";
 

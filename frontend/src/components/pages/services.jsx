@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Partners from "../app-layout/partners";
-import PartnerAndContact from "../app-layout/partnerAndContact";
+import PartnerAndContact from "../app-layout/partnerandcontact";
 import Footer from "../app-layout/footer";
 
 export default function Services() {

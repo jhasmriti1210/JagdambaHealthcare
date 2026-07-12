@@ -3,7 +3,7 @@ import { motion, useInView, animate } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import Partners from "../app-layout/partners";
-import PartnerAndContact from "../app-layout/partnerAndContact";
+import PartnerAndContact from "../app-layout/partnerandcontact";
 import Footer from "../app-layout/footer";
 
 import cardiologyImg from "../../assets/products/cardiology/bg.jpg";
