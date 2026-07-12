@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Footer from "../../app-layout/footer";
+import Footer from "../../applayout/footer";
 
 import acrobatStabilizer from "../../../assets/products/cardiology/acrobat -i stabilizer (GETTINGE MAQUET).jpg";
 import acrobatVacuum from "../../../assets/products/cardiology/acrobat suv vacuum stabilizer (GETTINGE MAQUET).jpg";

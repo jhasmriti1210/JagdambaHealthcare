@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Footer from "../../app-layout/footer";
+import Footer from "../../applayout/footer";
 
 import applicator from "../../../assets/products/surgicaldisposables/Applicator .jpeg";
 import compositeMesh from "../../../assets/products/surgicaldisposables/Composite mesh.jpeg";

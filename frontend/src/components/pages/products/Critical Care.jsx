@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Footer from "../../app-layout/footer";
+import Footer from "../../applayout/footer";
 
 import endotrachealTube from "../../../assets/products/criticalcare/Endotrachealtube.jpeg";
 import ivCannula from "../../../assets/products/criticalcare/ivcannula.jpeg";

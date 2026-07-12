@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Footer from "../../app-layout/footer";
+import Footer from "../../applayout/footer";
 import { Link } from "react-router-dom";
 
 const urologyItems = [

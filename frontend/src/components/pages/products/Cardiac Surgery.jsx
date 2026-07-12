@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Footer from "../../app-layout/footer";
+import Footer from "../../applayout/footer";
 
 import product1 from "../../../assets/products/cardiacsurgery/arterialcannula.jpeg";
 import product2 from "../../../assets/products/cardiacsurgery/arterialfilter.jpeg";
