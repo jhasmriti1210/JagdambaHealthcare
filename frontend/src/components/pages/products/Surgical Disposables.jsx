@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Footer from "../../applayout/footer";
+import BrandProducts from "./BrandProducts";
 
 import applicator from "../../../assets/products/surgicaldisposables/Applicator .jpeg";
 import compositeMesh from "../../../assets/products/surgicaldisposables/Composite mesh.jpeg";
@@ -127,60 +128,8 @@ export default function SurgicalDisposables() {
         </div>
       </section>
 
-      <section className="bg-[#F8FAFC] py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            {surgicalDisposablesItems.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={fadeUp}
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  boxShadow: "0px 18px 32px rgba(16,185,129,0.18)",
-                }}
-                className="bg-white rounded-2xl overflow-hidden shadow-md border border-[#E5E7EB]"
-              >
-                <div className="bg-[#F9FAFB] h-48 overflow-hidden">
-                  <motion.img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-contain p-3"
-                    whileHover={{ scale: 1.06 }}
-                    transition={{ duration: 0.35 }}
-                  />
-                </div>
 
-                <div className="p-4 text-center">
-                  <span className="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-[#ECFDF5] text-[#047857] mb-3">
-                    {item.brand}
-                  </span>
-
-                  <h3 className="font-['Playfair_Display'] text-lg font-semibold text-[#111827] min-h-[56px] flex items-center justify-center leading-snug">
-                    {item.name}
-                  </h3>
-
-                  <a href="tel:+91 7701905739">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="mt-4 bg-[#10B981] hover:bg-[#047857] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition"
-                    >
-                      Enquire Now
-                    </motion.button>
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      <BrandProducts items={surgicalDisposablesItems} />
 
       <Footer />
     </div>

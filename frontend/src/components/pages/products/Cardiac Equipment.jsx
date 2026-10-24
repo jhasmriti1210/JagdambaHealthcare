@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Footer from "../../applayout/footer";
+import BrandProducts from "./BrandProducts";
 import { Link } from "react-router-dom";
 
 const urologyItems = [
@@ -105,53 +106,8 @@ export default function Urology() {
         </div>
       </section>
 
-      {/* Products Section */}
-      <section className="bg-[#F8FAFC] py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-            variants={stagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {urologyItems.map((item, index) => (
-              <motion.div
-                key={index}
-                variants={fadeUp}
-                whileHover={{
-                  y: -10,
-                  scale: 1.03,
-                  boxShadow: "0px 20px 35px rgba(16,185,129,0.22)",
-                }}
-                className="bg-white rounded-[26px] overflow-hidden shadow-lg border border-[#E5E7EB]"
-              >
-                <motion.img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-64 object-cover"
-                  whileHover={{ scale: 1.06 }}
-                  transition={{ duration: 0.35 }}
-                />
 
-                <div className="p-6 text-center">
-                  <h3 className="font-['Playfair_Display'] text-2xl font-semibold text-[#111827]">
-                    {item.name}
-                  </h3>
-
-                  <motion.button
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="mt-5 bg-[#10B981] hover:bg-[#047857] text-white px-6 py-3 rounded-full font-semibold transition"
-                  >
-                    Enquire Now
-                  </motion.button>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      <BrandProducts items={urologyItems} />
 
       <Footer />
     </div>

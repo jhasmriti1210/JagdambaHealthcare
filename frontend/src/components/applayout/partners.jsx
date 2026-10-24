@@ -1,29 +1,30 @@
 import { motion } from "framer-motion";
-import ttk from "../../assets/partners/ttk.png";
-import nipro from "../../assets/partners/nipro.png";
-import sorin from "../../assets/partners/sorin.png";
+import abbott from "../../assets/partners/abbott.png";
+import corcym from "../../assets/partners/CORCYM Logo.jpg";
+import cordis from "../../assets/partners/Cordis .jpeg";
 import maquet from "../../assets/partners/maquet.png";
 import medtronic from "../../assets/partners/medtronic.png";
-import abbott from "../../assets/partners/abbott.png";
-import asahi from "../../assets/partners/asa.png";
-import cordis from "../../assets/partners/cordis.png";
-import terumo from "../../assets/partners/terumo.png";
-import peter from "../../assets/partners/peters.png";
-import rk from "../../assets/partners/rk.png";
+// import nipro from "../../assets/partners/nipro.png";
+import peter from "../../assets/partners/peter surgical logo.png";
+import lifesciences from "../../assets/partners/r.k lifesciences.jpeg";
+import sorin from "../../assets/partners/sorin.jpeg";
+import terumo from "../../assets/partners/terumo logo.jpeg";
+import ttk from "../../assets/partners/ttk.png";
 
 export default function PartnersSection() {
   const partners = [
+    { name: "Abbott", logo: abbott },
+    { name: "CORCYM", logo: corcym },
+
     { name: "TTK Healthcare", logo: ttk },
-    { name: "Nipro Medical", logo: nipro },
+    // { name: "Nipro Medical", logo: nipro },
     { name: "Sorin Group Medical", logo: sorin },
     { name: "Maquet Getinge Group", logo: maquet },
     { name: "Medtronic", logo: medtronic },
-    { name: "Abbott", logo: abbott },
-    { name: "Asahi", logo: asahi },
     { name: "Cordis", logo: cordis },
     { name: "Terumo", logo: terumo },
     { name: "Peter Surgical", logo: peter },
-    { name: "R.K Lifesciences", logo: rk },
+    { name: "R.K Lifesciences", logo: lifesciences },
   ];
 
   const duplicatedPartners = [...partners, ...partners];
@@ -74,15 +75,17 @@ export default function PartnersSection() {
                 key={`${partner.name}-${index}`}
                 whileHover={{ y: -6, scale: 1.04 }}
                 transition={{ duration: 0.25 }}
-                className="group flex-shrink-0 w-44 md:w-52 h-28 bg-white border border-[#E5E7EB] rounded-2xl flex flex-col items-center justify-center px-5 shadow-sm hover:shadow-xl hover:border-[#10B981]/50 transition-all duration-300"
+                className="group flex-shrink-0 w-48 md:w-60 h-36 md:h-40 bg-white border border-[#E5E7EB] rounded-2xl flex flex-col overflow-hidden shadow-sm hover:shadow-xl hover:border-[#10B981]/50 transition-all duration-300"
               >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="max-h-14 md:max-h-16 max-w-[150px] object-contain opacity-100"
-                />
+                <div className="flex-1 flex items-center justify-center px-6 py-4">
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="h-full max-h-16 md:max-h-20 w-full object-contain"
+                  />
+                </div>
 
-                <p className="mt-3 text-xs text-[#6B7280] text-center font-medium opacity-0 group-hover:opacity-100 transition duration-300">
+                <p className="py-2 border-t border-[#F1F5F9] text-xs md:text-sm text-[#6B7280] text-center font-medium tracking-wide group-hover:text-[#047857] transition-colors duration-300">
                   {partner.name}
                 </p>
               </motion.div>
