@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/applayout/navbar";
+import ScrollToTop from "./components/applayout/scrolltotop";
 import Home from "./components/pages/home";
 import About from "./components/pages/about";
 import Service from "./components/pages/services";
@@ -14,6 +15,7 @@ import SurgicalDisposables from "./components/pages/products/Surgical Disposable
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
 
       <Routes>

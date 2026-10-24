@@ -156,7 +156,7 @@ export default function Home() {
       </motion.div>
 
       {/* About Section */}
-      <section className="bg-[#F8FAFC] py-20">
+      <section className="bg-[#F8FAFC] pt-6 pb-16 md:pt-8 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             className="flex justify-center"
@@ -244,7 +244,12 @@ export default function Home() {
                   scale: 1.02,
                   boxShadow: "0px 20px 35px rgba(16,185,129,0.2)",
                 }}
-                className={`${card.bg} rounded-[24px] p-4 shadow-lg`}
+                className={`${card.bg} rounded-[24px] p-4 shadow-lg ${
+                  // Center the odd last card when the grid has two columns
+                  index === coreValues.length - 1 && coreValues.length % 2
+                    ? "md:col-span-2 md:mx-auto md:w-[calc(50%-10px)] lg:col-span-1 lg:w-auto"
+                    : ""
+                }`}
               >
                 <img
                   src={card.img}

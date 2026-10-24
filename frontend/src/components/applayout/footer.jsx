@@ -3,14 +3,12 @@ import {
   FaLinkedinIn,
   FaWhatsapp,
   FaInstagram,
-  FaLandmark,
   FaHospital,
   FaBuilding,
   FaClipboardList,
   FaMapMarkerAlt,
   FaPhoneAlt,
   FaEnvelope,
-  FaArrowRight,
 } from "react-icons/fa";
 
 export default function Footer() {
@@ -36,10 +34,19 @@ export default function Footer() {
   ];
 
   const quickLinks = [
+    { label: "Home", to: "/" },
     { label: "About Us", to: "/about" },
     { label: "Services", to: "/services" },
     { label: "Products", to: "/products" },
     { label: "Contact Us", to: "/contact" },
+  ];
+
+  const productLinks = [
+    { label: "Cardiology", to: "/products/cardiology" },
+    { label: "Cardiac Equipment", to: "/products/cardiac-equipment" },
+    { label: "Cardiac Surgery", to: "/products/cardiac-surgery" },
+    { label: "Surgical Disposables", to: "/products/surgical-disposables" },
+    { label: "Critical Care", to: "/products/critical-care" },
   ];
 
   const institutional = [
@@ -49,154 +56,154 @@ export default function Footer() {
   ];
 
   const headingClass =
-    "font-['Playfair_Display'] text-[#111827] font-semibold text-base mb-3 relative pb-1.5 after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-8 after:rounded-full after:bg-[#10B981]";
+    "text-xs font-semibold uppercase tracking-[0.18em] text-[#111827] mb-3";
+
+  const linkClass =
+    "group inline-flex items-center gap-2 text-sm text-[#4B5563] hover:text-[#10B981] transition";
 
   return (
-    <footer className="bg-[#111827] px-3 py-3">
-      <div className="bg-[#F8FAFC] rounded-[20px] overflow-hidden">
-        {/* Main Footer */}
-        <div className="px-5 md:px-8 py-7">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_1.1fr_1fr] gap-x-8 gap-y-6">
-            {/* Company */}
-            <div>
-              <div className="flex items-center gap-3">
-                <img
-                  src="/logo.png"
-                  alt="Jagdamba Healthcare"
-                  className="h-12 object-contain"
-                />
-                <p className="font-['Playfair_Display'] text-[#047857] text-sm font-semibold leading-snug">
-                  Your Lifeline in
-                  <br />
-                  Cardiac Care
-                </p>
-              </div>
+    <footer className="bg-[#F8FAFC] border-t border-[#E5E7EB] text-[#111827]">
+      {/* Main Footer */}
+      <div className="max-w-7xl mx-auto px-6 py-7">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_1fr_1.2fr] gap-x-10 gap-y-6">
+          {/* Company */}
+          <div>
+            <div className="inline-flex items-center gap-3">
+              <img
+                src="/logo.png"
+                alt="Jagdamba Healthcare"
+                className="h-9 object-contain"
+              />
+              <p className="font-['Playfair_Display'] text-[#047857] text-sm font-semibold leading-snug">
+                Your Lifeline in
+                <br />
+                Cardiac Care
+              </p>
+            </div>
 
-              <div className="mt-4">
-                <h4 className="flex items-center gap-2 font-['Playfair_Display'] text-[#111827] font-semibold text-sm">
-                  <FaLandmark className="text-[#047857]" size={13} />
-                  Government & Institutional Supplies
-                </h4>
+            <p className="mt-3 max-w-xs text-sm leading-relaxed text-[#4B5563]">
+              Trusted supplier of cardiac and critical care solutions to
+              hospitals, clinics and government institutions across India.
+            </p>
 
-                <div className="mt-2 flex flex-wrap gap-1.5">
-                  {institutional.map(({ icon: Icon, title }) => (
-                    <span
-                      key={title}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-[#D1FAE5] bg-[#ECFDF5] px-2.5 py-1 text-xs text-[#047857]"
-                    >
-                      <Icon size={11} />
-                      {title}
-                    </span>
-                  ))}
-                </div>
-
-                <Link
-                  to="/contact"
-                  className="mt-2.5 inline-flex items-center gap-1.5 text-xs font-semibold text-[#047857] hover:text-[#10B981] transition"
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              {institutional.map(({ icon: Icon, title }) => (
+                <span
+                  key={title}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[#D1FAE5] bg-[#ECFDF5] px-2.5 py-1 text-xs text-[#047857]"
                 >
-                  Enquire for Bulk Orders
-                  <FaArrowRight size={10} />
-                </Link>
-              </div>
+                  <Icon size={11} />
+                  {title}
+                </span>
+              ))}
             </div>
+          </div>
 
-            {/* Quick Links */}
-            <div>
-              <h4 className={headingClass}>Quick Links</h4>
+          {/* Quick Links */}
+          <div>
+            <h4 className={headingClass}>Company</h4>
+            <ul className="space-y-1.5">
+              {quickLinks.map(({ label, to }) => (
+                <li key={to}>
+                  <Link to={to} className={linkClass}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-              <ul className="space-y-1.5 text-sm text-[#4B5563]">
-                {quickLinks.map(({ label, to }) => (
-                  <li key={to}>
-                    <Link
-                      to={to}
-                      className="group inline-flex items-center gap-2 hover:text-[#10B981] transition"
-                    >
-                      <FaArrowRight
-                        size={10}
-                        className="text-[#10B981] transition-transform group-hover:translate-x-1"
-                      />
-                      {label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          {/* Products */}
+          <div>
+            <h4 className={headingClass}>Products</h4>
+            <ul className="space-y-1.5">
+              {productLinks.map(({ label, to }) => (
+                <li key={to}>
+                  <Link to={to} className={linkClass}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Office */}
-            <div>
-              <h4 className={headingClass}>Corporate Office</h4>
+          {/* Contact */}
+          <div>
+            <h4 className={headingClass}>Get in Touch</h4>
 
-              <div className="flex gap-3 text-sm text-[#4B5563] leading-relaxed">
-                <FaMapMarkerAlt className="mt-1 flex-shrink-0 text-[#10B981]" />
-                <p>
+            <ul className="space-y-2.5 text-sm text-[#4B5563]">
+              <li className="flex gap-3 leading-relaxed">
+                <FaMapMarkerAlt className="mt-1 shrink-0 text-[#10B981]" />
+                <span>
                   First Floor, Shop No. 1 & 2, Hari Bihar Colony, near Mani
                   International Hotel, opposite Krishi Bhawan, Mithapur, Patna,
                   Bihar – 800001
-                </p>
-              </div>
+                </span>
+              </li>
 
-              <h4 className={`mt-4 ${headingClass}`}>Follow Us On</h4>
-
-              <div className="flex gap-3">
-                {socials.map(({ name, icon: Icon, href }) => (
+              <li className="flex gap-3">
+                <FaPhoneAlt className="mt-1 shrink-0 text-[#10B981]" />
+                <span className="flex flex-col">
                   <a
-                    key={name}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={name}
-                    className="w-8 h-8 rounded-full bg-white border border-[#E5E7EB] text-[#047857] flex items-center justify-center hover:bg-[#10B981] hover:border-[#10B981] hover:text-white transition"
+                    href="tel:+918178996877"
+                    className="hover:text-[#10B981] transition"
                   >
-                    <Icon size={14} />
+                    +91 8178996877
                   </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact */}
-            <div>
-              <h4 className={headingClass}>Contact Information</h4>
-
-              <div className="space-y-3 text-sm text-[#4B5563]">
-                <div className="flex gap-3">
-                  <FaPhoneAlt className="mt-1 flex-shrink-0 text-[#10B981]" />
-                  <div className="flex flex-col">
-                    <a
-                      href="tel:+918178996877"
-                      className="hover:text-[#10B981] transition"
-                    >
-                      +91 8178996877
-                    </a>
-                    <a
-                      href="tel:+917701905739"
-                      className="hover:text-[#10B981] transition"
-                    >
-                      +91 7701905739
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex gap-3">
-                  <FaEnvelope className="mt-1 flex-shrink-0 text-[#10B981]" />
                   <a
-                    href="mailto:info@jagdambahealthcare.com"
-                    className="break-all hover:text-[#10B981] transition"
+                    href="tel:+917701905739"
+                    className="hover:text-[#10B981] transition"
                   >
-                    info@jagdambahealthcare.com
+                    +91 7701905739
                   </a>
-                </div>
-              </div>
-            </div>
+                </span>
+              </li>
+
+              <li className="flex gap-3">
+                <FaEnvelope className="mt-1 shrink-0 text-[#10B981]" />
+                <a
+                  href="mailto:info@jagdambahealthcare.com"
+                  className="break-all hover:text-[#10B981] transition"
+                >
+                  info@jagdambahealthcare.com
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="px-5 md:px-8 py-3 border-t border-[#E5E7EB] flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[#6B7280] text-xs text-center md:text-left">
-            Copyright © {currentYear} Jagdamba Healthcare. All Rights Reserved.
+      {/* Follow Us */}
+      <div className="border-t border-[#E5E7EB]">
+        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col items-center gap-3">
+          <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-[#111827]">
+            Follow Us On
+          </h4>
+
+          <div className="flex gap-3">
+            {socials.map(({ name, icon: Icon, href }) => (
+              <a
+                key={name}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={name}
+                className="w-10 h-10 rounded-full border border-[#E5E7EB] bg-white text-[#047857] flex items-center justify-center shadow-sm hover:bg-[#10B981] hover:border-[#10B981] hover:text-white hover:-translate-y-0.5 transition"
+              >
+                <Icon size={16} />
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-[#E5E7EB]">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-[#6B7280]">
+          <p className="text-center md:text-left">
+            © {currentYear} Jagdamba Healthcare. All rights reserved.
           </p>
-
-          <p className="text-[#6B7280] text-xs text-center md:text-right">
+          <p className="text-center md:text-right">
             Developed by Web Development Team
           </p>
         </div>

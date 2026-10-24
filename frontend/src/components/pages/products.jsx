@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaLayerGroup } from "react-icons/fa";
 
 import Partners from "../applayout/partners";
 import PartnerAndContact from "../applayout/partnerandcontact";
@@ -233,6 +234,47 @@ export default function Products() {
                 )}
               </motion.div>
             ))}
+
+            {/* More Products */}
+            <motion.div
+              variants={fadeUp}
+              whileHover={{
+                y: -10,
+                scale: 1.02,
+                boxShadow: "0px 20px 35px rgba(16,185,129,0.25)",
+              }}
+              className="rounded-[26px] p-6 text-center border shadow-lg bg-white border-[#E5E7EB]"
+            >
+              <div className="bg-[#F8FAFC] rounded-2xl p-5 h-44 flex flex-col items-center justify-center gap-3">
+                <FaLayerGroup className="text-[#10B981]" size={34} />
+                <p className="font-['Playfair_Display'] text-xl font-bold text-[#111827]">
+                  And Many More Products
+                </p>
+              </div>
+
+              <span className="mt-6 inline-block rounded-full bg-[#ECFDF5] px-4 py-1 text-xs font-semibold uppercase tracking-wide text-[#047857]">
+                Explore Our Range
+              </span>
+
+              <h3 className="font-['Playfair_Display'] mt-3 text-2xl font-bold text-[#111827]">
+                Discover More Products
+              </h3>
+
+              <p className="mt-3 text-sm text-[#4B5563] leading-relaxed min-h-[44px]">
+                Looking for something specific? Get in touch with us to explore
+                our complete product range.
+              </p>
+
+              <Link to="/contact">
+                <motion.button
+                  whileHover={{ scale: 1.06 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-6 bg-[#10B981] text-white px-7 py-3 rounded-full font-semibold hover:bg-[#047857] transition"
+                >
+                  Contact Us →
+                </motion.button>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>

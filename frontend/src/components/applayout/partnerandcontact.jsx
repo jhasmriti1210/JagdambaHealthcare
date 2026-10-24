@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import ContactForm from "./contactform";
 
 export default function PartnerAndContact() {
   const fadeUp = {
@@ -104,74 +105,13 @@ export default function PartnerAndContact() {
             </motion.div>
 
             <motion.div
-              className="bg-[#F8FAFC] rounded-[28px] p-8"
+              className="bg-[#F8FAFC] rounded-[28px] p-6 md:p-8 border border-[#E5E7EB] shadow-sm"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeRight}
             >
-              <form className="space-y-6">
-                <div>
-                  <label className="block text-lg text-[#111827] mb-2">
-                    First name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-[#111827] focus:border-[#047857]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-lg text-[#111827] mb-2">
-                    Last name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-[#111827] focus:border-[#047857]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-lg text-[#111827] mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-[#111827] focus:border-[#047857]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-lg text-[#111827] mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    rows="3"
-                    className="w-full bg-transparent border-b border-[#10B981] outline-none resize-none text-[#111827] focus:border-[#047857]"
-                  ></textarea>
-                </div>
-
-                <div>
-                  <label className="block text-lg text-[#111827] mb-2">
-                    Contact No.
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full bg-transparent border-b border-[#10B981] outline-none pb-2 text-[#111827] focus:border-[#047857]"
-                  />
-                </div>
-
-                <div className="flex justify-end">
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full md:w-56 border border-[#10B981] text-[#047857] py-3 rounded-xl text-lg font-semibold hover:bg-[#10B981] hover:text-white transition"
-                  >
-                    Submit
-                  </motion.button>
-                </div>
-              </form>
+              <ContactForm />
             </motion.div>
           </div>
         </div>

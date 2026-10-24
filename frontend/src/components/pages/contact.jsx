@@ -1,73 +1,59 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Footer from "../applayout/footer";
+import ContactForm from "../applayout/contactform";
 import {
   FaMapMarkerAlt,
   FaPhoneAlt,
-  FaUser,
-  FaBuilding,
-  FaEnvelope,
-  FaCommentDots,
-  FaPaperPlane,
-  FaCheckCircle,
+  FaClock,
+  FaArrowRight,
 } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 
-// Form submissions are emailed to this address via FormSubmit
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/jhasmriti45@gmail.com";
+const MAP_QUERY = encodeURIComponent(
+  "Hari Bihar Colony, Mithapur, Patna, Bihar 800001",
+);
 
-const inputClass =
-  "w-full rounded-xl border border-[#E5E7EB] bg-white py-3 pl-11 pr-4 text-sm text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#10B981] focus:ring-4 focus:ring-[#10B981]/10";
+const contactCards = [
+  {
+    icon: FaMapMarkerAlt,
+    title: "Visit Us",
+    lines: [
+      {
+        text: "First Floor, Shop No. 1 & 2, Hari Bihar Colony, near Mani International Hotel, opposite Krishi Bhawan, Mithapur, Patna, Bihar – 800001",
+      },
+    ],
+    action: {
+      label: "Get Directions",
+      href: `https://www.google.com/maps/search/?api=1&query=${MAP_QUERY}`,
+    },
+  },
+  {
+    icon: FaPhoneAlt,
+    title: "Call Us",
+    lines: [
+      { text: "+91 8178996877", href: "tel:+918178996877" },
+      { text: "+91 7701905739", href: "tel:+917701905739" },
+    ],
+  },
+  {
+    icon: HiOutlineMail,
+    title: "Email Us",
+    lines: [
+      {
+        text: "info@jagdambahealthcare.com",
+        href: "mailto:info@jagdambahealthcare.com",
+      },
+    ],
+  },
+];
 
-function Field({ label, icon: Icon, required, children }) {
-  return (
-    <label className="block">
-      <span className="mb-1.5 block text-sm font-medium text-[#374151]">
-        {label}
-        {required && <span className="text-[#10B981]"> *</span>}
-      </span>
-      <span className="relative block">
-        <Icon
-          className="pointer-events-none absolute left-4 top-3.5 text-[#9CA3AF]"
-          size={14}
-        />
-        {children}
-      </span>
-    </label>
-  );
-}
+const businessHours = [
+  { day: "Mon – Fri", time: "9 AM – 7 PM" },
+  { day: "Sat", time: "9 AM – 5 PM" },
+  { day: "Sun", time: "Closed", closed: true },
+];
 
 export default function Contact() {
-  const [status, setStatus] = useState("idle");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const data = Object.fromEntries(new FormData(form));
-
-    setStatus("sending");
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          ...data,
-          _subject: `New Website Enquiry from ${data.name}`,
-          _template: "table",
-          _captcha: "false",
-        }),
-      });
-      if (!res.ok) throw new Error("Request failed");
-      form.reset();
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
-  };
-
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
     show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
@@ -170,129 +156,14 @@ export default function Contact() {
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeRight}
             >
-              <div className="mb-6">
-                <h3 className="font-['Playfair_Display'] text-2xl md:text-3xl font-bold text-[#111827]">
-                  Send Us a Message
-                </h3>
-                <p className="mt-1.5 text-sm text-[#6B7280]">
-                  Fill in the details below and our team will get back to you
-                  within 24 hours.
-                </p>
-              </div>
-
-              {status === "success" ? (
-                <div className="flex flex-col items-center justify-center rounded-2xl border border-[#D1FAE5] bg-[#ECFDF5] px-6 py-12 text-center">
-                  <FaCheckCircle className="text-[#10B981]" size={44} />
-                  <h4 className="mt-4 font-['Playfair_Display'] text-2xl font-bold text-[#111827]">
-                    Thank You!
-                  </h4>
-                  <p className="mt-2 max-w-sm text-sm text-[#4B5563]">
-                    Your message has been sent successfully. Our team will
-                    contact you shortly.
-                  </p>
-                  <button
-                    type="button"
-                    onClick={() => setStatus("idle")}
-                    className="mt-6 text-sm font-semibold text-[#047857] hover:text-[#10B981] transition"
-                  >
-                    Send another message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Honeypot field to block spam bots */}
-                  <input
-                    type="text"
-                    name="_honey"
-                    className="hidden"
-                    tabIndex={-1}
-                    autoComplete="off"
-                  />
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <Field label="Name" icon={FaUser} required>
-                      <input
-                        type="text"
-                        name="name"
-                        required
-                        placeholder="Your full name"
-                        className={inputClass}
-                      />
-                    </Field>
-
-                    <Field label="Company Name" icon={FaBuilding}>
-                      <input
-                        type="text"
-                        name="company"
-                        placeholder="Hospital / Organization"
-                        className={inputClass}
-                      />
-                    </Field>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <Field label="Email" icon={FaEnvelope} required>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        placeholder="you@example.com"
-                        className={inputClass}
-                      />
-                    </Field>
-
-                    <Field label="Phone Number" icon={FaPhoneAlt}>
-                      <input
-                        type="tel"
-                        name="phone"
-                        placeholder="+91 XXXXX XXXXX"
-                        className={inputClass}
-                      />
-                    </Field>
-                  </div>
-
-                  <Field label="Message" icon={FaCommentDots} required>
-                    <textarea
-                      rows="4"
-                      name="message"
-                      required
-                      placeholder="Type your message here..."
-                      className={`${inputClass} resize-none`}
-                    ></textarea>
-                  </Field>
-
-                  {status === "error" && (
-                    <p className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-600">
-                      Something went wrong. Please try again or call us at +91
-                      7701905739.
-                    </p>
-                  )}
-
-                  <motion.button
-                    type="submit"
-                    disabled={status === "sending"}
-                    whileHover={{ scale: status === "sending" ? 1 : 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#10B981] py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-[#047857] disabled:cursor-not-allowed disabled:opacity-70"
-                  >
-                    {status === "sending" ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        Send Message
-                        <FaPaperPlane size={14} />
-                      </>
-                    )}
-                  </motion.button>
-                </form>
-              )}
+              <ContactForm />
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Contact Info */}
-      <section className="bg-[#111827] py-14">
+      <section className="bg-[#111827] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             className="text-center"
@@ -301,86 +172,100 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
           >
-            <p className="text-[#10B981] text-lg font-medium">
-              — Our Location —
+            <p className="text-[#10B981] text-sm font-semibold uppercase tracking-[0.2em]">
+              Reach Us
             </p>
-
-            <h2 className="font-['Playfair_Display'] mt-3 text-4xl md:text-5xl font-bold text-white">
-              Get In Touch With Us
+            <h2 className="font-['Playfair_Display'] mt-2 text-3xl md:text-4xl font-bold text-white">
+              We're Here Whenever You Need Us
             </h2>
           </motion.div>
 
           <motion.div
-            className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+            className="mt-8 grid gap-5 lg:grid-cols-2"
             variants={stagger}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
           >
-            {[
-              {
-                icon: <FaMapMarkerAlt className="text-[#10B981] text-5xl" />,
-                title: "Address",
-                bg: "bg-white",
-                content: (
-                  <>
-                    First Floor, Shop No. 1 & 2, Hari Bihar Colony, near Mani
-                    International Hotel, opposite Krishi Bhawan, Mithapur,
-                    <br />
-                    Patna, Bihar – 800001
-                  </>
-                ),
-              },
-              {
-                icon: <FaPhoneAlt className="text-[#10B981] text-5xl" />,
-                title: "Phone",
-                bg: "bg-[#ECFDF5]",
-                content: (
-                  <>
-                    <p>+91 8178996877</p>
-                    <p>+91 7701905739</p>
-                  </>
-                ),
-              },
-              {
-                icon: <HiOutlineMail className="text-[#10B981] text-5xl" />,
-                title: "Email",
-                bg: "bg-white",
-                content: (
-                  <>
-                    <p>jagdambahealthcare852@gmail.com</p>
-                    <p>jagdambahealthcare851@gmail.com</p>
-                  </>
-                ),
-              },
-            ].map((card, index) => (
-              <motion.div
-                key={index}
-                variants={fadeUp}
-                whileHover={{
-                  y: -10,
-                  scale: 1.02,
-                  boxShadow: "0px 20px 35px rgba(16,185,129,0.2)",
-                }}
-                className={`${card.bg} rounded-[24px] p-7 text-center shadow-lg`}
-              >
-                <motion.div
-                  className="flex justify-center"
-                  whileHover={{ scale: 1.12, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {card.icon}
-                </motion.div>
-
-                <h3 className="font-['Playfair_Display'] mt-5 text-3xl font-bold text-[#111827]">
-                  {card.title}
-                </h3>
-
-                <div className="mt-4 text-base leading-relaxed text-[#4B5563]">
-                  {card.content}
+            <motion.div
+              variants={fadeLeft}
+              className="divide-y divide-white/10 rounded-[20px] border border-white/10 bg-white/[0.04] px-4 sm:px-5"
+            >
+              {contactCards.map((card) => (
+                <div key={card.title} className="flex gap-3 sm:gap-4 py-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#10B981]/15 text-[#10B981]">
+                    <card.icon size={16} />
+                  </div>
+                  <div className="min-w-0 text-sm leading-relaxed text-white/70">
+                    <h3 className="text-base font-semibold text-white">
+                      {card.title}
+                    </h3>
+                    {card.lines.map((line) =>
+                      line.href ? (
+                        <a
+                          key={line.text}
+                          href={line.href}
+                          className="mr-4 inline-block break-words transition hover:text-[#10B981]"
+                        >
+                          {line.text}
+                        </a>
+                      ) : (
+                        <p key={line.text}>{line.text}</p>
+                      ),
+                    )}
+                    {card.action && (
+                      <a
+                        href={card.action.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1 inline-flex items-center gap-1.5 text-xs font-semibold text-[#10B981] hover:underline"
+                      >
+                        {card.action.label}
+                        <FaArrowRight size={10} />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+
+              <div className="flex gap-3 sm:gap-4 py-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#10B981]/15 text-[#10B981]">
+                  <FaClock size={16} />
+                </div>
+                <div className="text-sm leading-relaxed text-white/70">
+                  <h3 className="text-base font-semibold text-white">
+                    Business Hours
+                  </h3>
+                  <p>
+                    {businessHours.map((row, i) => (
+                      <span key={row.day} className="block sm:inline">
+                        {i > 0 && <span className="hidden sm:inline"> · </span>}
+                        {row.day}:{" "}
+                        <span
+                          className={row.closed ? "text-red-400" : "text-white"}
+                        >
+                          {row.time}
+                        </span>
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={fadeRight}
+              className="overflow-hidden rounded-[20px] border border-white/10 h-[280px] lg:h-auto"
+            >
+              <iframe
+                title="Jagdamba Healthcare location"
+                src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
+                className="h-full w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              ></iframe>
+            </motion.div>
           </motion.div>
         </div>
       </section>
