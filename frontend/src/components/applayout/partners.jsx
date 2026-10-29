@@ -85,9 +85,9 @@ export default function PartnersSection() {
                   />
                 </div>
 
-                <p className="py-2 border-t border-[#F1F5F9] text-xs md:text-sm text-[#6B7280] text-center font-medium tracking-wide group-hover:text-[#047857] transition-colors duration-300">
+                {/* <p className="py-2 border-t border-[#F1F5F9] text-xs md:text-sm text-[#6B7280] text-center font-medium tracking-wide group-hover:text-[#047857] transition-colors duration-300">
                   {partner.name}
-                </p>
+                </p> */}
               </motion.div>
             ))}
           </motion.div>

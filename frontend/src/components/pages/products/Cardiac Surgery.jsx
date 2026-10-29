@@ -3,150 +3,187 @@ import { Link } from "react-router-dom";
 import Footer from "../../applayout/footer";
 import BrandProducts from "./BrandProducts";
 
-import product1 from "../../../assets/products/cardiacsurgery/arterialcannula.jpeg";
-import product2 from "../../../assets/products/cardiacsurgery/arterialfilter.jpeg";
-import product3 from "../../../assets/products/cardiacsurgery/CarbomedicsoptiformheartvalveCorcymmedical.jpeg";
-import product4 from "../../../assets/products/cardiacsurgery/CARDIOPLEGIADELIVERYSET.jpeg";
-import product5 from "../../../assets/products/cardiacsurgery/CardioplegiaPerfusionAdapters.jpeg";
-import product6 from "../../../assets/products/cardiacsurgery/Cardioroot.jpg";
-import product7 from "../../../assets/products/cardiacsurgery/CompletesetofCVCkit.jpeg";
-import product8 from "../../../assets/products/cardiacsurgery/Coronaryshunts.jpeg";
-import product9 from "../../../assets/products/cardiacsurgery/Hlscannulae.jpg";
-import product10 from "../../../assets/products/cardiacsurgery/HLSSetadvanced.jpg";
-import product11 from "../../../assets/products/cardiacsurgery/INSPIRE6Fsorin.jpeg";
-import product12 from "../../../assets/products/cardiacsurgery/intergardknittedtrifurcatedandquadrifurcated.jpg";
-import product13 from "../../../assets/products/cardiacsurgery/IntergardKnittedUltrathin.jpg";
-import product14 from "../../../assets/products/cardiacsurgery/intergardknittedvasculargraft.jpg";
-import product15 from "../../../assets/products/cardiacsurgery/intergardsilver.jpg";
-import product16 from "../../../assets/products/cardiacsurgery/intergardsynergy.jpg";
-import product17 from "../../../assets/products/cardiacsurgery/IntergardWovenAorticArchandHemabridge.jpg";
-import product18 from "../../../assets/products/cardiacsurgery/IntergardWovenThoracicAorticGraft.jpg";
-import product19 from "../../../assets/products/cardiacsurgery/PerfusionTubing.jpeg";
-import product20 from "../../../assets/products/cardiacsurgery/rotaflowIIsystem.jpg";
-import product21 from "../../../assets/products/cardiacsurgery/TTKChitra.jpeg";
-import product22 from "../../../assets/products/cardiacsurgery/TTKChitraMITRAL.jpeg";
-import product23 from "../../../assets/products/cardiacsurgery/venouscannulaMAQUET.jpeg";
-import product24 from "../../../assets/products/cardiacsurgery/VesselLoops.jpeg";
-import product25 from "../../../assets/products/cardiacsurgery/sorin.jpeg";
+const images = import.meta.glob(
+  "../../../assets/products/cardiacsurgery/**/*.{png,jpg,jpeg,webp}",
+  { eager: true, import: "default" },
+);
+
+const image = (path) =>
+  images[`../../../assets/products/cardiacsurgery/${path}`];
+
+const products = (brand, folder, list) =>
+  list.map(([name, file]) => ({
+    name,
+    brand,
+    image: image(`${folder}/${file}`),
+  }));
+
+// Prymax Healthcare and R.K Lifesciences carry the same product range.
+const perfusionRange = [
+  ["Arterial Cannula", "Arterial Cannula.webp"],
+  [
+    "Arterial Cannula Pediatric One-Piece",
+    "Arterial Cannula Pediatric one - piece.webp",
+  ],
+  [
+    "Arterial Cannula with Wire Reinforced",
+    "Arterial cannula with wire Reinforced.webp",
+  ],
+  ["Arterial Catheter Kit", "Arterial Catheter Kit.webp"],
+  ["Arterial Filter", "ARTERIAL FILTER.webp"],
+  ["Blunt Needle", "Blunt Needle.webp"],
+  ["Cardioplegia Delivery Set", "Cardioplegia Delivery Set.webp"],
+  ["Cardioplegia Perfusion Adapters", "Cardioplegia Perfusion Adapters.webp"],
+  ["Cautery Accessories", "Cautery Accessories.webp"],
+  ["Control Syringe", "Control Syringe.webp"],
+  ["Coronary Artery Ostial Cannula", "Coronary Artery Ostial Cannula.webp"],
+  ["CVC Kit", "CVC kit.webp"],
+  ["Heart Lung Pack", "Heart Lung pack.webp"],
+  [
+    "Hemostasis Y Push Pull Rotating Click Type",
+    "Hemostasis Y Push Pull Rotating Click type.webp",
+  ],
+  ["High Pressure Line", "High Pressure Line.webp"],
+  ["I.V Set", "I.V Set.webp"],
+  ["Inflation Device", "Inflation Device.webp"],
+  ["Introducer Set", "Introducer Set.webp"],
+  ["Introducer Needle", "Introduer needle.webp"],
+  ["Manifold", "Manifold.webp"],
+  ["Mister Blower", "Mister Blower.webp"],
+  ["Pressure Monitoring Kits", "Pressure Monitoring Kits.webp"],
+  ["Rigid Suction Tube", "Rigid Suction Tube.webp"],
+  ["Venous Cannula", "Venous Cannula.webp"],
+  ["Vessel Loops (Silicone Loops)", "Vessel Loops (Silicon Loops).webp"],
+];
 
 const cardiacSurgeryItems = [
-  { name: "Arterial Cannula", brand: "MAQUET", image: product1 },
-  { name: "Arterial Filter", brand: "MAQUET", image: product2 },
-  {
-    name: "Carbomedics Optiform Heart Valve",
-    brand: "Corcym Medical",
-    image: product3,
-  },
-  {
-    name: "Cardioplegia Delivery Set",
-    brand: "Sorin",
-    image: product4,
-  },
-  {
-    name: "Cardioplegia Perfusion Adapters",
-    brand: "Sorin",
-    image: product5,
-  },
-  {
-    name: "Cardioroot",
-    brand: "Sorin",
-    image: product6,
-  },
-  {
-    name: "Complete Set of CVC Kit",
-    brand: "Nipro",
-    image: product7,
-  },
-  {
-    name: "Coronary Shunts",
-    brand: "Nipro",
-    image: product8,
-  },
-  {
-    name: "HLS Cannulae",
-    brand: "Getinge",
-    image: product9,
-  },
-  {
-    name: "HLS Set Advanced",
-    brand: "Getinge",
-    image: product10,
-  },
-  {
-    name: "INSPIRE 6F",
-    brand: "Sorin",
-    image: product11,
-  },
-  {
-    name: "Intergard Knitted Trifurcated",
-    brand: "Getinge",
-    image: product12,
-  },
-  {
-    name: "Intergard Knitted Ultrathin",
-    brand: "Getinge",
-    image: product13,
-  },
-  {
-    name: "Intergard Knitted Vascular Graft",
-    brand: "Getinge",
-    image: product14,
-  },
-  {
-    name: "Intergard Silver",
-    brand: "Getinge",
-    image: product15,
-  },
-  {
-    name: "Intergard Synergy",
-    brand: "Getinge",
-    image: product16,
-  },
-  {
-    name: "Intergard Woven Aortic Arch",
-    brand: "Getinge",
-    image: product17,
-  },
-  {
-    name: "Intergard Woven Thoracic Aortic Graft",
-    brand: "Getinge",
-    image: product18,
-  },
-  {
-    name: "Perfusion Tubing",
-    brand: "Sorin",
-    image: product19,
-  },
-  {
-    name: "Rotaflow II System",
-    brand: "Getinge",
-    image: product20,
-  },
-  {
-    name: "TTK Chitra Valve",
-    brand: "TTK Healthcare",
-    image: product21,
-  },
-  {
-    name: "TTK Chitra Mitral Valve",
-    brand: "TTK Healthcare",
-    image: product22,
-  },
-  {
-    name: "Venous Cannula",
-    brand: "MAQUET",
-    image: product23,
-  },
-  {
-    name: "Vessel Loops",
-    brand: "Peter Surgical",
-    image: product24,
-  },
-  {
-    name: "Sorin Product",
-    brand: "Sorin",
-    image: product25,
-  },
+  ...products("ACE Cathtech", "ACE CATHTECH", [
+    ["Arterial Cannula", "Arterial Cannula.png"],
+    [
+      "Arterial Cannula Pediatric One-Piece",
+      "Arterial Cannula Pediatric One-Piece.png",
+    ],
+    [
+      "Arterial Cannula with Wire Reinforced",
+      "Arterial Cannula With Wire Reinforced.png",
+    ],
+    ["Arterial Catheter Kit", "Arterial Catheter Kit.png"],
+    ["Arterial Filter", "Arterial Filter.png"],
+    ["Cardioplegia Delivery Set", "Cardioplegia Delivery Set.jpg"],
+    ["Cardioplegia Perfusion Adapters", "Cardioplegia Perfusion Adapters.png"],
+    ["Components of Standard CVC Kit", "Components of Standard CVC Kit.png"],
+    ["Control Syringe", "Control Syringe.png"],
+    ["Coronary Artery Ostial Cannula", "Coronary Artery Ostial Cannula.png"],
+    ["CVC Kit", "CVC Kit.png"],
+    ["Filter-1-300x300", "Filter-1-300x300.png"],
+
+    ["Heart Lung Pack", "Heart Lung Pack.png"],
+    ["High Pressure Line", "High Pressure Line.png"],
+    ["Inflation Device", "Inflation Device.png"],
+    ["Introducer Needle", "Introducer Needle.png"],
+    ["Manifold", "Manifold.png"],
+    ["Mister Blower", "Mister Blower.png"],
+    ["Perfusion Accessories", "Perfusion Accessories.png"],
+    ["Rigid Suction Tubes", "Rigid Suction Tubes.png"],
+    ["Venous Cannula", "Venous Cannula.png"],
+    ["Venous Cannula Angled Metal Tip", "Venous Cannula Angled Metal Tip.png"],
+    ["Y-Connector", "Y-Connector.png"],
+  ]),
+  ...products("Corcym", "CORCYM", [
+    ["Carbo-Seal Valsalva™ (Aortic)", "Aortic/CARBO-SEAL VALSALVATM.webp"],
+    ["Carbomedics™ Aortic Valve", "Aortic/CARBOMEDICSTM.webp"],
+    ["HAART 200™ (Aortic)", "Aortic/HAART 200TM.webp"],
+    ["HAART 300™ (Aortic)", "Aortic/HAART 300TM.webp"],
+    ["Perceval Plus (Aortic)", "Aortic/perceval_PLUS_LANCELOT.webp"],
+    [
+      "Annuloflex™ (Mitral & Tricuspid)",
+      "MITRAL & TRICUSPID/ANNULOFLEXTM.webp",
+    ],
+    ["Carbomedics™ Mitral Valve", "MITRAL & TRICUSPID/CARBOMEDICSTM.webp"],
+    ["Memo 3D™ (Mitral)", "MITRAL & TRICUSPID/MEMO 3DTM.webp"],
+    ["Memo 4D™ (Mitral)", "MITRAL & TRICUSPID/MEMO 4D TM.webp"],
+    ["Memo 4D Curve™ (Mitral)", "MITRAL & TRICUSPID/MEMO 4D CURVETM.webp"],
+    ["TriMemo™ (Tricuspid)", "MITRAL & TRICUSPID/TRIMEMO ⌐.webp"],
+  ]),
+  ...products("Getinge Maquet", "MAQUET", [
+    ["Acrobat-i Positioner", "Acrobat-i Positioner (GETTINGE MAQUET).jpg"],
+    ["Acrobat-i Stabilizer", "acrobat -i stabilizer (GETTINGE MAQUET).jpg"],
+    [
+      "Acrobat SUV Vacuum Stabilizer",
+      "acrobat suv vacuum stabilizer (GETTINGE MAQUET).jpg",
+    ],
+    [
+      "Cardioroot (Woven Vascular Graft)",
+      "Cardioroot(woven vascular graft ) gettinge maquet.jpg",
+    ],
+    ["HLS Cannulae", "Hls cannulae (Gettinge maquet).jpg"],
+    ["HLS Set Advanced", "HLS Set advanced (Gettinge maquet).jpg"],
+    [
+      "Intergard Knitted Trifurcated & Quadrifurcated",
+      "intergard knitted trifurcated and quadrifurcated (GETTINGE MAQUET).jpg",
+    ],
+    [
+      "Intergard Knitted Ultrathin",
+      "Intergard Knitted Ultrathin (GETTINGE MAQUET).jpg",
+    ],
+    [
+      "Intergard Knitted Vascular Graft",
+      "intergard knitted vascular graft (GETTINGE MAQUET).jpg",
+    ],
+    [
+      "Intergard Silver (Antimicrobial Graft)",
+      "intergard silver (antimicrobial graft) (GETTINGE MAQUET).jpg",
+    ],
+    ["Intergard Synergy", "intergard synergy (GETTINGE MAQUET).jpg"],
+    [
+      "Intergard Woven Aortic Arch & Hemabridge",
+      "Intergard Woven Aortic Arch and Hemabridge (GETTINGE MAQUET).jpg",
+    ],
+    [
+      "Intergard Woven Thoracic Aortic Graft",
+      "Intergard Woven Thoracic Aortic Graft (GETTINGE MAQUET).jpg",
+    ],
+    [
+      "Linear 7.5 Fr. IAB Catheter",
+      "Linear 7.5 Fr. IAB Catheter (GETTINGE MAQUET).jpg",
+    ],
+    [
+      "Mega 7.5 Fr. & 8 Fr. IABP Catheters",
+      "Mega 7.5 Fr. & 8 Fr. IABP Catheters (GETTINGE MAQUET).jpg",
+    ],
+    ["PLS Kit", "Pls kit (GETTINGE MAQUET).jpg"],
+    ["Rotaflow II System", "rotaflow II system (GETTINGE MAQUET).jpg"],
+    [
+      "Sensation 7 Fr. IAB Catheter",
+      "Sensation 7 Fr. IAB Catheter (GETTINGE MAQUET).jpg",
+    ],
+    [
+      "Sensation Plus 7.5 Fr. & 8 Fr. IAB Catheters",
+      "Sensation Plus 7.5 Fr. & 8 Fr. IAB Catheters (GETTINGE MAQUET).jpg",
+    ],
+  ]),
+  ...products("Prymax Healthcare", "PRYMAX HEALTHCARE", perfusionRange),
+  ...products("R.K Lifesciences", "R.K LIFESCIENCES", perfusionRange),
+  ...products("Sorin Medical", "SORIN MEDICAL", [
+    [
+      "Cannula (Bi-Flow, Pureflex & More)",
+      "CANNULA (INCLUDING BI-FLOW, PUREFLEX AND MORE ).webp",
+    ],
+    [
+      "Disposables (PTS, Connectors & More)",
+      "Disposables (INCLUDING PTS, CONNECTORS AND MORE).webp",
+    ],
+    ["Heart-Lung Equipment", "Heart-Lung Equipment.webp"],
+    [
+      "Oxygenators (Inspire Family, Kids & Lilliput)",
+      "Oxygenators (INSPIRE FAMILY , KIDS AND LILLIPUT).webp",
+    ],
+    ["Vascular Dilator Kit", "Vascular Dilator Kit .png"],
+  ]),
+  ...products("TTK Healthcare", "TTK HEALTHCARE", [
+    ["TTK Chitra Heart Valve", "TTK Chitra Heart Valve.jpeg"],
+    ["TTK Chitra Mitral Valve", "TTK Chitra Mitral Valve.jpeg"],
+  ]),
 ];
 
 export default function CardiacSurgery() {
@@ -180,7 +217,7 @@ export default function CardiacSurgery() {
       <section
         className="relative min-h-[420px] h-[50vh] md:h-[55vh] flex items-center justify-center bg-cover bg-center"
         style={{
-          backgroundImage: "url('/websitebg.png')",
+          backgroundImage: "url('/bg.jpg')",
         }}
       >
         <div className="absolute inset-0 bg-[#111827]/65" />
@@ -193,7 +230,7 @@ export default function CardiacSurgery() {
         >
           <motion.p
             variants={fadeUp}
-            className="mb-4 text-sm sm:text-base md:text-lg font-semibold tracking-wide text-[#10B981]"
+            className="mb-4 text-sm sm:text-base md:text-lg font-semibold tracking-wide text-[#10B981] mt-6"
           >
             — Cardiac Surgery —
           </motion.p>
@@ -232,7 +269,6 @@ export default function CardiacSurgery() {
           </div>
         </div>
       </section>
-
 
       <BrandProducts items={cardiacSurgeryItems} />
 

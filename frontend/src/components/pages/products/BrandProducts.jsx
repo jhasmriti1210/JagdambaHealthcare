@@ -36,7 +36,9 @@ const getBrandLogo = (brand) =>
 
 const getInitials = (brand) =>
   brand
+    .replace(/[^A-Za-z\s]/g, "")
     .split(/\s+/)
+    .filter(Boolean)
     .map((word) => word[0])
     .join("")
     .slice(0, 2)

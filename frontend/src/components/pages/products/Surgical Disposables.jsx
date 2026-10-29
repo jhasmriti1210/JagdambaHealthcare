@@ -2,62 +2,74 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Footer from "../../applayout/footer";
 import BrandProducts from "./BrandProducts";
+import headerBg from "../../../assets/products/surgicaldisposable/bg.png";
 
-import applicator from "../../../assets/products/surgicaldisposables/Applicator .jpeg";
-import compositeMesh from "../../../assets/products/surgicaldisposables/Composite mesh.jpeg";
-import endoGia from "../../../assets/products/surgicaldisposables/ENDO GIA .jpeg";
-import endopathTrocar from "../../../assets/products/surgicaldisposables/ENDOPATH TROCAR.jpeg";
-import giaReload from "../../../assets/products/surgicaldisposables/GIA RELOAD.jpeg";
-import gloves from "../../../assets/products/surgicaldisposables/gloves.jpeg";
-import harmonic from "../../../assets/products/surgicaldisposables/HARMONIC.jpeg";
-import hemoLockClips from "../../../assets/products/surgicaldisposables/hemo lock clips .jpeg";
-import ligatingClip300 from "../../../assets/products/surgicaldisposables/Ligating clip ( LT 300).jpeg";
-import ligatingClip100 from "../../../assets/products/surgicaldisposables/Ligating clip (LT 100).jpeg";
-import ligatingClip200 from "../../../assets/products/surgicaldisposables/Ligating clip (LT 200).jpeg";
-import ligatingClip400 from "../../../assets/products/surgicaldisposables/Ligating clip (LT 400).jpeg";
-import mask from "../../../assets/products/surgicaldisposables/mask.jpeg";
-import proleneMesh from "../../../assets/products/surgicaldisposables/prolene mesh.jpeg";
-import skinStapler from "../../../assets/products/surgicaldisposables/skin stapler.jpeg";
-import suture from "../../../assets/products/surgicaldisposables/suture.jpeg";
+const images = import.meta.glob(
+  "../../../assets/products/surgicaldisposable/**/*.{png,jpg,jpeg,webp}",
+  { eager: true, import: "default" },
+);
 
 const surgicalDisposablesItems = [
-  { name: "Applicator", brand: "Surgical Disposable", image: applicator },
-  { name: "Composite Mesh", brand: "Surgical Mesh", image: compositeMesh },
-  { name: "ENDO GIA", brand: "Surgical Stapling", image: endoGia },
-  {
-    name: "ENDOPATH Trocar",
-    brand: "Endoscopic Access",
-    image: endopathTrocar,
-  },
-  { name: "GIA Reload", brand: "Surgical Stapling", image: giaReload },
-  { name: "Gloves", brand: "Disposable Care", image: gloves },
-  { name: "Harmonic", brand: "Surgical Instrument", image: harmonic },
-  { name: "Hemo Lock Clips", brand: "Surgical Clips", image: hemoLockClips },
-  {
-    name: "Ligating Clip LT 300",
-    brand: "Surgical Clips",
-    image: ligatingClip300,
-  },
-  {
-    name: "Ligating Clip LT 100",
-    brand: "Surgical Clips",
-    image: ligatingClip100,
-  },
-  {
-    name: "Ligating Clip LT 200",
-    brand: "Surgical Clips",
-    image: ligatingClip200,
-  },
-  {
-    name: "Ligating Clip LT 400",
-    brand: "Surgical Clips",
-    image: ligatingClip400,
-  },
-  { name: "Mask", brand: "Disposable Care", image: mask },
-  { name: "Prolene Mesh", brand: "Surgical Mesh", image: proleneMesh },
-  { name: "Skin Stapler", brand: "Surgical Stapling", image: skinStapler },
-  { name: "Suture", brand: "Surgical Suture", image: suture },
-];
+  ["Composite Mesh", "Composite mesh.jpeg"],
+  ["ENDOPATH Trocar", "ENDOPATH TROCAR.jpeg"],
+  ["Harmonic", "HARMONIC.jpeg"],
+  ["Ligating Clip LT 100", "Ligating clip (LT 100).jpeg"],
+  ["Ligating Clip LT 200", "Ligating clip (LT 200).jpeg"],
+  ["Ligating Clip LT 300", "Ligating clip ( LT 300).jpeg"],
+  ["Ligating Clip LT 400", "Ligating clip (LT 400).jpeg"],
+  ["Prolene Mesh", "prolene mesh.jpeg"],
+  ["Prolene Suture", "suture.jpeg"],
+  ["ENDO GIA", "ENDO GIA .jpeg"],
+  ["GIA Reload", "GIA RELOAD.jpeg"],
+  [
+    "Fenestrated Tracheostomy Tube with Inner Cannula",
+    "Fenestarted Tracheostomy Tube With INNER Cannula (Covidien).webp",
+  ],
+  ["Hem-o-lok Clip Applicator", "Applicator .jpeg"],
+  ["Hem-o-lok Clips", "hemo lock clips .jpeg"],
+  ["Visistat Skin Stapler", "skin stapler.jpeg"],
+  [
+    "Epidural Mini Pack System 1 with Clamp 18G",
+    "EPIDURAL MINI PACK SYSTEM 1 WITH CLAMP 18G.webp",
+  ],
+  [
+    "Portex Epidural Minipack System 1",
+    "Portex Eqidural Minipack System 1.webp",
+  ],
+  ["Portex ET Tube", "ET Tube.webp"],
+  ["Jelco IV Cannula 20G 45mm", "Jelco IV CANNULA 20G 45MM.webp"],
+  ["Arterial Cannula 20G", "ARTERIAL CANNULA BD 20G.webp"],
+  ["BD Pen Needles", "BD Pen Needles.webp"],
+  ["Radifocus Guide Wire", "Radifocus Guide Wire Terumo.webp"],
+  ["LeaderFlex", "LeaderFlex (Vygon).webp"],
+  [
+    "Pressure Monitoring Kit",
+    "Pressure Monitoring Kit (B.L Lifesciences).webp",
+  ],
+  ["Double Pigtail Ureteral Stent", "Double pigtal stent.webp"],
+  ["SH024", "SH024 Surgiwear.webp"],
+  ["Anesthetic Face Mask", "Anesthetic Face mask.webp"],
+  ["Disposable Surgical Gowns", "Disposable Surgical Gowns.png"],
+  [
+    "Endotracheal Tube North Nasal Cuffed",
+    "Endotracheal Tube North Nasal Cuffed.webp",
+  ],
+  [
+    "Endotracheal Tube South Oral Cuffed",
+    "Endotracheal Tube South oral cuffed.webp",
+  ],
+  ["Nitrile Examination Gloves", "gloves.jpeg"],
+  ["Face Mask", "mask.jpeg"],
+  ["SLS Clip", "SLS Clip.webp"],
+  ["Surgical Gloves", "Surgical gloves .png"],
+  ["Surgical Mask", "Surgical Mask.png"],
+].map(([name, file]) => ({
+  name,
+  image:
+    images[
+      `../../../assets/products/surgicaldisposable/all surgical disposables/${file}`
+    ],
+}));
 
 export default function SurgicalDisposables() {
   const fadeUp = {
@@ -81,7 +93,7 @@ export default function SurgicalDisposables() {
       <section
         className="relative h-[50vh] md:h-[55vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/websitebg.png')",
+          backgroundImage: `url(${headerBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -127,7 +139,6 @@ export default function SurgicalDisposables() {
           </div>
         </div>
       </section>
-
 
       <BrandProducts items={surgicalDisposablesItems} />
 

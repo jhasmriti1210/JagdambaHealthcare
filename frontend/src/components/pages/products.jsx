@@ -11,7 +11,7 @@ import cardiologyImg from "../../assets/products/cardiology/bg.jpg";
 import cardiacSurgeryImg from "../../assets/products/cardiacsurgery/bg.jpg";
 import criticalCareImg from "../../assets/products/criticalcare/bg.jpg";
 import cardiacEquipmentImg from "../../assets/products/cardiacequipment/bg.jpg";
-import surgicalDisposablesImg from "../../assets/products/surgicaldisposables/bg.png";
+import surgicalDisposablesImg from "../../assets/products/surgicaldisposable/bg.png";
 
 function AnimatedCounter({ value, suffix = "" }) {
   const ref = useRef(null);

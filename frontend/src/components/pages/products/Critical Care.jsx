@@ -3,39 +3,29 @@ import { Link } from "react-router-dom";
 import Footer from "../../applayout/footer";
 import BrandProducts from "./BrandProducts";
 
-import endotrachealTube from "../../../assets/products/criticalcare/Endotrachealtube.jpeg";
-import ivCannula from "../../../assets/products/criticalcare/ivcannula.jpeg";
-import ivSet from "../../../assets/products/criticalcare/ivset.jpeg";
-import oxygenMask from "../../../assets/products/criticalcare/oxygenmask.jpeg";
-import tracheostomyTube from "../../../assets/products/criticalcare/tracheostomytube.jpeg";
+const images = import.meta.glob(
+  "../../../assets/products/criticalcare/**/*.{png,jpg,jpeg,webp}",
+  { eager: true, import: "default" },
+);
 
 const criticalCareItems = [
-  {
-    name: "Endotracheal Tube",
-    brand: "Critical Care",
-    image: endotrachealTube,
-  },
-  {
-    name: "IV Cannula",
-    brand: "Critical Care",
-    image: ivCannula,
-  },
-  {
-    name: "IV Set",
-    brand: "Critical Care",
-    image: ivSet,
-  },
-  {
-    name: "Oxygen Mask",
-    brand: "Critical Care",
-    image: oxygenMask,
-  },
-  {
-    name: "Tracheostomy Tube",
-    brand: "Critical Care",
-    image: tracheostomyTube,
-  },
-];
+  ["Ligaclip 200", "ALL CRITICAL CARE/LIGACLIP 200.webp"],
+  ["Ligaclip 300", "ALL CRITICAL CARE/LIGACLIP 300.webp"],
+  ["Ligaclip 400", "ALL CRITICAL CARE/LIGACLIP 400.jpg"],
+  ["Ligaclip LT 100", "ALL CRITICAL CARE/LT 100.webp"],
+  ["Hem-o-lok Clip 544230", "ALL CRITICAL CARE/HEMOLOCK 544230.webp"],
+  ["Hem-o-lok Clip 544240", "ALL CRITICAL CARE/HEMOLOCK 544240.webp"],
+  ["Hem-o-lok Clip 544250", "ALL CRITICAL CARE/WeckHemoLok544250.webp"],
+  ["Horizon Clip 001204", "ALL CRITICAL CARE/HORIZON CLIP 001204.webp"],
+  ["Horizon Clip 001205", "ALL CRITICAL CARE/HORIZON CLIP 001205....webp"],
+  ["Horizon Clip 00204", "ALL CRITICAL CARE/HORIZON CLIP 00204.webp"],
+  ["Horizon Ligating Clip", "ALL CRITICAL CARE/HORIZON LIGATING CLIP.webp"],
+  ["Appose ULC Skin Stapler", "ALL CRITICAL CARE/SKIN STAPLER.webp"],
+  ["Epidural Minipack", "ALL CRITICAL CARE/EPIDURAL MINIPACK.webp"],
+].map(([name, file]) => ({
+  name,
+  image: images[`../../../assets/products/criticalcare/${file}`],
+}));
 
 export default function CriticalCare() {
   const fadeUp = {
@@ -65,7 +55,7 @@ export default function CriticalCare() {
       <section
         className="relative h-[50vh] md:h-[55vh] flex items-center justify-center"
         style={{
-          backgroundImage: "url('/websitebg.png')",
+          backgroundImage: "url('/bg2.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -111,7 +101,6 @@ export default function CriticalCare() {
           </div>
         </div>
       </section>
-
 
       <BrandProducts items={criticalCareItems} />
 

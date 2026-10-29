@@ -84,7 +84,7 @@ export default function Services() {
       bg: "bg-[#ECFDF5]",
     },
     {
-      img: "/services/services5.png",
+      img: "/services/services5.jpeg",
       title: "Surgical Disposables",
       subtitle: "Quality surgical disposable products for safe procedures.",
       points: [
