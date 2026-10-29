@@ -121,7 +121,7 @@ export default function BrandProducts({ items }) {
                     onClick={() => selectBrand(brand)}
                     className="group flex flex-col overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white text-left shadow-sm transition-colors hover:border-[#10B981]/60"
                   >
-                    <div className="flex h-28 sm:h-32 items-center justify-center bg-white p-5">
+                    <div className="flex h-24 sm:h-32 items-center justify-center bg-white p-3 sm:p-5">
                       {logo ? (
                         <img
                           src={logo}
@@ -129,15 +129,15 @@ export default function BrandProducts({ items }) {
                           className="max-h-full max-w-full object-contain"
                         />
                       ) : (
-                        <span className="flex h-16 w-16 items-center justify-center rounded-full bg-[#ECFDF5] font-['Playfair_Display'] text-2xl font-bold text-[#047857]">
+                        <span className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-[#ECFDF5] font-['Playfair_Display'] text-xl sm:text-2xl font-bold text-[#047857]">
                           {getInitials(brand)}
                         </span>
                       )}
                     </div>
 
-                    <div className="flex items-center justify-between gap-2 border-t border-[#F1F5F9] px-4 py-3">
+                    <div className="flex flex-1 items-center justify-between gap-2 border-t border-[#F1F5F9] px-3 py-3 sm:px-4">
                       <div className="min-w-0">
-                        <h3 className="truncate text-sm sm:text-base font-semibold text-[#111827]">
+                        <h3 className="break-words text-sm sm:text-base font-semibold leading-snug text-[#111827]">
                           {brand}
                         </h3>
                         <p className="text-xs text-[#6B7280]">
