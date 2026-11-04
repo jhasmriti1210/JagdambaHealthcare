@@ -26,10 +26,9 @@ export default function Footer() {
       href: "https://wa.me/918800431202",
     },
     {
-      // TODO: replace with the real Instagram profile URL
       name: "Instagram",
       icon: FaInstagram,
-      href: "https://www.instagram.com/",
+      href: "https://www.instagram.com/jagdamba_healthcare/",
     },
   ];
 
@@ -43,7 +42,7 @@ export default function Footer() {
 
   const productLinks = [
     { label: "Cardiology", to: "/products/cardiology" },
-    { label: "Cardiac Equipment", to: "/products/cardiac-equipment" },
+    // { label: "Cardiac Equipment", to: "/products/cardiac-equipment" },
     { label: "Cardiac Surgery", to: "/products/cardiac-surgery" },
     { label: "Surgical Disposables", to: "/products/surgical-disposables" },
     { label: "Critical Care", to: "/products/critical-care" },

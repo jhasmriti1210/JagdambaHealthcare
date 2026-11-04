@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import ContactForm from "./contactform";
 
 export default function PartnerAndContact() {
+  const navigate = useNavigate();
   const fadeUp = {
     hidden: { opacity: 0, y: 80 },
     show: {
@@ -73,6 +75,10 @@ export default function PartnerAndContact() {
             variants={fadeUp}
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              navigate("/contact");
+              window.scrollTo(0, 0);
+            }}
             className="mt-12 bg-[#10B981] hover:bg-[#047857] text-white px-12 py-4 rounded-xl text-xl font-bold transition"
           >
             Get Started

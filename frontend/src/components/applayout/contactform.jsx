@@ -10,8 +10,10 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 
-// Form submissions are emailed to this address via FormSubmit
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/jhasmriti45@gmail.com";
+// Form submissions are emailed via Web3Forms (https://web3forms.com)
+const FORM_ENDPOINT = "https://api.web3forms.com/submit";
+// Paste the access key Web3Forms emailed you here
+const WEB3FORMS_ACCESS_KEY = "PASTE_YOUR_ACCESS_KEY_HERE";
 
 const inputClass =
   "w-full rounded-xl border border-[#E5E7EB] bg-white py-3 pl-11 pr-4 text-sm text-[#111827] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#10B981] focus:ring-4 focus:ring-[#10B981]/10";
@@ -52,12 +54,16 @@ export default function ContactForm() {
         },
         body: JSON.stringify({
           ...data,
-          _subject: `New Website Enquiry from ${data.name}`,
-          _template: "table",
-          _captcha: "false",
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New Website Enquiry from ${data.name}`,
+          from_name: "Jagdamba Healthcare Website",
         }),
       });
-      if (!res.ok) throw new Error("Request failed");
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || !result.success) {
+        console.error("Form submission failed:", result.message || res.status);
+        throw new Error("Request failed");
+      }
       form.reset();
       setStatus("success");
     } catch {
@@ -99,8 +105,8 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Honeypot field to block spam bots */}
           <input
-            type="text"
-            name="_honey"
+            type="checkbox"
+            name="botcheck"
             className="hidden"
             tabIndex={-1}
             autoComplete="off"
