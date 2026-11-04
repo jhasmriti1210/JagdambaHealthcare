@@ -23,7 +23,7 @@ export default function Footer() {
     {
       name: "WhatsApp",
       icon: FaWhatsapp,
-      href: "https://wa.me/918178996877",
+      href: "https://wa.me/918800431202",
     },
     {
       // TODO: replace with the real Instagram profile URL
@@ -145,10 +145,10 @@ export default function Footer() {
                 <FaPhoneAlt className="mt-1 shrink-0 text-[#10B981]" />
                 <span className="flex flex-col">
                   <a
-                    href="tel:+918178996877"
+                    href="tel:+918800431202"
                     className="hover:text-[#10B981] transition"
                   >
-                    +91 8178996877
+                    +91 8800431202
                   </a>
                   <a
                     href="tel:+917701905739"
