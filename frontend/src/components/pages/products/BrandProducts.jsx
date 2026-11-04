@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import { motion } from "framer-motion";
 import { useSearchParams } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -43,6 +43,17 @@ const getInitials = (brand) =>
     .join("")
     .slice(0, 2)
     .toUpperCase();
+
+// Render "™" as a thin superscript "TM" (e.g. "HAART 200™" -> HAART 200 ᵀᴹ).
+const renderName = (name) =>
+  name.split("™").map((part, i, parts) => (
+    <Fragment key={i}>
+      {part}
+      {i < parts.length - 1 && (
+        <sup className="ml-0.5 align-super text-[0.6em] font-normal">TM</sup>
+      )}
+    </Fragment>
+  ));
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -214,8 +225,14 @@ export default function BrandProducts({ items }) {
                     )}
 
                     <h3 className="font-['Playfair_Display'] mt-4 flex min-h-[56px] items-center justify-center break-words px-1 text-base sm:text-lg font-semibold leading-snug text-[#111827]">
-                      {item.name}
+                      <span>{renderName(item.name)}</span>
                     </h3>
+
+                    {item.category && (
+                      <p className="mt-1 text-xs sm:text-sm font-medium text-[#6B7280]">
+                        {item.category}
+                      </p>
+                    )}
 
                     <a
                       href="tel:+917701905739"

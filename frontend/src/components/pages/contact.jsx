@@ -31,7 +31,7 @@ const contactCards = [
     icon: FaPhoneAlt,
     title: "Call Us",
     lines: [
-      { text: "+91 8178996877", href: "tel:+918178996877" },
+      { text: "+91 8800431202", href: "tel:+918800431202" },
       { text: "+91 7701905739", href: "tel:+917701905739" },
     ],
   },

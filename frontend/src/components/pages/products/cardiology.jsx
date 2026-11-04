@@ -1,79 +1,50 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Footer from "../../applayout/footer";
-import BrandProducts from "./BrandProducts";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
-import acrobatStabilizer from "../../../assets/products/cardiology/acrobat -i stabilizer (GETTINGE MAQUET).jpg";
-import acrobatVacuum from "../../../assets/products/cardiology/acrobat suv vacuum stabilizer (GETTINGE MAQUET).jpg";
-import acrobatPositioner from "../../../assets/products/cardiology/Acrobat-i Positioner (GETTINGE MAQUET).jpg";
+import abbottLogo from "../../../assets/partners/abbott.png";
+import cordisLogo from "../../../assets/partners/Cordis .jpeg";
+import medtronicLogo from "../../../assets/partners/medtronic.png";
+import peterLogo from "../../../assets/partners/peter surgical logo.png";
+import terumoLogo from "../../../assets/partners/terumo logo.jpeg";
 
-import heartLungPack from "../../../assets/products/cardiology/HEART LUNG PACK (Prymax Healthcare).jpeg";
-import inflation from "../../../assets/products/cardiology/INFLATION (Prymax Healthcare).jpeg";
-import linearIab from "../../../assets/products/cardiology/Linear 7.5 Fr. IAB Catheter (GETTINGE MAQUET).jpg";
-import megaIab from "../../../assets/products/cardiology/Mega 7.5 Fr. & 8 Fr. IABP Catheters (GETTINGE MAQUET).jpg";
-import plsKit from "../../../assets/products/cardiology/Pls kit (GETTINGE MAQUET).jpg";
-import sensation7 from "../../../assets/products/cardiology/Sensation 7 Fr. IAB Catheter (GETTINGE MAQUET).jpg";
-import sensationPlus from "../../../assets/products/cardiology/Sensation Plus 7.5 Fr. & 8 Fr. IAB Catheters (GETTINGE MAQUET).jpg";
-import standardPmKit from "../../../assets/products/cardiology/STANDARD PM KIT ((Prymax Healthcare).jpeg";
-
-const cardiologyItems = [
+const cardiologyBrands = [
   {
-    name: "Acrobat-i Stabilizer",
-    brand: "GETTINGE MAQUET",
-    image: acrobatStabilizer,
+    name: "Abbott",
+    logo: abbottLogo,
+    url: "https://www.cardiovascular.abbott/int/en/hcp/products.html",
   },
   {
-    name: "Acrobat SUV Vacuum Stabilizer",
-    brand: "GETTINGE MAQUET",
-    image: acrobatVacuum,
+    name: "Asahi",
+    url: "https://asahi-inteccusa-medical.com/full-product-listing/",
   },
   {
-    name: "Acrobat-i Positioner",
-    brand: "GETTINGE MAQUET",
-    image: acrobatPositioner,
-  },
-
-  {
-    name: "Heart Lung Pack",
-    brand: "Prymax Healthcare",
-    image: heartLungPack,
+    name: "Boston Scientific",
+    url: "https://www.bostonscientific.com/content/dam/bostonscientific/Interventional%20Cardiology/product/ic-product-catalog.pdf",
   },
   {
-    name: "Inflation Device",
-    brand: "Prymax Healthcare",
-    image: inflation,
+    name: "Medtronic",
+    logo: medtronicLogo,
+    url: "https://www.medtronic.com/en-us/healthcare-professionals/products/cardiovascular.html",
   },
+  { name: "Cook Medical", url: "https://www.cookmedical.com/products/" },
+  { name: "Cordis", logo: cordisLogo, url: "https://cordis.com/na/products" },
   {
-    name: "Linear 7.5 Fr. IAB Catheter",
-    brand: "GETTINGE MAQUET",
-    image: linearIab,
+    name: "Peter Surgical",
+    logo: peterLogo,
+    url: "https://peters-surgical.in/our-products/",
   },
-  {
-    name: "Mega 7.5 Fr. & 8 Fr. IABP Catheters",
-    brand: "GETTINGE MAQUET",
-    image: megaIab,
-  },
-  {
-    name: "PLS Kit",
-    brand: "GETTINGE MAQUET",
-    image: plsKit,
-  },
-  {
-    name: "Sensation 7 Fr. IAB Catheter",
-    brand: "GETTINGE MAQUET",
-    image: sensation7,
-  },
-  {
-    name: "Sensation Plus 7.5 Fr. & 8 Fr. IAB Catheters",
-    brand: "GETTINGE MAQUET",
-    image: sensationPlus,
-  },
-  {
-    name: "Standard PM Kit",
-    brand: "Prymax Healthcare",
-    image: standardPmKit,
-  },
+  { name: "Terumo", logo: terumoLogo, url: "https://terumocv.com/products/" },
 ];
+
+const getInitials = (name) =>
+  name
+    .split(/\s+/)
+    .map((word) => word[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 
 export default function Cardiology() {
   const fadeUp = {
@@ -145,8 +116,65 @@ export default function Cardiology() {
         </div>
       </section>
 
+      <section className="bg-[#F8FAFC] py-10 sm:py-12 md:py-16">
+        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
+          <div className="text-center">
+            <h2 className="font-['Playfair_Display'] text-2xl md:text-4xl font-bold text-[#111827]">
+              Our Cardiology Brands
+            </h2>
+            <p className="mt-2 text-sm md:text-base text-[#4B5563]">
+              Click a brand to visit its official website
+            </p>
+          </div>
 
-      <BrandProducts items={cardiologyItems} />
+          <motion.div
+            className="mt-8 grid grid-cols-2 gap-4 sm:gap-5 md:grid-cols-3 lg:grid-cols-4"
+            variants={stagger}
+            initial="hidden"
+            animate="show"
+          >
+            {cardiologyBrands.map((brand) => (
+              <motion.a
+                key={brand.name}
+                href={brand.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${brand.name} website`}
+                variants={fadeUp}
+                whileHover={{
+                  y: -6,
+                  boxShadow: "0px 18px 34px rgba(16,185,129,0.16)",
+                }}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white shadow-sm transition-colors hover:border-[#10B981]/60"
+              >
+                <div className="flex h-24 sm:h-32 items-center justify-center bg-white p-3 sm:p-5">
+                  {brand.logo ? (
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  ) : (
+                    <span className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-[#ECFDF5] font-['Playfair_Display'] text-xl sm:text-2xl font-bold text-[#047857]">
+                      {getInitials(brand.name)}
+                    </span>
+                  )}
+                </div>
+
+                <div className="flex flex-1 items-center justify-between gap-2 border-t border-[#F1F5F9] px-3 py-3 sm:px-4">
+                  <h3 className="break-words text-sm sm:text-base font-semibold leading-snug text-[#111827]">
+                    {brand.name}
+                  </h3>
+                  <FaExternalLinkAlt
+                    size={12}
+                    className="flex-shrink-0 text-[#10B981] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </div>
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
       <Footer />
     </div>

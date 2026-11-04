@@ -12,9 +12,10 @@ const image = (path) =>
   images[`../../../assets/products/cardiacsurgery/${path}`];
 
 const products = (brand, folder, list) =>
-  list.map(([name, file]) => ({
+  list.map(([name, file, category]) => ({
     name,
     brand,
+    category,
     image: image(`${folder}/${file}`),
   }));
 
@@ -89,21 +90,34 @@ const cardiacSurgeryItems = [
     ["Venous Cannula Angled Metal Tip", "Venous Cannula Angled Metal Tip.png"],
     ["Y-Connector", "Y-Connector.png"],
   ]),
-  ...products("Corcym", "CORCYM", [
-    ["Carbo-Seal Valsalva™ (Aortic)", "Aortic/CARBO-SEAL VALSALVATM.webp"],
-    ["Carbomedics™ Aortic Valve", "Aortic/CARBOMEDICSTM.webp"],
-    ["HAART 200™ (Aortic)", "Aortic/HAART 200TM.webp"],
-    ["HAART 300™ (Aortic)", "Aortic/HAART 300TM.webp"],
-    ["Perceval Plus (Aortic)", "Aortic/perceval_PLUS_LANCELOT.webp"],
+  ...products("Corcym", "CORCYM_new/CORCYM", [
+    ["BICARBON™", "Aortic/BICARBON TM.webp", "Aortic"],
+    ["CARBO-SEAL VALSALVA™", "Aortic/CARBO-SEAL VALSALVATM.webp", "Aortic"],
     [
-      "Annuloflex™ (Mitral & Tricuspid)",
-      "MITRAL & TRICUSPID/ANNULOFLEXTM.webp",
+      "CARBOMEDICS CARBO-SEAL™ AND CARBO-SEAL VALSALVA™",
+      "Aortic/CARBOMEDICS CARBO-SEALTMAND CARBO-SEAL VALSALVATM.webp",
+      "Aortic",
     ],
-    ["Carbomedics™ Mitral Valve", "MITRAL & TRICUSPID/CARBOMEDICSTM.webp"],
-    ["Memo 3D™ (Mitral)", "MITRAL & TRICUSPID/MEMO 3DTM.webp"],
-    ["Memo 4D™ (Mitral)", "MITRAL & TRICUSPID/MEMO 4D TM.webp"],
-    ["Memo 4D Curve™ (Mitral)", "MITRAL & TRICUSPID/MEMO 4D CURVETM.webp"],
-    ["TriMemo™ (Tricuspid)", "MITRAL & TRICUSPID/TRIMEMO ⌐.webp"],
+    ["CARBOMEDICS™", "Aortic/CARBOMEDICSTM.webp", "Aortic"],
+    ["HAART 200™", "Aortic/HAART 200TM.webp", "Aortic"],
+    ["HAART 300™", "Aortic/HAART 300TM.webp", "Aortic"],
+    ["PERCEVAL™", "Aortic/PERCEVAL TM.webp", "Aortic"],
+    ["PERCEVAL™ PLUS LANCELOT", "Aortic/perceval PLUS LANCELOT.webp", "Aortic"],
+    ["BICARBON™", "MITRAL & TRICUSPID/BICARBON TM.webp", "Mitral & Tricuspid"],
+    [
+      "CARBOMEDICS™",
+      "MITRAL & TRICUSPID/CARBOMEDICS TM.webp",
+      "Mitral & Tricuspid",
+    ],
+    ["MEMO 3D™", "MITRAL & TRICUSPID/MEMO 3DTM.webp", "Mitral & Tricuspid"],
+    ["MEMO 4D™", "MITRAL & TRICUSPID/MEMO 4D TM.webp", "Mitral & Tricuspid"],
+    [
+      "PERICARBON MORE™",
+      "MITRAL & TRICUSPID/PERICARBON MORE TM.webp",
+      "Mitral & Tricuspid",
+    ],
+    ["SOVERING™", "MITRAL & TRICUSPID/SOVERING TM.webp", "Mitral & Tricuspid"],
+    ["TRIMEMO™", "MITRAL & TRICUSPID/TRIMEMO ⌐.webp", "Mitral & Tricuspid"],
   ]),
   ...products("Getinge Maquet", "MAQUET", [
     ["Acrobat-i Positioner", "Acrobat-i Positioner (GETTINGE MAQUET).jpg"],
