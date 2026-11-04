@@ -14,6 +14,11 @@ import lifesciences from "../../../assets/partners/r.k lifesciences.jpeg";
 import sorin from "../../../assets/partners/sorin.jpeg";
 import terumo from "../../../assets/partners/terumo logo.jpeg";
 import ttk from "../../../assets/partners/ttk.png";
+import aceCathtech from "../../../assets/partners/acecathtech.png";
+import prymax from "../../../assets/partners/prymax.png";
+import asahi from "../../../assets/partners/asahi.jpeg";
+import bostonScientific from "../../../assets/partners/bostonscientific.png";
+import cookMedical from "../../../assets/partners/cookmedical.jpeg";
 
 // Brand name keyword -> logo. Brands without a match show their initials.
 const brandLogos = [
@@ -29,6 +34,11 @@ const brandLogos = [
   ["sorin", sorin],
   ["terumo", terumo],
   ["ttk", ttk],
+  ["ace cath", aceCathtech],
+  ["prymax", prymax],
+  ["asahi", asahi],
+  ["boston", bostonScientific],
+  ["cook", cookMedical],
 ];
 
 const getBrandLogo = (brand) =>

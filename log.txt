@@ -1190,3 +1190,16 @@ System.Threading.Channels.ChannelClosedException: The channel has been closed.
 2026-11-04 15:51:20.784 +05:30 [WRN] No ConfigurationItems have been defined, configuration won't surface any configuration from the client!
 2026-11-04 15:51:20.876 +05:30 [DBG] Finished: Routing Notification initialized in 241ms
 2026-11-04 15:51:20.877 +05:30 [DBG] Finished: Processing notification initialized in 251ms
+2026-11-04 17:57:32.639 +05:30 [DBG] Finding descriptors for shutdown
+2026-11-04 17:57:32.805 +05:30 [DBG] Queueing "Serial":shutdown:1 request for processing
+2026-11-04 17:57:32.832 +05:30 [DBG] Starting: Processing request shutdown 1
+2026-11-04 17:57:32.834 +05:30 [DBG] Starting: Routing Request (1) shutdown
+2026-11-04 17:57:32.839 +05:30 [VRB] Converting params for Request (1) shutdown to OmniSharp.Extensions.LanguageServer.Protocol.Models.ShutdownParams
+2026-11-04 17:57:32.843 +05:30 [VRB] Converting params for Notification shutdown to OmniSharp.Extensions.LanguageServer.Protocol.Models.ShutdownParams
+2026-11-04 17:57:32.983 +05:30 [VRB] Response value was null
+2026-11-04 17:57:32.985 +05:30 [DBG] Finished: Routing Request (1) shutdown in 148ms
+2026-11-04 17:57:32.986 +05:30 [DBG] Finished: Processing request shutdown 1 in 152ms
+2026-11-04 17:57:33.933 +05:30 [VRB] Could not write to output handler, perhaps serialization failed?
+System.Threading.Channels.ChannelClosedException: The channel has been closed.
+   at System.Threading.Channels.AsyncOperation`1.GetResult(Int16 token)
+   at OmniSharp.Extensions.JsonRpc.OutputHandler.ProcessOutputStream(CancellationToken cancellationToken)

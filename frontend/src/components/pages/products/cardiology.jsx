@@ -8,6 +8,9 @@ import cordisLogo from "../../../assets/partners/Cordis .jpeg";
 import medtronicLogo from "../../../assets/partners/medtronic.png";
 import peterLogo from "../../../assets/partners/peter surgical logo.png";
 import terumoLogo from "../../../assets/partners/terumo logo.jpeg";
+import asahiLogo from "../../../assets/partners/asahi.jpeg";
+import bostonscientificLogo from "../../../assets/partners/bostonscientific.png";
+import cookmedicalLogo from "../../../assets/partners/cookmedical.jpeg";
 
 const cardiologyBrands = [
   {
@@ -17,10 +20,12 @@ const cardiologyBrands = [
   },
   {
     name: "Asahi",
+    logo: asahiLogo,
     url: "https://asahi-inteccusa-medical.com/full-product-listing/",
   },
   {
     name: "Boston Scientific",
+    logo: bostonscientificLogo,
     url: "https://www.bostonscientific.com/content/dam/bostonscientific/Interventional%20Cardiology/product/ic-product-catalog.pdf",
   },
   {
@@ -28,7 +33,11 @@ const cardiologyBrands = [
     logo: medtronicLogo,
     url: "https://www.medtronic.com/en-us/healthcare-professionals/products/cardiovascular.html",
   },
-  { name: "Cook Medical", url: "https://www.cookmedical.com/products/" },
+  {
+    name: "Cook Medical",
+    logo: cookmedicalLogo,
+    url: "https://www.cookmedical.com/products/",
+  },
   { name: "Cordis", logo: cordisLogo, url: "https://cordis.com/na/products" },
   {
     name: "Peter Surgical",
