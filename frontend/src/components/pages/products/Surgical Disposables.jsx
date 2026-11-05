@@ -140,7 +140,7 @@ export default function SurgicalDisposables() {
         </div>
       </section>
 
-      <BrandProducts items={surgicalDisposablesItems} />
+      <BrandProducts items={surgicalDisposablesItems} showMoreCard />
 
       <Footer />
     </div>

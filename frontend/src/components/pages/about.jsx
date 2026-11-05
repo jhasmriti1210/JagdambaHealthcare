@@ -250,54 +250,35 @@ export default function About() {
 
       {/* Mission & Vision */}
       <section className="bg-[#F8FAFC] py-16 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 space-y-16">
+          {/* Mission */}
           <div className="grid lg:grid-cols-2 gap-10 items-center">
             <motion.div
-              className="space-y-10"
-              variants={stagger}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeLeft}
+              className="flex gap-5"
             >
-              <motion.div variants={fadeLeft} className="flex gap-5">
-                <div className="w-16 h-16 bg-[#ECFDF5] rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#047857] text-2xl font-bold">M</span>
-                </div>
+              <div className="w-16 h-16 bg-[#ECFDF5] rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-[#047857] text-2xl font-bold">M</span>
+              </div>
 
-                <div>
-                  <h2 className="font-['Playfair_Display'] text-4xl font-bold text-[#111827]">
-                    Our Mission
-                  </h2>
+              <div>
+                <h2 className="font-['Playfair_Display'] text-4xl font-bold text-[#111827]">
+                  Our Mission
+                </h2>
 
-                  <p className="font-['Playfair_Display'] mt-3 text-lg text-[#111827]">
-                    To provide reliable, high-quality healthcare products and
-                    solutions that empower medical professionals and enhance
-                    patient care.
-                  </p>
-                </div>
-              </motion.div>
-
-              <motion.div variants={fadeLeft} className="flex gap-5">
-                <div className="w-16 h-16 bg-[#ECFDF5] rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#047857] text-2xl font-bold">V</span>
-                </div>
-
-                <div>
-                  <h2 className="font-['Playfair_Display'] text-4xl font-bold text-[#111827]">
-                    Our Vision
-                  </h2>
-
-                  <p className="font-['Playfair_Display'] mt-3 text-lg text-[#4B5563] leading-relaxed">
-                    To become a trusted leader in healthcare distribution by
-                    delivering excellence, innovation, and value to the
-                    healthcare community.
-                  </p>
-                </div>
-              </motion.div>
+                <p className="font-['Playfair_Display'] mt-3 text-lg text-[#4B5563] leading-relaxed">
+                  To provide reliable, high-quality healthcare products and
+                  solutions that empower medical professionals and enhance
+                  patient care.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
-              className="relative h-[480px] hidden lg:block"
+              className="flex justify-center"
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
@@ -305,15 +286,50 @@ export default function About() {
             >
               <motion.img
                 src="/mission.png"
-                alt="Healthcare Products"
-                className="absolute top-0 right-0 w-[82%] rounded-[28px] shadow-xl"
-                whileHover={{ scale: 1.02 }}
+                alt="Our Mission"
+                className="w-full max-w-sm h-56 rounded-[28px] shadow-xl object-cover"
+                whileHover={{ scale: 1.03 }}
               />
+            </motion.div>
+          </div>
 
+          {/* Vision */}
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeLeft}
+              className="flex gap-5"
+            >
+              <div className="w-16 h-16 bg-[#ECFDF5] rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-[#047857] text-2xl font-bold">V</span>
+              </div>
+
+              <div>
+                <h2 className="font-['Playfair_Display'] text-4xl font-bold text-[#111827]">
+                  Our Vision
+                </h2>
+
+                <p className="font-['Playfair_Display'] mt-3 text-lg text-[#4B5563] leading-relaxed">
+                  To become a trusted leader in healthcare distribution by
+                  delivering excellence, innovation, and value to the
+                  healthcare community.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="flex justify-center"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeRight}
+            >
               <motion.img
                 src="/vision.png"
-                alt="Medical Solutions"
-                className="absolute bottom-0 right-0 w-[72%] rounded-[28px] shadow-2xl border-6 border-white"
+                alt="Our Vision"
+                className="w-full max-w-sm h-56 rounded-[28px] shadow-xl object-cover"
                 whileHover={{ scale: 1.03 }}
               />
             </motion.div>

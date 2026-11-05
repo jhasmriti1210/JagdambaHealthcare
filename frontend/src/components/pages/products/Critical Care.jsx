@@ -102,7 +102,7 @@ export default function CriticalCare() {
         </div>
       </section>
 
-      <BrandProducts items={criticalCareItems} />
+      <BrandProducts items={criticalCareItems} showMoreCard />
 
       <Footer />
     </div>

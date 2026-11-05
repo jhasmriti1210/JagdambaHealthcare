@@ -1,7 +1,7 @@
 import { Fragment, useRef } from "react";
 import { motion } from "framer-motion";
-import { useSearchParams } from "react-router-dom";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { Link, useSearchParams } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight, FaLayerGroup } from "react-icons/fa";
 
 import abbott from "../../../assets/partners/abbott.png";
 import corcym from "../../../assets/partners/CORCYM Logo.jpg";
@@ -81,7 +81,7 @@ const stagger = {
   },
 };
 
-export default function BrandProducts({ items }) {
+export default function BrandProducts({ items, showMoreCard = false }) {
   const [searchParams, setSearchParams] = useSearchParams();
   const sectionRef = useRef(null);
 
@@ -260,6 +260,51 @@ export default function BrandProducts({ items }) {
                   </div>
                 </motion.article>
               ))}
+
+              {showMoreCard && (
+                <motion.article
+                  variants={fadeUp}
+                  whileHover={{
+                    y: -7,
+                    boxShadow: "0px 18px 34px rgba(16,185,129,0.16)",
+                  }}
+                  className="flex w-full min-w-0 flex-col overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white shadow-sm"
+                >
+                  <div className="flex h-48 sm:h-52 flex-col items-center justify-center gap-3 bg-[#F9FAFB] p-4 text-center">
+                    <FaLayerGroup className="text-[#10B981]" size={34} />
+                    <p className="font-['Playfair_Display'] text-xl font-bold text-[#111827]">
+                      And Many More Products
+                    </p>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-4 sm:p-5 text-center">
+                    <div>
+                      <span className="inline-flex items-center justify-center rounded-full bg-[#ECFDF5] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#047857]">
+                        Explore Our Range
+                      </span>
+                    </div>
+
+                    <h3 className="font-['Playfair_Display'] mt-4 text-base sm:text-lg font-semibold leading-snug text-[#111827]">
+                      Discover More Products
+                    </h3>
+
+                    <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#4B5563]">
+                      Looking for something specific? Get in touch with us to
+                      explore our complete product range.
+                    </p>
+
+                    <Link to="/contact" className="mt-auto block pt-4">
+                      <motion.span
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="inline-flex w-full items-center justify-center rounded-full bg-[#10B981] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#047857]"
+                      >
+                        Contact Us →
+                      </motion.span>
+                    </Link>
+                  </div>
+                </motion.article>
+              )}
             </motion.div>
           </>
         )}

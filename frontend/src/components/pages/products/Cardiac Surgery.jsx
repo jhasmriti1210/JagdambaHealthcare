@@ -284,7 +284,7 @@ export default function CardiacSurgery() {
         </div>
       </section>
 
-      <BrandProducts items={cardiacSurgeryItems} />
+      <BrandProducts items={cardiacSurgeryItems} showMoreCard />
 
       <Footer />
     </div>
