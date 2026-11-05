@@ -134,8 +134,8 @@ export default function Footer() {
               <li className="flex gap-3 leading-relaxed">
                 <FaMapMarkerAlt className="mt-1 shrink-0 text-[#10B981]" />
                 <span>
-                  First Floor, Shop No. 1 & 2, Hari Bihar Colony, near Mani
-                  International Hotel, opposite Krishi Bhawan, Mithapur, Patna,
+                  First Floor, Shop No. 1 & 2, Hari Bihar Colony, Near Mani
+                  International Hotel, Opposite Krishi Bhawan, Mithapur, Patna,
                   Bihar – 800001
                 </span>
               </li>

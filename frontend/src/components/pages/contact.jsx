@@ -48,8 +48,8 @@ const contactCards = [
 ];
 
 const businessHours = [
-  { day: "Mon – Fri", time: "9 AM – 7 PM" },
-  { day: "Sat", time: "9 AM – 5 PM" },
+  { day: "Mon – Sat", time: "9 AM – 7 PM" },
+
   { day: "Sun", time: "Closed", closed: true },
 ];
 
