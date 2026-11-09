@@ -313,8 +313,8 @@ export default function About() {
 
                 <p className="font-['Playfair_Display'] mt-3 text-lg text-[#4B5563] leading-relaxed">
                   To become a trusted leader in healthcare distribution by
-                  delivering excellence, innovation, and value to the
-                  healthcare community.
+                  delivering excellence, innovation, and value to the healthcare
+                  community.
                 </p>
               </div>
             </motion.div>
@@ -392,12 +392,12 @@ export default function About() {
             >
               <motion.div
                 whileHover={{ scale: 1.02, y: -6 }}
-                className="bg-[#047857] rounded-[32px] overflow-hidden w-full max-w-2xl"
+                className="bg-[#047857] rounded-[32px] overflow-hidden w-full max-w-md mx-auto"
               >
                 <img
-                  src="/about/leadership.png"
+                  src="/img1.jpeg"
                   alt="Mr. Sunil Kumar Jha"
-                  className="w-full h-full object-cover"
+                  className="w-full h-[400px] md:h-[480px] object-cover object-top"
                 />
               </motion.div>
             </motion.div>
