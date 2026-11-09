@@ -395,7 +395,7 @@ export default function About() {
                 className="bg-[#047857] rounded-[32px] overflow-hidden w-full max-w-md mx-auto"
               >
                 <img
-                  src="/img3.jpg"
+                  src="/img2.png"
                   alt="Mr. Sunil Kumar Jha"
                   className="w-full h-[400px] md:h-[480px] object-cover object-top"
                 />
